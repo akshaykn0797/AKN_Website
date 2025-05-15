@@ -32,20 +32,30 @@ const newsItems = [
     },
     {
         id: 2,
-        date: 'March 26, 2025',
-        image: 'cscw25', // Image filename in public/News folder
-        color: '#1976d2', // darker blue
-        bgColor: '#e8f4f8', // very light blue
-        headline: 'Paper Accepted - ACM CSCW 2025',
-        description: 'Our paper, "Insights in Adaptation: Examining Self-reflection Strategies of Job Seekers with Visual Impairments in India," has been accepted for presentation at the ACM CSCW Conference.',
-        link: 'https://example.com/paper2'
+        date: 'April 29, 2025',
+        image: 'w4a25', // Image filename in public/News folder
+        color: '#1976d2', // blue
+        bgColor: '#e8f4f8', // light blue
+        headline: 'Paper Accepted - Web4All 2025',
+        description: 'Our paper, “AccessMenu: Enhancing the Usability of Online Restaurant Menus for Screen-Reader Users,” was presented at ACM Web4All 2025 in Sydney, Australia.',
+        link: 'Papers/accessMenu25.pdf'
     },
     {
         id: 3,
+        date: 'March 26, 2025',
+        image: 'cscw25', // Image filename in public/News folder
+        color: '#00bcd4', // darker blue
+        bgColor: '#e0f7fa', // very light blue
+        headline: 'Paper Accepted - ACM CSCW 2025',
+        description: 'Our paper, "Insights in Adaptation: Examining Self-reflection Strategies of Job Seekers with Visual Impairments in India," has been accepted for presentation at the ACM CSCW Conference.',
+        link: 'Papers/cscw25.pdf'
+    },
+    {
+        id: 4,
         date: 'January 20, 2025',
         image: 'odu', // Image filename in public/News folder
-        color: '#00bcd4', // teal
-        bgColor: '#e0f7fa', // light teal
+        color: '#3A59D1', // teal
+        bgColor: '#fff3e0', // light teal
         headline: 'Awarded Dr. Hussein Abdel-Wahab Memorial Graduate Fellowship',
         description: 'Honored to receive ODU’s Dr. Hussein Abdel-Wahab Memorial Graduate Fellowship, celebrating his pioneering CS legacy and supporting my continued research excellence.',
         link: 'https://www.odu.edu/computer-science/scholarships/wahab'
@@ -54,7 +64,7 @@ const newsItems = [
     //     id: 4,
     //     date: 'January 8, 2025',
     //     image: 'w4a25', // Image filename in public/News folder
-    //     color: '#ff9800', // orange
+    //     color: '#3A59D1', // orange
     //     bgColor: '#fff3e0', // light orange
     //     headline: 'Workshop on Inclusive Computing at CHI 2025',
     //     description: 'Our proposal for a full-day workshop on "Computing Technologies for Resource-Constrained Environments" has been accepted at CHI 2025.',
@@ -192,7 +202,7 @@ const NewsCard = ({ item }) => {
                     sx={{
                         display: 'inline-flex',
                         alignItems: 'center',
-                        color: '#ff9800',
+                        color: '#3A59D1',
                         fontWeight: 600,
                         textDecoration: 'none',
                         mt: 'auto',
@@ -311,7 +321,7 @@ export default function News() {
                         sx={{
                             display: 'flex',
                             alignItems: 'center',
-                            color: '#ff9800',
+                            color: '#3A59D1',
                             fontWeight: 600,
                             textDecoration: 'none',
                             '&:hover': {

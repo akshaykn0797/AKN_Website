@@ -90,7 +90,7 @@ export default function About() {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             sx={{
-                                                color: '#ff9800',
+                                                color: '#3A59D1',
                                                 textDecoration: 'none',
                                                 fontWeight: 600,
                                                 '&:hover': {
@@ -106,7 +106,7 @@ export default function About() {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             sx={{
-                                                color: '#ff9800',
+                                                color: '#3A59D1',
                                                 textDecoration: 'none',
                                                 fontWeight: 600,
                                                 '&:hover': {
@@ -187,7 +187,7 @@ export default function About() {
                                                 href="https://www.odu.edu/"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                sx={{ color: '#ff9800', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
+                                                sx={{ color: '#3A59D1', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
                                             >
                                                 Old Dominion University
                                             </Link>
@@ -196,7 +196,7 @@ export default function About() {
                                                 href="https://www.cs.odu.edu/~vashok/Lab/index.html"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                sx={{ color: '#ff9800', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
+                                                sx={{ color: '#3A59D1', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
                                             >
                                                 Accessible Computing Lab
                                             </Link>
@@ -205,7 +205,7 @@ export default function About() {
                                                 href="https://www.cs.odu.edu/~vashok/"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                sx={{ color: '#ff9800', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
+                                                sx={{ color: '#3A59D1', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
                                             >
                                                 Dr. Vikas Ashok
                                             </Link>
@@ -218,7 +218,7 @@ export default function About() {
                                                 href="https://vtu.ac.in/"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                sx={{ color: '#ff9800', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
+                                                sx={{ color: '#3A59D1', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
                                             >
                                                 Visvesvaraya Technological University (VTU)
                                             </Link>
@@ -227,7 +227,7 @@ export default function About() {
                                                 href="https://www.cs.odu.edu/~vashok/Lab/index.html"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                sx={{ color: '#ff9800', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
+                                                sx={{ color: '#3A59D1', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
                                             >
                                                 HandsOn Lab
                                             </Link>
@@ -236,7 +236,7 @@ export default function About() {
                                                 href="https://www.lseg.com/"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                sx={{ color: '#ff9800', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
+                                                sx={{ color: '#3A59D1', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
                                             >
                                                 London Stock Exchange Group (LSEG)
                                             </Link>
@@ -245,7 +245,7 @@ export default function About() {
                                                 href="https://www.betanxt.com/"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                sx={{ color: '#ff9800', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
+                                                sx={{ color: '#3A59D1', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
                                             >
                                                 BetaNXT
                                             </Link>
