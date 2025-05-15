@@ -23,37 +23,37 @@ const newsItems = [
     {
         id: 1,
         date: 'April 29, 2025',
-        icon: 'W',
+        image: 'w4a25', // Image filename in public/News folder
         color: '#2196f3', // blue
         bgColor: '#e3f2fd', // light blue
         headline: 'Best Paper - Web4All 2025',
-        description: 'Our Paper “Adapting Online Customer Reviews for Blind Users: A Case Study of Restaurant Reviews” received a  🏆 Best Paper Award at Web4All 2025!',
+        description: 'Our Paper "Adapting Online Customer Reviews for Blind Users: A Case Study of Restaurant Reviews" received a  🏆 Best Paper Award at Web4All 2025!',
         link: 'https://www.w4a.info/2025/awards/'
     },
-    // {
-    //     id: 2,
-    //     date: 'March 22, 2025',
-    //     icon: 'J',
-    //     color: '#1976d2', // darker blue
-    //     bgColor: '#e8f4f8', // very light blue
-    //     headline: 'Journal article published in ACM Transactions on Accessible Computing',
-    //     description: 'Our work on intelligent screen readers for dynamic content has been published in the ACM Transactions on Accessible Computing.',
-    //     link: 'https://example.com/paper2'
-    // },
-    // {
-    //     id: 3,
-    //     date: 'February 15, 2025',
-    //     icon: 'A',
-    //     color: '#00bcd4', // teal
-    //     bgColor: '#e0f7fa', // light teal
-    //     headline: 'Awarded NSF Grant for Research on AI-Enhanced Accessibility',
-    //     description: 'Our lab has received a $500,000 NSF grant to explore applications of generative AI for making digital content more accessible.',
-    //     link: 'https://example.com/grant'
-    // },
+    {
+        id: 2,
+        date: 'March 26, 2025',
+        image: 'cscw25', // Image filename in public/News folder
+        color: '#1976d2', // darker blue
+        bgColor: '#e8f4f8', // very light blue
+        headline: 'Paper Accepted - ACM CSCW 2025',
+        description: 'Our paper, "Insights in Adaptation: Examining Self-reflection Strategies of Job Seekers with Visual Impairments in India," has been accepted for presentation at the ACM CSCW Conference.',
+        link: 'https://example.com/paper2'
+    },
+    {
+        id: 3,
+        date: 'January 20, 2025',
+        image: 'odu', // Image filename in public/News folder
+        color: '#00bcd4', // teal
+        bgColor: '#e0f7fa', // light teal
+        headline: 'Awarded Dr. Hussein Abdel-Wahab Memorial Graduate Fellowship',
+        description: 'Honored to receive ODU’s Dr. Hussein Abdel-Wahab Memorial Graduate Fellowship, celebrating his pioneering CS legacy and supporting my continued research excellence.',
+        link: 'https://www.odu.edu/computer-science/scholarships/wahab'
+    },
     // {
     //     id: 4,
     //     date: 'January 8, 2025',
-    //     icon: 'W',
+    //     image: 'w4a25', // Image filename in public/News folder
     //     color: '#ff9800', // orange
     //     bgColor: '#fff3e0', // light orange
     //     headline: 'Workshop on Inclusive Computing at CHI 2025',
@@ -63,7 +63,7 @@ const newsItems = [
     // {
     //     id: 5,
     //     date: 'November 30, 2024',
-    //     icon: 'A',
+    //     image: 'w4a25', // Image filename in public/News folder
     //     color: '#e91e63', // pink
     //     bgColor: '#fce4ec', // light pink
     //     headline: 'Best Paper Award at ICMI 2024',
@@ -72,36 +72,31 @@ const newsItems = [
     // }
 ];
 
-// Logo/Icon component
-const NewsIcon = ({ letter, color, size = 4 }) => {
+// Image component with improved handling
+const NewsImage = ({ imageName, alt, size = 56 }) => {
     return (
         <Box
+            component="img"
+            src={`/News/${imageName}.png`}
+            alt={alt || `Icon for ${imageName}`}
             sx={{
                 width: size,
                 height: size,
-                backgroundColor: color,
                 borderRadius: '4px',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                color: 'white',
-                fontWeight: 'bold',
-                fontSize: size / 2
+                objectFit: 'contain', // Changed from 'cover' to 'contain' to prevent cropping
+                maxWidth: '100%',
+                maxHeight: '100%'
             }}
-        >
-            {letter}
-        </Box>
+        />
     );
 };
-
 // News Item Card
 const NewsCard = ({ item }) => {
     return (
         <Card
             sx={{
                 width: { xs: 280, sm: 320, md: 360 },
-                height: '100%',
-                maxHeight: 400,
+                height: 340, // Keep fixed height
                 borderRadius: '12px',
                 overflow: 'hidden',
                 transition: 'transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out',
@@ -118,8 +113,28 @@ const NewsCard = ({ item }) => {
             elevation={1}
         >
             <CardContent sx={{ p: 3, flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 2 }}>
-                    <NewsIcon letter={item.icon} color={item.color} size={56} />
+                {/* Image and date section - Fixed height with proper image container */}
+                <Box sx={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'flex-start',
+                    mb: 2,
+                    height: 56 // Fixed height for this section
+                }}>
+                    <Box sx={{
+                        width: 56,
+                        height: 56,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        overflow: 'visible' // Allow image to be fully visible
+                    }}>
+                        <NewsImage
+                            imageName={item.image}
+                            alt={`Icon for ${item.headline}`}
+                            size={56}
+                        />
+                    </Box>
 
                     <Typography
                         variant="body2"
@@ -148,27 +163,27 @@ const NewsCard = ({ item }) => {
                         overflow: 'hidden',
                         WebkitBoxOrient: 'vertical',
                         WebkitLineClamp: 2,
-                        minHeight: '3.2rem'
+                        height: '2.6em',
                     }}
                 >
                     {item.headline}
                 </Typography>
 
-                <Typography
-                    variant="body2"
-                    sx={{
-                        mb: 2,
-                        color: 'text.secondary',
-                        lineHeight: 1.6,
-                        display: '-webkit-box',
-                        overflow: 'hidden',
-                        WebkitBoxOrient: 'vertical',
-                        WebkitLineClamp: 3,
-                        flexGrow: 1
-                    }}
-                >
-                    {item.description}
-                </Typography>
+                <Box sx={{ height: 100, mb: 2, overflow: 'hidden' }}>
+                    <Typography
+                        variant="body2"
+                        sx={{
+                            color: 'text.secondary',
+                            lineHeight: 1.6,
+                            display: '-webkit-box',
+                            overflow: 'hidden',
+                            WebkitBoxOrient: 'vertical',
+                            WebkitLineClamp: 4,
+                        }}
+                    >
+                        {item.description}
+                    </Typography>
+                </Box>
 
                 <Link
                     href={item.link}
