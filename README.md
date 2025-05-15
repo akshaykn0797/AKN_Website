@@ -1,1 +1,1 @@
-Akshay's Personal Website 2025
+Akshay's Academic Website 2025
