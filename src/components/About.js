@@ -13,7 +13,7 @@ import {
 } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import XIcon from '@mui/icons-material/X';;
+import XIcon from '@mui/icons-material/X';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import DescriptionIcon from '@mui/icons-material/Description';
@@ -37,7 +37,8 @@ export default function About() {
             id="about"
             sx={{
                 py: { xs: 6, md: 8 },
-                backgroundColor: 'white',
+                pb: { xs: 2, md: 4 }, // Reduced bottom padding
+                backgroundColor: '#f5f5f7', // Match background with News component
             }}
         >
             <Container maxWidth="lg">
@@ -89,7 +90,7 @@ export default function About() {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             sx={{
-                                                color: '#077A7D',
+                                                color: '#ff9800',
                                                 textDecoration: 'none',
                                                 fontWeight: 600,
                                                 '&:hover': {
@@ -105,7 +106,7 @@ export default function About() {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             sx={{
-                                                color: '#077A7D',
+                                                color: '#ff9800',
                                                 textDecoration: 'none',
                                                 fontWeight: 600,
                                                 '&:hover': {
@@ -140,7 +141,7 @@ export default function About() {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             aria-label="Twitter"
-                                            sx={{ color: '#1da1f2' }}
+                                            sx={{ color: '#333' }}
                                         >
                                             <XIcon fontSize="medium" />
                                         </Link>
@@ -186,7 +187,7 @@ export default function About() {
                                                 href="https://www.odu.edu/"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                sx={{ color: '#077A7D', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
+                                                sx={{ color: '#ff9800', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
                                             >
                                                 Old Dominion University
                                             </Link>
@@ -195,16 +196,16 @@ export default function About() {
                                                 href="https://www.cs.odu.edu/~vashok/Lab/index.html"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                sx={{ color: '#077A7D', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
+                                                sx={{ color: '#ff9800', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
                                             >
                                                 Accessible Computing Lab
                                             </Link>
                                             , advised by{' '}
                                             <Link
-                                                href="https://scholar.google.com/citations?user=Of8dNP0AAAAJ&hl=en"
+                                                href="https://www.cs.odu.edu/~vashok/"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                sx={{ color: '#077A7D', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
+                                                sx={{ color: '#ff9800', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
                                             >
                                                 Dr. Vikas Ashok
                                             </Link>
@@ -217,16 +218,16 @@ export default function About() {
                                                 href="https://vtu.ac.in/"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                sx={{ color: '#077A7D', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
+                                                sx={{ color: '#ff9800', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
                                             >
                                                 Visvesvaraya Technological University (VTU)
                                             </Link>
                                             . Before beginning his doctoral studies, he worked as a Research Assistant at the{' '}
                                             <Link
-                                                href="https://handson.cs.odu.edu/"
+                                                href="https://www.cs.odu.edu/~vashok/Lab/index.html"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                sx={{ color: '#077A7D', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
+                                                sx={{ color: '#ff9800', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
                                             >
                                                 HandsOn Lab
                                             </Link>
@@ -235,7 +236,7 @@ export default function About() {
                                                 href="https://www.lseg.com/"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                sx={{ color: '#077A7D', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
+                                                sx={{ color: '#ff9800', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
                                             >
                                                 London Stock Exchange Group (LSEG)
                                             </Link>
@@ -244,7 +245,7 @@ export default function About() {
                                                 href="https://www.betanxt.com/"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                sx={{ color: '#077A7D', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
+                                                sx={{ color: '#ff9800', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
                                             >
                                                 BetaNXT
                                             </Link>
@@ -258,8 +259,7 @@ export default function About() {
                                 </Box>
                             </Box>
 
-                            {/* Bottom divider */}
-                            <Divider sx={{ mt: 8, mb: 2 }} />
+                            {/* Bottom divider - REMOVED */}
                         </Box>
                     ) : (
                         // Simple placeholder while client-side rendering is happening

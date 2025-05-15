@@ -110,6 +110,18 @@ export default function NavBar() {
         return pathname === href;
     };
 
+    // Common button styles for nav items
+    const navButtonStyles = {
+        color: 'black',
+        textTransform: 'none',
+        ml: 3,
+        fontSize: '1.1rem', // Increased font size here
+        padding: '6px 12px', // Added padding for better touch target
+        '&:hover': {
+            backgroundColor: 'rgba(0, 0, 0, 0.04)',
+        }
+    };
+
     // Mobile drawer content
     const mobileDrawer = (
         <Box
@@ -132,7 +144,8 @@ export default function NavBar() {
                                     <ListItemText
                                         primary={item.label}
                                         primaryTypographyProps={{
-                                            fontWeight: item.children.some(child => isActive(child.href)) ? 700 : 400
+                                            fontWeight: item.children.some(child => isActive(child.href)) ? 700 : 500,
+                                            fontSize: '1.1rem' // Increased font size here too
                                         }}
                                     />
                                     {openMobileSubmenu === item.label ? <ExpandLess /> : <ExpandMore />}
@@ -155,7 +168,8 @@ export default function NavBar() {
                                                 <ListItemText
                                                     primary={child.label}
                                                     primaryTypographyProps={{
-                                                        fontWeight: isActive(child.href) ? 700 : 400
+                                                        fontWeight: isActive(child.href) ? 700 : 500,
+                                                        fontSize: '1rem' // Increased font size for submenu items
                                                     }}
                                                 />
                                             </ListItem>
@@ -182,7 +196,8 @@ export default function NavBar() {
                             <ListItemText
                                 primary={item.label}
                                 primaryTypographyProps={{
-                                    fontWeight: isActive(item.href) ? 700 : 400
+                                    fontWeight: isActive(item.href) ? 700 : 500,
+                                    fontSize: '1.1rem' // Increased font size here too
                                 }}
                             />
                         </ListItem>
@@ -195,13 +210,13 @@ export default function NavBar() {
     return (
         <div suppressHydrationWarning>
             <AppBar position="sticky" elevation={0} sx={{ bgcolor: '#FAF7F5' }}>
-                <Toolbar sx={{ justifyContent: 'space-between' }}>
+                <Toolbar sx={{ justifyContent: 'space-between', py: 1 }}> {/* Added padding to make navbar taller */}
                     {/* Left: name+tag */}
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
                         <Typography
                             component={NextLink}
                             href="/"
-                            variant="h6"
+                            variant="h4"
                             sx={{
                                 color: 'black',
                                 textDecoration: 'none',
@@ -211,7 +226,7 @@ export default function NavBar() {
                             Akshay K Nayak
                         </Typography>
                         <Typography
-                            variant="subtitle2"
+                            variant="subtitle1"
                             sx={{
                                 color: 'text.secondary',
                                 ml: 2,
@@ -231,7 +246,7 @@ export default function NavBar() {
                             onClick={toggleDrawer(true)}
                             sx={{ color: 'black' }}
                         >
-                            <MenuIcon />
+                            <MenuIcon fontSize="large" /> {/* Increased icon size */}
                         </IconButton>
                     )}
 
@@ -250,13 +265,8 @@ export default function NavBar() {
                                                 aria-expanded={openMenuKey === item.label}
                                                 aria-controls={openMenuKey === item.label ? 'menu-list' : undefined}
                                                 sx={{
-                                                    color: 'black',
-                                                    textTransform: 'none',
-                                                    ml: 3,
-                                                    fontWeight: item.children.some(child => isActive(child.href)) ? 700 : 400,
-                                                    '&:hover': {
-                                                        backgroundColor: 'rgba(0, 0, 0, 0.04)',
-                                                    }
+                                                    ...navButtonStyles,
+                                                    fontWeight: item.children.some(child => isActive(child.href)) ? 700 : 500,
                                                 }}
                                             >
                                                 {item.label}
@@ -283,7 +293,8 @@ export default function NavBar() {
                                                         }}
                                                         sx={{
                                                             textTransform: 'none',
-                                                            fontWeight: isActive(sub.href) ? 700 : 400,
+                                                            fontWeight: isActive(sub.href) ? 700 : 500,
+                                                            fontSize: '1rem', // Increased font size for dropdown items
                                                             backgroundColor: isActive(sub.href) ? 'rgba(0, 0, 0, 0.04)' : 'transparent',
                                                         }}
                                                     >
@@ -302,13 +313,8 @@ export default function NavBar() {
                                             key={item.label}
                                             onClick={() => handleScroll(item.anchorId)}
                                             sx={{
-                                                color: 'black',
-                                                textTransform: 'none',
-                                                ml: 3,
-                                                fontWeight: 400,
-                                                '&:hover': {
-                                                    backgroundColor: 'rgba(0, 0, 0, 0.04)',
-                                                }
+                                                ...navButtonStyles,
+                                                fontWeight: 500,
                                             }}
                                         >
                                             {item.label}
@@ -323,13 +329,8 @@ export default function NavBar() {
                                         component={NextLink}
                                         href={item.href}
                                         sx={{
-                                            color: 'black',
-                                            textTransform: 'none',
-                                            ml: 3,
-                                            fontWeight: isActive(item.href) ? 700 : 400,
-                                            '&:hover': {
-                                                backgroundColor: 'rgba(0, 0, 0, 0.04)',
-                                            }
+                                            ...navButtonStyles,
+                                            fontWeight: isActive(item.href) ? 700 : 500,
                                         }}
                                     >
                                         {item.label}
