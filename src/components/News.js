@@ -37,7 +37,7 @@ const newsItems = [
         color: '#1976d2', // blue
         bgColor: '#e8f4f8', // light blue
         headline: 'Paper Accepted - Web4All 2025',
-        description: 'Our paper, “AccessMenu: Enhancing the Usability of Online Restaurant Menus for Screen-Reader Users,” was presented at ACM Web4All 2025 in Sydney, Australia.',
+        description: 'Our paper, "AccessMenu: Enhancing the Usability of Online Restaurant Menus for Screen-Reader Users," was presented at ACM Web4All 2025 in Sydney, Australia.',
         link: 'Papers/accessMenu25.pdf'
     },
     {
@@ -57,29 +57,9 @@ const newsItems = [
         color: '#3A59D1', // teal
         bgColor: '#fff3e0', // light teal
         headline: 'Awarded Dr. Hussein Abdel-Wahab Memorial Graduate Fellowship',
-        description: 'Honored to receive ODU’s Dr. Hussein Abdel-Wahab Memorial Graduate Fellowship, celebrating his pioneering CS legacy and supporting my continued research excellence.',
+        description: 'Honored to receive ODU\'s Dr. Hussein Abdel-Wahab Memorial Graduate Fellowship, celebrating his pioneering CS legacy and supporting my continued research excellence.',
         link: 'https://www.odu.edu/computer-science/scholarships/wahab'
     },
-    // {
-    //     id: 4,
-    //     date: 'January 8, 2025',
-    //     image: 'w4a25', // Image filename in public/News folder
-    //     color: '#3A59D1', // orange
-    //     bgColor: '#fff3e0', // light orange
-    //     headline: 'Workshop on Inclusive Computing at CHI 2025',
-    //     description: 'Our proposal for a full-day workshop on "Computing Technologies for Resource-Constrained Environments" has been accepted at CHI 2025.',
-    //     link: 'https://example.com/workshop'
-    // },
-    // {
-    //     id: 5,
-    //     date: 'November 30, 2024',
-    //     image: 'w4a25', // Image filename in public/News folder
-    //     color: '#e91e63', // pink
-    //     bgColor: '#fce4ec', // light pink
-    //     headline: 'Best Paper Award at ICMI 2024',
-    //     description: 'Our research on multimodal interaction techniques for accessibility received the Best Paper Award at ICMI 2024.',
-    //     link: 'https://example.com/award'
-    // }
 ];
 
 // Image component with improved handling
@@ -93,20 +73,21 @@ const NewsImage = ({ imageName, alt, size = 56 }) => {
                 width: size,
                 height: size,
                 borderRadius: '4px',
-                objectFit: 'contain', // Changed from 'cover' to 'contain' to prevent cropping
+                objectFit: 'contain',
                 maxWidth: '100%',
                 maxHeight: '100%'
             }}
         />
     );
 };
+
 // News Item Card
 const NewsCard = ({ item }) => {
     return (
         <Card
             sx={{
                 width: { xs: 280, sm: 320, md: 360 },
-                height: 340, // Keep fixed height
+                height: 340,
                 borderRadius: '12px',
                 overflow: 'hidden',
                 transition: 'transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out',
@@ -123,13 +104,13 @@ const NewsCard = ({ item }) => {
             elevation={1}
         >
             <CardContent sx={{ p: 3, flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-                {/* Image and date section - Fixed height with proper image container */}
+                {/* Image and date section */}
                 <Box sx={{
                     display: 'flex',
                     justifyContent: 'space-between',
                     alignItems: 'flex-start',
                     mb: 2,
-                    height: 56 // Fixed height for this section
+                    height: 56
                 }}>
                     <Box sx={{
                         width: 56,
@@ -137,7 +118,7 @@ const NewsCard = ({ item }) => {
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        overflow: 'visible' // Allow image to be fully visible
+                        overflow: 'visible'
                     }}>
                         <NewsImage
                             imageName={item.image}
@@ -225,6 +206,10 @@ export default function News() {
     const [mounted, setMounted] = useState(false);
     const [activeStep, setActiveStep] = useState(0);
     const scrollContainerRef = useRef(null);
+    const [canScrollLeft, setCanScrollLeft] = useState(false); // Start with left arrow hidden
+    const [canScrollRight, setCanScrollRight] = useState(true);
+    const lastScrollPosRef = useRef(0);
+    const intervalRef = useRef(null);
 
     useEffect(() => {
         setMounted(true);
@@ -234,74 +219,160 @@ export default function News() {
     const cardsPerView = isMobile ? 1 : isTablet ? 2 : 3;
 
     // Calculate the number of "pages" in the carousel
-    const totalSteps = Math.ceil(newsItems.length / cardsPerView);
+    const totalSteps = Math.max(1, Math.ceil(newsItems.length / cardsPerView));
 
-    const scroll = (direction) => {
-        if (scrollContainerRef.current) {
-            const container = scrollContainerRef.current;
-            const cardWidth = isMobile ? 280 + 24 : isTablet ? 320 + 24 : 360 + 24; // card width + margin
-            const scrollAmount = direction === 'left' ? -cardWidth * cardsPerView : cardWidth * cardsPerView;
+    // Update carousel state based on current scroll position
+    const updateCarouselState = () => {
+        if (!scrollContainerRef.current) return;
 
-            container.scrollBy({
-                left: scrollAmount,
-                behavior: 'smooth'
-            });
+        const container = scrollContainerRef.current;
+        const maxScroll = container.scrollWidth - container.clientWidth;
 
-            // Update active step
-            if (direction === 'left') {
-                setActiveStep(prev => Math.max(prev - 1, 0));
-            } else {
-                setActiveStep(prev => Math.min(prev + 1, totalSteps - 1));
-            }
+        // Check if we can scroll in either direction
+        // Be stricter about left scroll detection to ensure it's truly scrolled
+        const canGoLeft = container.scrollLeft > 5;
+        const canGoRight = container.scrollLeft < maxScroll - 5;
+
+        // Set the scroll direction states
+        setCanScrollLeft(canGoLeft);
+        setCanScrollRight(canGoRight);
+
+        // Calculate the current step based on scroll position
+        if (maxScroll <= 0) {
+            // If we can't scroll, we're at step 0
+            setActiveStep(0);
+        } else {
+            // Calculate which step we're on based on percentage scrolled
+            const scrollRatio = container.scrollLeft / maxScroll;
+            const rawStep = scrollRatio * (totalSteps - 1);
+            const currentStep = Math.round(rawStep);
+
+            // Set the active step
+            setActiveStep(Math.min(totalSteps - 1, Math.max(0, currentStep)));
         }
+
+        // Update last scroll position
+        lastScrollPosRef.current = container.scrollLeft;
+    };
+
+    // Handle programmatic scrolling with arrows
+    const scroll = (direction) => {
+        if (!scrollContainerRef.current) return;
+
+        const container = scrollContainerRef.current;
+        const cardWidth = isMobile ? 280 + 24 : isTablet ? 320 + 24 : 360 + 24;
+        const scrollAmount = cardWidth * cardsPerView * (direction === 'left' ? -1 : 1);
+
+        container.scrollBy({
+            left: scrollAmount,
+            behavior: 'smooth'
+        });
+
+        // Pre-calculate state for immediate feedback
+        const expectedScrollPos = Math.max(0, Math.min(
+            container.scrollWidth - container.clientWidth,
+            container.scrollLeft + scrollAmount
+        ));
+
+        // Update the step - the continuous monitoring will handle final positioning
+        const nextStep = direction === 'left'
+            ? Math.max(0, activeStep - 1)
+            : Math.min(totalSteps - 1, activeStep + 1);
+
+        setActiveStep(nextStep);
+        setCanScrollLeft(direction === 'right' || (direction === 'left' && expectedScrollPos > 5));
+        setCanScrollRight(direction === 'left' || (direction === 'right' &&
+            expectedScrollPos < container.scrollWidth - container.clientWidth - 5));
     };
 
     // Handle dot click
     const handleDotClick = (index) => {
-        if (scrollContainerRef.current) {
-            const container = scrollContainerRef.current;
-            const cardWidth = isMobile ? 280 + 24 : isTablet ? 320 + 24 : 360 + 24;
+        if (!scrollContainerRef.current) return;
 
-            container.scrollTo({
-                left: index * cardWidth * cardsPerView,
-                behavior: 'smooth'
-            });
+        const container = scrollContainerRef.current;
+        const maxScroll = container.scrollWidth - container.clientWidth;
 
-            setActiveStep(index);
+        // Calculate exact scroll position based on the selected dot
+        let targetScrollPos;
+
+        if (index === 0) {
+            // First dot - scroll to start
+            targetScrollPos = 0;
+        } else if (index === totalSteps - 1) {
+            // Last dot - scroll to end
+            targetScrollPos = maxScroll;
+        } else {
+            // Middle dots - calculate position proportionally
+            targetScrollPos = (index / (totalSteps - 1)) * maxScroll;
         }
+
+        // Scroll to the position
+        container.scrollTo({
+            left: targetScrollPos,
+            behavior: 'smooth'
+        });
+
+        // Set active state immediately for better UI feedback
+        setActiveStep(index);
+        setCanScrollLeft(index > 0);
+        setCanScrollRight(index < totalSteps - 1);
     };
 
-    // Handle scroll events to update the active dot
-    const handleScroll = () => {
-        if (scrollContainerRef.current) {
-            const container = scrollContainerRef.current;
-            const cardWidth = isMobile ? 280 + 24 : isTablet ? 320 + 24 : 360 + 24;
-            const scrollPosition = container.scrollLeft;
-
-            const newStep = Math.round(scrollPosition / (cardWidth * cardsPerView));
-
-            if (newStep !== activeStep) {
-                setActiveStep(newStep);
-            }
-        }
-    };
-
-    // Add scroll event listener
+    // Set up continuous monitoring of scroll position
     useEffect(() => {
+        if (!mounted) return;
+
+        // Initial state update - make sure left arrow is hidden at start
+        if (scrollContainerRef.current) {
+            scrollContainerRef.current.scrollLeft = 0; // Force to start position
+            setCanScrollLeft(false); // Explicitly hide left arrow at start
+            setCanScrollRight(totalSteps > 1); // Only show right arrow if we have more than one step
+            setActiveStep(0); // Reset to first step
+        }
+
+        // Add basic scroll event listener
         const container = scrollContainerRef.current;
         if (container) {
-            container.addEventListener('scroll', handleScroll);
-            return () => container.removeEventListener('scroll', handleScroll);
+            // Add scroll event
+            container.addEventListener('scroll', updateCarouselState);
+
+            // Set up continuous monitoring through polling (fail-safe for all types of scrolling)
+            intervalRef.current = setInterval(() => {
+                const currentScrollPos = container?.scrollLeft || 0;
+
+                // Only update if the scroll position has actually changed
+                if (Math.abs(currentScrollPos - lastScrollPosRef.current) > 1) {
+                    updateCarouselState();
+                }
+            }, 100); // Check every 100ms
         }
-    }, [activeStep]);
+
+        // Cleanup
+        return () => {
+            if (container) {
+                container.removeEventListener('scroll', updateCarouselState);
+            }
+
+            if (intervalRef.current) {
+                clearInterval(intervalRef.current);
+            }
+        };
+    }, [mounted, cardsPerView, totalSteps]);
+
+    // Force update when screen size changes
+    useEffect(() => {
+        if (mounted) {
+            updateCarouselState();
+        }
+    }, [isMobile, isTablet, mounted]);
 
     return (
         <Box
             id="news"
             sx={{
-                pt: { xs: 0, md: 2 }, // Reduced top padding
+                pt: { xs: 0, md: 2 },
                 pb: { xs: 6, md: 8 },
-                backgroundColor: '#f5f5f7', // Maintain same background
+                backgroundColor: '#f5f5f7',
             }}
         >
             <Container maxWidth="lg">
@@ -335,7 +406,7 @@ export default function News() {
 
                 {mounted && (
                     <Box sx={{ position: 'relative' }}>
-                        {/* Scroll buttons - pushed to the edges */}
+                        {/* Left scroll button */}
                         <IconButton
                             onClick={() => scroll('left')}
                             sx={{
@@ -350,12 +421,15 @@ export default function News() {
                                     backgroundColor: 'white',
                                     boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
                                 },
-                                display: activeStep === 0 ? 'none' : { xs: 'none', sm: 'flex' }
+                                // Hide the left button at the beginning (activeStep === 0)
+                                display: activeStep === 0 ? 'none' : canScrollLeft ? { xs: 'none', sm: 'flex' } : 'none'
                             }}
+                            aria-label="Previous news items"
                         >
                             <ArrowBackIosNewIcon fontSize="small" />
                         </IconButton>
 
+                        {/* Right scroll button */}
                         <IconButton
                             onClick={() => scroll('right')}
                             sx={{
@@ -370,13 +444,14 @@ export default function News() {
                                     backgroundColor: 'white',
                                     boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
                                 },
-                                display: activeStep === totalSteps - 1 ? 'none' : { xs: 'none', sm: 'flex' }
+                                display: canScrollRight ? { xs: 'none', sm: 'flex' } : 'none'
                             }}
+                            aria-label="Next news items"
                         >
                             <ArrowForwardIosIcon fontSize="small" />
                         </IconButton>
 
-                        {/* Horizontal scrolling container */}
+                        {/* Scrolling container */}
                         <Box
                             ref={scrollContainerRef}
                             sx={{
@@ -385,30 +460,37 @@ export default function News() {
                                 px: { xs: 0, md: 2 },
                                 py: 2,
                                 // Hide scrollbar but keep functionality
-                                scrollbarWidth: 'none', // Firefox
-                                '&::-webkit-scrollbar': { // Chrome, Safari, Edge
+                                scrollbarWidth: 'none',
+                                '&::-webkit-scrollbar': {
                                     display: 'none'
                                 },
-                                msOverflowStyle: 'none', // IE - fixed to camelCase
-                                // Add snap scrolling for better mobile experience
+                                msOverflowStyle: 'none',
+                                // Snap scrolling
                                 scrollSnapType: 'x mandatory',
                                 '& > *': {
                                     scrollSnapAlign: 'start'
                                 },
-                                // Ensure container doesn't get cut off
+                                // Container sizing
                                 mx: { xs: -2, md: 0 },
                                 width: { xs: 'calc(100% + 32px)', md: '100%' }
                             }}
                         >
                             {/* Cards */}
                             {newsItems.map(item => (
-                                <Box key={item.id} sx={{ height: '100%', minWidth: 'auto', scrollSnapAlign: 'start' }}>
+                                <Box
+                                    key={item.id}
+                                    sx={{
+                                        height: '100%',
+                                        minWidth: 'auto',
+                                        scrollSnapAlign: 'start'
+                                    }}
+                                >
                                     <NewsCard item={item} />
                                 </Box>
                             ))}
                         </Box>
 
-                        {/* Dots indicator below the carousel */}
+                        {/* Dots indicator */}
                         {totalSteps > 1 && (
                             <Box
                                 sx={{
@@ -430,6 +512,8 @@ export default function News() {
                                             cursor: 'pointer',
                                             transition: '0.3s'
                                         }}
+                                        aria-label={`Go to slide ${index + 1}`}
+                                        role="button"
                                     />
                                 ))}
                             </Box>
