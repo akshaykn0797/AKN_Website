@@ -95,10 +95,11 @@ const publicationsData = [
         links: {
             pdf: "Papers/graphLite.pdf",
             doi: "https://doi.org/10.1109/TVCG.2024.3456348",
-            project: "https://youtu.be/QFw5QH7FwNY"
+            // project: "https://youtu.be/QFw5QH7FwNY"
         },
         extraLinks: {
-            github: "https://github.com/accessodu/GraphLite?tab=readme-ov-file"
+            github: "https://github.com/accessodu/GraphLite?tab=readme-ov-file",
+            video: "https://youtu.be/QFw5QH7FwNY"
         },
         awards: [
             {
