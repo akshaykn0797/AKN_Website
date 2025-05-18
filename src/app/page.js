@@ -3,6 +3,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import About from '@/components/About';
 import News from '@/components/News';
+import Publications from '@/components/Publications';
 
 
 export default function HomePage() {
@@ -10,6 +11,7 @@ export default function HomePage() {
     <>
       <About />
       <News />
+      <Publications />
     </>
   );
 }
