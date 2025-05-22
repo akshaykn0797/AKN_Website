@@ -37,16 +37,16 @@ export default function NavBar() {
     const navItems = [
         { label: 'Home', href: '/' },
         { label: 'About', anchorId: 'about' },
-        { label: 'News', href: '/news' },
-        {
-            label: 'Publications',
-            children: [
-                { label: 'All Pubs', href: '/publications' },
-                { label: 'Wearables & Textiles', href: '/publications#wearables' },
-                { label: 'Design & Engineering', href: '/publications#design' },
-            ],
-        },
-        { label: 'Voice', href: '/voice' },
+        // { label: 'News', href: '/news' },
+        // {
+        //     label: 'Publications',
+        //     children: [
+        //         { label: 'All Pubs', href: '/publications' },
+        //         { label: 'Wearables & Textiles', href: '/publications#wearables' },
+        //         { label: 'Design & Engineering', href: '/publications#design' },
+        //     ],
+        // },
+        // { label: 'Voice', href: '/voice' },
         // { label: 'Connect', href: '/connect' },
     ];
 

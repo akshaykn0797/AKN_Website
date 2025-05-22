@@ -387,7 +387,7 @@ export default function News() {
                         News
                     </Typography>
 
-                    <Link
+                    {/* <Link
                         href="/news"
                         sx={{
                             display: 'flex',
@@ -401,7 +401,7 @@ export default function News() {
                         }}
                     >
                         All News <KeyboardArrowRightIcon />
-                    </Link>
+                    </Link> */}
                 </Box>
 
                 {mounted && (

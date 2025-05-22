@@ -694,7 +694,7 @@ export default function Publications() {
                         color: '#222',
                     }}
                 >
-                    Recent Publications
+                    Top Publications
                 </Typography>
 
                 {/* Publications List */}
@@ -705,7 +705,7 @@ export default function Publications() {
                 </Box>
 
                 {/* View All Publications Button */}
-                <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
+                {/* <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
                     <Button
                         variant="outlined"
                         size="large"
@@ -729,7 +729,7 @@ export default function Publications() {
                     >
                         View All Publications
                     </Button>
-                </Box>
+                </Box> */}
             </Container>
         </Box>
     );
