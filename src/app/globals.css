@@ -1,12 +1,19 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FFF8F3;
+  --foreground: #2D4059;
+  --sunset-orange: #FF8C42;
+  --sunset-coral: #FF6B35;
+  --sunset-peach: #FFB997;
+  --sunset-lavender: #A47BB0;
+  --sunset-deep-blue: #2D4059;
+  --sunset-light-blue: #5A7CA1;
+  --sunset-golden: #FFD23F;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #2D4059;
+    --foreground: #FFB997;
   }
 }
 
@@ -56,7 +63,7 @@ body {
 /* Ensure Source Sans 3 is used as the default font */
 body {
   font-family: var(--font-source-sans-3), 'Inter', sans-serif;
-  color: #333;
+  color: var(--sunset-deep-blue);
 }
 
 a {

@@ -8,6 +8,7 @@ import { ThemeProvider, CssBaseline } from '@mui/material';
 import createEmotionCache from '@/lib/createEmotionCache';
 import theme from '@/lib/theme';
 import NavBar from '@/components/NavBar';
+import Copyright from '@/components/CopyRight';
 
 // Configure Source Sans 3 font
 const sourceSans3 = Source_Sans_3({
@@ -29,6 +30,7 @@ export default function RootLayout({ children, emotionCache = clientSideEmotionC
             <CssBaseline />
             <NavBar />
             {children}
+            <Copyright />
           </ThemeProvider>
         </CacheProvider>
       </body>

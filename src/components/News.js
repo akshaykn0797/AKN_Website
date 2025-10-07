@@ -24,8 +24,7 @@ const newsItems = [
         id: 1,
         date: 'April 29, 2025',
         image: 'w4a25', // Image filename in public/News folder
-        color: '#2196f3', // blue
-        bgColor: '#e3f2fd', // light blue
+        accentColor: '#FF6B35', // sunset coral accent
         headline: 'Best Paper - Web4All 2025',
         description: 'Our Paper "Adapting Online Customer Reviews for Blind Users: A Case Study of Restaurant Reviews" received a  🏆 Best Paper Award at Web4All 2025!',
         link: 'https://www.w4a.info/2025/awards/'
@@ -34,8 +33,7 @@ const newsItems = [
         id: 2,
         date: 'April 29, 2025',
         image: 'w4a25', // Image filename in public/News folder
-        color: '#1976d2', // blue
-        bgColor: '#e8f4f8', // light blue
+        accentColor: '#FF8C42', // warm orange accent
         headline: 'Paper Accepted - Web4All 2025',
         description: 'Our paper, "AccessMenu: Enhancing the Usability of Online Restaurant Menus for Screen-Reader Users," was presented at ACM Web4All 2025 in Sydney, Australia.',
         link: 'Papers/accessMenu25.pdf'
@@ -44,8 +42,7 @@ const newsItems = [
         id: 3,
         date: 'March 26, 2025',
         image: 'cscw25', // Image filename in public/News folder
-        color: '#00bcd4', // darker blue
-        bgColor: '#e0f7fa', // very light blue
+        accentColor: '#A47BB0', // twilight lavender accent
         headline: 'Paper Accepted - ACM CSCW 2025',
         description: 'Our paper, "Insights in Adaptation: Examining Self-reflection Strategies of Job Seekers with Visual Impairments in India," has been accepted for presentation at the ACM CSCW Conference.',
         link: 'Papers/cscw25.pdf'
@@ -54,8 +51,7 @@ const newsItems = [
         id: 4,
         date: 'January 20, 2025',
         image: 'odu', // Image filename in public/News folder
-        color: '#3A59D1', // teal
-        bgColor: '#fff3e0', // light teal
+        accentColor: '#5A7CA1', // water blue accent
         headline: 'Awarded Dr. Hussein Abdel-Wahab Memorial Graduate Fellowship',
         description: 'Honored to receive ODU\'s Dr. Hussein Abdel-Wahab Memorial Graduate Fellowship, celebrating his pioneering CS legacy and supporting my continued research excellence.',
         link: 'https://www.odu.edu/computer-science/scholarships/wahab'
@@ -81,119 +77,159 @@ const NewsImage = ({ imageName, alt, size = 56 }) => {
     );
 };
 
-// News Item Card
+// News Item Card - Redesigned for clarity
 const NewsCard = ({ item }) => {
     return (
         <Card
             sx={{
                 width: { xs: 280, sm: 320, md: 360 },
-                height: 340,
-                borderRadius: '12px',
+                height: 380,
+                borderRadius: '16px',
                 overflow: 'hidden',
-                transition: 'transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out',
-                backgroundColor: item.bgColor,
-                border: '1px solid rgba(0,0,0,0.08)',
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                backgroundColor: '#FFFFFF',
+                border: '2px solid transparent',
+                position: 'relative',
+                '&::before': {
+                    content: '""',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: '4px',
+                    background: `linear-gradient(90deg, ${item.accentColor}, ${item.accentColor}DD)`,
+                },
                 '&:hover': {
-                    boxShadow: '0px 8px 20px rgba(0, 0, 0, 0.15)',
-                    transform: 'translateY(-5px)'
+                    boxShadow: `0px 12px 32px ${item.accentColor}40`,
+                    transform: 'translateY(-8px)',
+                    borderColor: `${item.accentColor}30`,
                 },
                 mx: 1.4,
                 display: 'flex',
                 flexDirection: 'column'
             }}
-            elevation={1}
+            elevation={2}
         >
-            <CardContent sx={{ p: 3, flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-                {/* Image and date section */}
+            <CardContent sx={{ p: 3.5, flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                {/* Image and date section - Enhanced */}
                 <Box sx={{
                     display: 'flex',
                     justifyContent: 'space-between',
                     alignItems: 'flex-start',
-                    mb: 2,
-                    height: 56
+                    mb: 2.5,
+                    height: 64
                 }}>
                     <Box sx={{
-                        width: 56,
-                        height: 56,
+                        width: 64,
+                        height: 64,
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
+                        borderRadius: '12px',
+                        background: `linear-gradient(135deg, ${item.accentColor}15, ${item.accentColor}08)`,
+                        border: `2px solid ${item.accentColor}20`,
+                        padding: '8px',
                         overflow: 'visible'
                     }}>
                         <NewsImage
                             imageName={item.image}
                             alt={`Icon for ${item.headline}`}
-                            size={56}
+                            size={48}
                         />
                     </Box>
 
-                    <Typography
-                        variant="body2"
+                    <Box
                         sx={{
-                            color: 'text.secondary',
-                            fontWeight: 500,
-                            backgroundColor: 'rgba(0,0,0,0.05)',
-                            px: 1.5,
-                            py: 0.5,
-                            borderRadius: '16px',
-                            fontSize: '0.8rem'
+                            background: `linear-gradient(135deg, ${item.accentColor}20, ${item.accentColor}10)`,
+                            px: 2,
+                            py: 0.75,
+                            borderRadius: '20px',
+                            border: `1px solid ${item.accentColor}30`,
                         }}
                     >
-                        {item.date}
-                    </Typography>
+                        <Typography
+                            variant="body2"
+                            sx={{
+                                color: item.accentColor,
+                                fontWeight: 600,
+                                fontSize: '0.85rem',
+                                letterSpacing: '0.3px'
+                            }}
+                        >
+                            {item.date}
+                        </Typography>
+                    </Box>
                 </Box>
 
                 <Typography
                     variant="h6"
                     component="h3"
                     sx={{
-                        fontWeight: 600,
+                        fontWeight: 700,
                         mb: 2,
-                        lineHeight: 1.3,
+                        lineHeight: 1.4,
                         display: '-webkit-box',
                         overflow: 'hidden',
                         WebkitBoxOrient: 'vertical',
                         WebkitLineClamp: 2,
-                        height: '2.6em',
+                        height: '2.8em',
+                        color: '#2D4059',
+                        fontSize: '1.1rem'
                     }}
                 >
                     {item.headline}
                 </Typography>
 
-                <Box sx={{ height: 100, mb: 2, overflow: 'hidden' }}>
+                <Box sx={{ height: 110, mb: 2.5, overflow: 'hidden' }}>
                     <Typography
                         variant="body2"
                         sx={{
-                            color: 'text.secondary',
-                            lineHeight: 1.6,
+                            color: '#2D4059',
+                            opacity: 0.85,
+                            lineHeight: 1.7,
                             display: '-webkit-box',
                             overflow: 'hidden',
                             WebkitBoxOrient: 'vertical',
                             WebkitLineClamp: 4,
+                            fontSize: '0.95rem'
                         }}
                     >
                         {item.description}
                     </Typography>
                 </Box>
 
-                <Link
+                <Box
+                    component={Link}
                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer"
                     sx={{
                         display: 'inline-flex',
                         alignItems: 'center',
-                        color: '#3A59D1',
-                        fontWeight: 600,
+                        justifyContent: 'center',
+                        color: item.accentColor,
+                        fontWeight: 700,
                         textDecoration: 'none',
                         mt: 'auto',
+                        py: 1.5,
+                        px: 3,
+                        borderRadius: '12px',
+                        background: `linear-gradient(135deg, ${item.accentColor}15, ${item.accentColor}08)`,
+                        border: `2px solid ${item.accentColor}30`,
+                        transition: 'all 0.3s ease',
+                        fontSize: '0.9rem',
+                        letterSpacing: '0.3px',
                         '&:hover': {
-                            textDecoration: 'underline'
+                            background: item.accentColor,
+                            color: 'white',
+                            borderColor: item.accentColor,
+                            transform: 'translateY(-2px)',
+                            boxShadow: `0 4px 12px ${item.accentColor}40`
                         }
                     }}
                 >
-                    Read more <OpenInNewIcon sx={{ ml: 0.5, fontSize: '1rem' }} />
-                </Link>
+                    Read more <OpenInNewIcon sx={{ ml: 0.75, fontSize: '1.1rem' }} />
+                </Box>
             </CardContent>
         </Card>
     );
@@ -370,18 +406,32 @@ export default function News() {
         <Box
             id="news"
             sx={{
-                pt: { xs: 0, md: 2 },
+                pt: { xs: 0, md: 0 },
                 pb: { xs: 6, md: 8 },
-                backgroundColor: '#f5f5f7',
+                background: 'linear-gradient(to bottom, #FFE8DC 0%, #FFF3E8 100%)',
             }}
         >
             <Container maxWidth="lg">
-                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 4 }}>
+                <Box sx={{ mb: 4 }}>
                     <Typography
-                        variant="h4"
+                        variant="h3"
                         component="h2"
                         sx={{
-                            fontWeight: 700,
+                            fontWeight: 800,
+                            color: '#2D4059',
+                            fontSize: { xs: '2rem', md: '2.5rem' },
+                            letterSpacing: '-0.02em',
+                            position: 'relative',
+                            '&::after': {
+                                content: '""',
+                                position: 'absolute',
+                                bottom: '-8px',
+                                left: 0,
+                                width: '60px',
+                                height: '4px',
+                                background: 'linear-gradient(90deg, #FF6B35, #FF8C42)',
+                                borderRadius: '2px'
+                            }
                         }}
                     >
                         News
@@ -406,7 +456,7 @@ export default function News() {
 
                 {mounted && (
                     <Box sx={{ position: 'relative' }}>
-                        {/* Left scroll button */}
+                        {/* Left scroll button - Enhanced */}
                         <IconButton
                             onClick={() => scroll('left')}
                             sx={{
@@ -416,11 +466,18 @@ export default function News() {
                                 transform: 'translateY(-50%)',
                                 zIndex: 2,
                                 backgroundColor: 'white',
-                                boxShadow: '0 2px 6px rgba(0,0,0,0.15)',
+                                color: '#FF6B35',
+                                width: 48,
+                                height: 48,
+                                border: '2px solid #FF6B3530',
+                                boxShadow: '0 4px 12px rgba(255, 107, 53, 0.2)',
                                 '&:hover': {
-                                    backgroundColor: 'white',
-                                    boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
+                                    backgroundColor: '#FF6B35',
+                                    color: 'white',
+                                    borderColor: '#FF6B35',
+                                    boxShadow: '0 6px 16px rgba(255, 107, 53, 0.3)',
                                 },
+                                transition: 'all 0.3s ease',
                                 // Hide the left button at the beginning (activeStep === 0)
                                 display: activeStep === 0 ? 'none' : canScrollLeft ? { xs: 'none', sm: 'flex' } : 'none'
                             }}
@@ -429,7 +486,7 @@ export default function News() {
                             <ArrowBackIosNewIcon fontSize="small" />
                         </IconButton>
 
-                        {/* Right scroll button */}
+                        {/* Right scroll button - Enhanced */}
                         <IconButton
                             onClick={() => scroll('right')}
                             sx={{
@@ -439,11 +496,18 @@ export default function News() {
                                 transform: 'translateY(-50%)',
                                 zIndex: 2,
                                 backgroundColor: 'white',
-                                boxShadow: '0 2px 6px rgba(0,0,0,0.15)',
+                                color: '#FF6B35',
+                                width: 48,
+                                height: 48,
+                                border: '2px solid #FF6B3530',
+                                boxShadow: '0 4px 12px rgba(255, 107, 53, 0.2)',
                                 '&:hover': {
-                                    backgroundColor: 'white',
-                                    boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
+                                    backgroundColor: '#FF6B35',
+                                    color: 'white',
+                                    borderColor: '#FF6B35',
+                                    boxShadow: '0 6px 16px rgba(255, 107, 53, 0.3)',
                                 },
+                                transition: 'all 0.3s ease',
                                 display: canScrollRight ? { xs: 'none', sm: 'flex' } : 'none'
                             }}
                             aria-label="Next news items"
@@ -504,13 +568,13 @@ export default function News() {
                                         key={index}
                                         onClick={() => handleDotClick(index)}
                                         sx={{
-                                            width: 8,
+                                            width: index === activeStep ? 32 : 8,
                                             height: 8,
-                                            borderRadius: '50%',
-                                            backgroundColor: index === activeStep ? 'primary.main' : 'rgba(0,0,0,0.2)',
+                                            borderRadius: '4px',
+                                            backgroundColor: index === activeStep ? '#FF6B35' : 'rgba(45, 64, 89, 0.3)',
                                             mx: 0.5,
                                             cursor: 'pointer',
-                                            transition: '0.3s'
+                                            transition: 'all 0.3s ease'
                                         }}
                                         aria-label={`Go to slide ${index + 1}`}
                                         role="button"

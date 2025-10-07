@@ -36,18 +36,7 @@ export default function NavBar() {
 
     const navItems = [
         { label: 'Home', href: '/' },
-        { label: 'About', anchorId: 'about' },
-        // { label: 'News', href: '/news' },
-        // {
-        //     label: 'Publications',
-        //     children: [
-        //         { label: 'All Pubs', href: '/publications' },
-        //         { label: 'Wearables & Textiles', href: '/publications#wearables' },
-        //         { label: 'Design & Engineering', href: '/publications#design' },
-        //     ],
-        // },
-        // { label: 'Voice', href: '/voice' },
-        // { label: 'Connect', href: '/connect' },
+        { label: 'Publications', href: '/publications' },
     ];
 
     // Desktop menu state
@@ -112,13 +101,14 @@ export default function NavBar() {
 
     // Common button styles for nav items
     const navButtonStyles = {
-        color: 'black',
+        color: '#2D4059',
         textTransform: 'none',
         ml: 3,
         fontSize: '1.1rem', // Increased font size here
         padding: '6px 12px', // Added padding for better touch target
         '&:hover': {
-            backgroundColor: 'rgba(0, 0, 0, 0.04)',
+            backgroundColor: 'rgba(255, 107, 53, 0.1)',
+            color: '#FF6B35',
         }
     };
 
@@ -209,7 +199,14 @@ export default function NavBar() {
 
     return (
         <div suppressHydrationWarning>
-            <AppBar position="sticky" elevation={0} sx={{ bgcolor: '#FAF7F5' }}>
+            <AppBar position="fixed" elevation={0} sx={{
+                bgcolor: '#FFF8F3',
+                backgroundImage: 'none',
+                borderBottom: '1px solid rgba(255, 107, 53, 0.1)',
+                backdropFilter: 'blur(10px)',
+                backgroundColor: 'rgba(255, 248, 243, 0.95)',
+                zIndex: 1100
+            }}>
                 <Toolbar sx={{ justifyContent: 'space-between', py: 1 }}> {/* Added padding to make navbar taller */}
                     {/* Left: name+tag */}
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -218,7 +215,7 @@ export default function NavBar() {
                             href="/"
                             variant="h4"
                             sx={{
-                                color: 'black',
+                                color: '#2D4059',
                                 textDecoration: 'none',
                                 fontWeight: 700,
                             }}
@@ -228,7 +225,7 @@ export default function NavBar() {
                         <Typography
                             variant="subtitle1"
                             sx={{
-                                color: 'text.secondary',
+                                color: '#5A7CA1',
                                 ml: 2,
                                 display: { xs: 'none', sm: 'block' }
                             }}
@@ -244,7 +241,7 @@ export default function NavBar() {
                             aria-label="open drawer"
                             edge="end"
                             onClick={toggleDrawer(true)}
-                            sx={{ color: 'black' }}
+                            sx={{ color: '#2D4059' }}
                         >
                             <MenuIcon fontSize="large" /> {/* Increased icon size */}
                         </IconButton>

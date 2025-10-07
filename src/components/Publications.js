@@ -10,7 +10,6 @@ import {
     CardContent,
     CardMedia,
     Button,
-    Chip,
     Grid,
     IconButton,
     Link,
@@ -38,8 +37,8 @@ const publicationsData = [
         authors: "Akshay Kolgar Nayak , Yash Prakash, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok",
         abstract: "We present a study on self-reflection strategies among blind and visually impaired (BVI) job seekers in India. Despite gaining digital skills, many face challenges aligning with industry expectations due to limited personalized feedback and inaccessible job-prep tools. Self-reflection is often a social process shaped by peer interactions, yet current systems lack the tailored support needed for effective growth. Our findings inform the design of future tools to better guide reflective job-seeking and address the unique needs of BVI individuals in the Global South.",
         image: "selfReflection", // Corrected image name
-        color: "linear-gradient(135deg, #FCDEDE 0%, #FEE6E6 100%)", // Light pink gradient
-        textColor: "#1976d2", // Darker blue for text
+        color: "linear-gradient(135deg, #FFE8DC 0%, #FFF3E8 100%)", // Sunset peach gradient
+        textColor: "#2D4059", // Deep water blue for text
         links: {
             pdf: "Papers/cscw25.pdf",
             // doi: "https://doi.org/10.1145/3487553.3524254",
@@ -50,12 +49,7 @@ const publicationsData = [
             // video: "https://youtube.com/watch?v=exampleId",
             // dataset: "https://example.com/restaurant-dataset"
         },
-        awards: [
-            {
-                type: "core-a-star",
-                name: "CORE A*"
-            }
-        ],
+        awards: [],
         featured: true
     },
     {
@@ -66,8 +60,8 @@ const publicationsData = [
         authors: "Mohan Sunkara, Akshay Kolgar Nayak, Sandeep Kalari, Yash Prakash, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok",
         abstract: "We present QuickCue, an assistive browser extension that improves the usability of online restaurant reviews for blind screen reader users. QuickCue restructures review content into a hierarchical format organized by aspects (e.g., food, service, ambiance) and sentiment (positive/negative), enabling faster, more focused exploration with minimal navigation. Powered by GPT-4, it performs aspect-sentiment classification and generates targeted summaries, significantly reducing listening fatigue and helping users make more informed decisions.",
         image: "quickCue", // Image filename in public/Publications folder
-        color: "linear-gradient(135deg, #E9E2F5 0%, #F0EAF9 100%)", // Light lavender gradient
-        textColor: "#333", // Changed to black
+        color: "linear-gradient(135deg, #F3E8F8 0%, #F9F0FC 100%)", // Twilight lavender gradient
+        textColor: "#2D4059", // Deep water blue
         links: {
             pdf: "Papers/quickCue.pdf",
             // doi: "https://doi.org/10.1145/3487553.3524255",
@@ -90,8 +84,8 @@ const publicationsData = [
         authors: "Yash Prakash, Pathan Aseef Khan, Akshay Kolgar Nayak, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok ",
         abstract: "We present GraphLite, a mobile assistive system that makes data charts more usable for low-vision screen magnifier users. GraphLite transforms static, non-interactive charts into customizable, interactive views that preserve visual context under magnification. Users can selectively focus on key data points, personalize chart appearance, and reduce panning effort through simplified gestures.",
         image: "graphLite", // Image filename in public/Publications folder
-        color: "linear-gradient(135deg, #D3ECDB 0%, #E0F4E7 100%)", // Light mint green gradient
-        textColor: "#333", // Changed to black
+        color: "linear-gradient(135deg, #E8F0F8 0%, #F0F6FC 100%)", // Light water blue gradient
+        textColor: "#2D4059", // Deep water blue
         links: {
             pdf: "Papers/graphLite.pdf",
             doi: "https://doi.org/10.1109/TVCG.2024.3456348",
@@ -101,12 +95,7 @@ const publicationsData = [
             github: "https://github.com/accessodu/GraphLite?tab=readme-ov-file",
             video: "https://youtu.be/QFw5QH7FwNY"
         },
-        awards: [
-            {
-                type: "core-a-star",
-                name: "CORE A*"
-            }
-        ],
+        awards: [],
         featured: true
     }
 ];
@@ -152,67 +141,175 @@ const VenueInfo = ({ venue, date, publisher }) => {
     );
 };
 
-// Award badge component - supports multiple badges
+// Award badge component - achievement medal design
 const AwardBadge = ({ awards }) => {
-    // Map of award types to their styles
-    const awardStyles = {
-        'best-paper': {
-            bgcolor: '#FFD700',
-            color: '#7B5800',
-            icon: <EmojiEventsIcon />,
-        },
-        'core-a-star': {
-            bgcolor: '#5e35b1',
-            color: 'white',
-            icon: <SchoolIcon />,
-        },
-        'honorable-mention': {
-            bgcolor: '#f44336',
-            color: 'white',
-            icon: <EmojiEventsIcon />,
-        }
-    };
+    const renderBestPaperBadge = () => (
+        <Box sx={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: 1,
+            background: 'linear-gradient(135deg, #FFFFFF 0%, #FFF9F0 100%)',
+            px: 2,
+            py: 0.8,
+            borderRadius: '24px',
+            boxShadow: '0 3px 12px rgba(184, 134, 11, 0.25)',
+            border: '2px solid #D4AF37',
+        }}>
+            <Box sx={{
+                width: 24,
+                height: 24,
+                borderRadius: '50%',
+                background: 'linear-gradient(135deg, #FFD700 0%, #FFA500 100%)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '0.85rem',
+                boxShadow: '0 2px 6px rgba(255, 165, 0, 0.3)',
+            }}>
+                🏆
+            </Box>
+            <Typography sx={{
+                fontSize: '0.75rem',
+                fontWeight: 700,
+                letterSpacing: '0.5px',
+                color: '#8B7500',
+            }}>
+                Best Paper Award
+            </Typography>
+        </Box>
+    );
 
-    // Default style if type not found
-    const defaultStyle = {
-        bgcolor: '#2196f3',
-        color: 'white',
-        icon: <EmojiEventsIcon />,
-    };
+    const renderCoreAStarBadge = (name) => (
+        <Box sx={{ position: 'relative', display: 'inline-flex', alignItems: 'center', gap: 1 }}>
+            {/* Star Badge */}
+            <Box sx={{
+                position: 'relative',
+                width: 45,
+                height: 45,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+            }}>
+                {/* Star background using CSS */}
+                <Box sx={{
+                    position: 'absolute',
+                    width: 45,
+                    height: 45,
+                    background: 'linear-gradient(135deg, #7C4DFF 0%, #5E35B1 100%)',
+                    clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)',
+                    boxShadow: '0 4px 16px rgba(94, 53, 177, 0.6)',
+                    '&::before': {
+                        content: '""',
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        background: 'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3), transparent)',
+                        clipPath: 'inherit',
+                    }
+                }} />
+                <SchoolIcon sx={{ fontSize: '1.3rem', color: 'white', zIndex: 1 }} />
+            </Box>
+            {/* Text Badge */}
+            <Box sx={{
+                background: 'linear-gradient(135deg, #7C4DFF 0%, #5E35B1 100%)',
+                color: 'white',
+                px: 1.5,
+                py: 0.5,
+                fontSize: '0.7rem',
+                fontWeight: 800,
+                letterSpacing: '0.8px',
+                textTransform: 'uppercase',
+                borderRadius: '4px',
+                boxShadow: '0 2px 8px rgba(94, 53, 177, 0.4)',
+                border: '1px solid rgba(255,255,255,0.3)'
+            }}>
+                {name}
+            </Box>
+        </Box>
+    );
+
+    const renderHonorableMentionBadge = (name) => (
+        <Box sx={{ position: 'relative', display: 'inline-flex', flexDirection: 'column', alignItems: 'center' }}>
+            {/* Hexagon Badge */}
+            <Box sx={{
+                width: 50,
+                height: 45,
+                background: 'linear-gradient(135deg, #FF6B6B 0%, #EE5A6F 100%)',
+                clipPath: 'polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 4px 16px rgba(244, 67, 54, 0.5)',
+                position: 'relative',
+                '&::before': {
+                    content: '""',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    background: 'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3), transparent)',
+                    clipPath: 'inherit',
+                }
+            }}>
+                <EmojiEventsIcon sx={{ fontSize: '1.6rem', color: 'white', zIndex: 1 }} />
+            </Box>
+            {/* Text */}
+            <Box sx={{
+                mt: 0.5,
+                background: 'linear-gradient(135deg, #FF6B6B 0%, #EE5A6F 100%)',
+                color: 'white',
+                px: 1.5,
+                py: 0.3,
+                fontSize: '0.65rem',
+                fontWeight: 800,
+                letterSpacing: '0.5px',
+                textTransform: 'uppercase',
+                borderRadius: '3px',
+                boxShadow: '0 2px 8px rgba(244, 67, 54, 0.4)',
+            }}>
+                {name}
+            </Box>
+        </Box>
+    );
 
     return (
         <Box
             sx={{
                 position: 'absolute',
-                top: 0,
-                left: 16,
-                transform: 'translateY(-50%)',
-                zIndex: 2,
+                top: 16,
+                right: 16,
+                zIndex: 3,
                 display: 'flex',
-                flexDirection: 'row',
-                gap: 1
+                flexDirection: 'column',
+                gap: 2,
+                alignItems: 'flex-end'
             }}
         >
             {awards.map((award, index) => {
-                const style = awardStyles[award.type] || defaultStyle;
-
+                if (award.type === 'best-paper') {
+                    return <Box key={index}>{renderBestPaperBadge(award.name)}</Box>;
+                } else if (award.type === 'core-a-star') {
+                    return <Box key={index}>{renderCoreAStarBadge(award.name)}</Box>;
+                } else if (award.type === 'honorable-mention') {
+                    return <Box key={index}>{renderHonorableMentionBadge(award.name)}</Box>;
+                }
+                // Default badge for unknown types
                 return (
-                    <Chip
-                        key={index}
-                        icon={style.icon}
-                        label={award.name}
-                        sx={{
-                            backgroundColor: style.bgcolor,
-                            color: style.color,
-                            fontWeight: 700,
-                            boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
-                            borderRadius: '30px',  // More rounded corners
-                            '& .MuiChip-icon': {
-                                color: style.color
-                            }
-                        }}
-                        size="small"
-                    />
+                    <Box key={index} sx={{
+                        background: 'linear-gradient(135deg, #42A5F5 0%, #2196F3 100%)',
+                        color: 'white',
+                        px: 2,
+                        py: 0.5,
+                        fontSize: '0.75rem',
+                        fontWeight: 800,
+                        borderRadius: '4px',
+                        boxShadow: '0 2px 8px rgba(33, 150, 243, 0.4)',
+                    }}>
+                        {award.name}
+                    </Box>
                 );
             })}
         </Box>
@@ -400,20 +497,20 @@ const ExtraLinks = ({ links }) => {
                     variant="outlined"
                     sx={{
                         backgroundColor: 'transparent',
-                        color: '#555',
+                        color: '#5A7CA1',
                         fontWeight: 500,
-                        border: '1px solid rgba(0,0,0,0.2)',
+                        border: '1px solid #5A7CA1',
                         borderRadius: '30px',
                         textTransform: 'none',
                         padding: '4px 12px',
                         minWidth: 'auto',
                         '&:hover': {
-                            backgroundColor: '#555',
+                            backgroundColor: '#5A7CA1',
                             color: 'white',
-                            borderColor: 'rgba(255,255,255,0.7)',
+                            borderColor: '#5A7CA1',
                         },
                         '& .MuiButton-startIcon': {
-                            color: '#555',
+                            color: '#5A7CA1',
                             transition: 'color 0.2s ease',
                         },
                         '&:hover .MuiButton-startIcon': {
@@ -433,33 +530,38 @@ const PublicationCard = ({ publication }) => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
-    // Extract colors from publication data or use defaults
-    const cardColor = publication.color || '#f8f9fc';
-
-    // Use a professional, consistent color scheme
-    const buttonColor = '#424242'; // Dark gray for primary buttons
-    const secondaryButtonColor = '#666666'; // Medium gray for secondary buttons
-
     return (
         <Card
-            elevation={1}
+            elevation={0}
             sx={{
                 display: 'flex',
                 flexDirection: { xs: 'column', md: 'row' },
-                borderRadius: '12px',
-                overflow: 'visible',
+                borderRadius: '20px',
+                overflow: 'hidden',
                 position: 'relative',
-                border: '1px solid rgba(0,0,0,0.08)',
-                backgroundColor: cardColor && cardColor.includes('gradient') ? 'transparent' : cardColor,
-                background: cardColor && cardColor.includes('gradient') ? cardColor : 'none',
-                mb: 3.5, // Reduced from 4 to reduce bottom white space
+                backgroundColor: '#FFFFFF',
+                boxShadow: '0 8px 24px rgba(45, 64, 89, 0.12)',
+                mb: 5,
                 mt: 4,
-                transition: 'transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out',
-                '&:hover': {
-                    boxShadow: '0px 8px 20px rgba(0, 0, 0, 0.12)',
-                    transform: 'translateY(-5px)'
+                transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                '&::before': {
+                    content: '""',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: '6px',
+                    background: 'linear-gradient(90deg, #FF6B35, #FF8C42, #A47BB0)',
+                    opacity: 0.8
                 },
-                minHeight: { xs: 'auto', md: '370px' } // Reduced minimum height
+                '&:hover': {
+                    boxShadow: '0 16px 48px rgba(45, 64, 89, 0.2)',
+                    transform: 'translateY(-12px)',
+                    '&::before': {
+                        opacity: 1
+                    }
+                },
+                minHeight: { xs: 'auto', md: '420px' }
             }}
         >
             {/* Award Badges */}
@@ -467,16 +569,15 @@ const PublicationCard = ({ publication }) => {
                 <AwardBadge awards={publication.awards} />
             }
 
+            {/* Left side - Content */}
             <Box sx={{
                 width: { xs: '100%', md: '55%' },
-                p: { xs: 2.5, md: 3 },
-                pt: { xs: 3, md: 3.5 }, // Slight reduction in top padding
-                pb: { xs: 2, md: 2.5 }, // Reduced bottom padding
+                p: { xs: 3, md: 4 },
+                pt: { xs: 4, md: 4.5 },
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'space-between', // Better vertical distribution of content
-                backgroundColor: 'transparent',
-                height: '100%'
+                backgroundColor: 'rgba(255, 248, 243, 0.4)',
+                borderRight: { xs: 'none', md: '1px solid rgba(45, 64, 89, 0.08)' }
             }}>
                 {/* Title */}
                 <Typography
@@ -484,25 +585,34 @@ const PublicationCard = ({ publication }) => {
                     component="h2"
                     sx={{
                         fontWeight: 800,
-                        letterSpacing: '-0.01em',
+                        letterSpacing: '-0.02em',
                         lineHeight: 1.3,
-                        mb: 1.2, // Slightly reduced margin
-                        color: '#222',
-                        fontSize: { xs: '1.2rem', md: '1.35rem' }, // Adjusted font size
+                        mb: 2,
+                        color: '#2D4059',
+                        fontSize: { xs: '1.3rem', md: '1.45rem' },
                     }}
                 >
                     {publication.title}
                 </Typography>
 
-                {/* Conference/Journal with custom publisher icon */}
-                <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-                    <SchoolIcon sx={{ fontSize: '1rem', mr: 1, color: '#555' }} />
+                {/* Venue Badge */}
+                <Box sx={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    mb: 2,
+                    backgroundColor: 'rgba(255, 107, 53, 0.1)',
+                    px: 2,
+                    py: 1,
+                    borderRadius: '12px',
+                    width: 'fit-content',
+                    border: '1px solid rgba(255, 107, 53, 0.2)'
+                }}>
+                    <SchoolIcon sx={{ fontSize: '1.1rem', mr: 1, color: '#FF6B35' }} />
                     <Typography
                         variant="body2"
                         sx={{
-                            color: '#222',
-                            opacity: 0.8,
-                            fontWeight: 600,
+                            color: '#FF6B35',
+                            fontWeight: 700,
                             fontSize: '0.9rem',
                         }}
                     >
@@ -511,68 +621,74 @@ const PublicationCard = ({ publication }) => {
                 </Box>
 
                 {/* Authors */}
-                <Typography
-                    variant="body2"
-                    sx={{
-                        fontWeight: 600,
-                        mb: 1.5, // Slightly reduced margin
-                        color: '#222',
-                        fontSize: '0.9rem', // Slightly increased font size
-                    }}
-                >
-                    {publication.authors}
-                </Typography>
+                <Box sx={{
+                    mb: 2,
+                    p: 1.5,
+                    backgroundColor: 'rgba(90, 124, 161, 0.08)',
+                    borderRadius: '8px',
+                    borderLeft: '3px solid #5A7CA1'
+                }}>
+                    <Typography
+                        variant="body2"
+                        sx={{
+                            fontWeight: 600,
+                            color: '#2D4059',
+                            fontSize: '0.9rem',
+                            lineHeight: 1.6
+                        }}
+                    >
+                        {publication.authors}
+                    </Typography>
+                </Box>
 
                 {/* Abstract */}
                 <Typography
                     variant="body2"
                     sx={{
-                        color: '#222',
-                        mb: 2.5, // Reduced margin
+                        color: '#2D4059',
+                        mb: 3,
                         display: '-webkit-box',
                         overflow: 'hidden',
                         WebkitBoxOrient: 'vertical',
-                        WebkitLineClamp: 7,
-                        lineHeight: 1.6,
+                        WebkitLineClamp: 6,
+                        lineHeight: 1.7,
                         fontSize: '0.95rem',
+                        opacity: 0.9,
+                        flexGrow: 1
                     }}
                 >
                     {publication.abstract}
                 </Typography>
 
-                {/* Action Buttons - All with consistent styling */}
+                {/* Action Buttons */}
                 <Box sx={{
                     display: 'flex',
-                    gap: 2,
+                    gap: 1.5,
                     mt: 'auto',
                     flexWrap: 'wrap',
-                    mb: { xs: 1, md: 1 }, // Reduced margins
                 }}>
                     {publication.links.pdf && (
                         <Button
-                            variant="outlined"
+                            variant="contained"
                             size="medium"
                             startIcon={<DescriptionIcon />}
                             href={publication.links.pdf}
                             target="_blank"
                             rel="noopener noreferrer"
                             sx={{
-                                backgroundColor: 'transparent',
-                                color: '#333',
-                                border: '1px solid #333',
-                                borderRadius: '30px',
-                                boxShadow: 'none',
+                                backgroundColor: '#FF6B35',
+                                color: 'white',
+                                borderRadius: '12px',
+                                boxShadow: '0 4px 12px rgba(255, 107, 53, 0.25)',
                                 '&:hover': {
-                                    backgroundColor: '#333',
-                                    color: 'white',
-                                    borderColor: 'white',
-                                    boxShadow: '0 2px 6px rgba(0,0,0,0.15)',
+                                    backgroundColor: '#FF8C42',
+                                    boxShadow: '0 6px 16px rgba(255, 107, 53, 0.35)',
                                     transform: 'translateY(-2px)',
                                 },
-                                fontWeight: 600,
+                                fontWeight: 700,
                                 textTransform: 'none',
                                 px: 3,
-                                py: 0.8,
+                                py: 1,
                                 fontSize: '0.9rem',
                                 transition: 'all 0.2s ease',
                             }}
@@ -590,21 +706,19 @@ const PublicationCard = ({ publication }) => {
                             rel="noopener noreferrer"
                             sx={{
                                 backgroundColor: 'transparent',
-                                color: '#333',
-                                border: '1px solid #333',
-                                borderRadius: '30px',
-                                boxShadow: 'none',
+                                color: '#5A7CA1',
+                                border: '2px solid #5A7CA1',
+                                borderRadius: '12px',
                                 '&:hover': {
-                                    backgroundColor: '#333',
+                                    backgroundColor: '#5A7CA1',
                                     color: 'white',
-                                    borderColor: 'white',
-                                    boxShadow: '0 2px 6px rgba(0,0,0,0.15)',
+                                    borderColor: '#5A7CA1',
                                     transform: 'translateY(-2px)',
                                 },
-                                fontWeight: 600,
+                                fontWeight: 700,
                                 textTransform: 'none',
                                 px: 3,
-                                py: 0.8,
+                                py: 1,
                                 fontSize: '0.9rem',
                                 transition: 'all 0.2s ease',
                             }}
@@ -622,21 +736,19 @@ const PublicationCard = ({ publication }) => {
                             rel="noopener noreferrer"
                             sx={{
                                 backgroundColor: 'transparent',
-                                color: '#333',
-                                border: '1px solid #333',
-                                borderRadius: '30px',
-                                boxShadow: 'none',
+                                color: '#5A7CA1',
+                                border: '2px solid #5A7CA1',
+                                borderRadius: '12px',
                                 '&:hover': {
-                                    backgroundColor: '#333',
+                                    backgroundColor: '#5A7CA1',
                                     color: 'white',
-                                    borderColor: 'white',
-                                    boxShadow: '0 2px 6px rgba(0,0,0,0.15)',
+                                    borderColor: '#5A7CA1',
                                     transform: 'translateY(-2px)',
                                 },
-                                fontWeight: 600,
+                                fontWeight: 700,
                                 textTransform: 'none',
                                 px: 3,
-                                py: 0.8,
+                                py: 1,
                                 fontSize: '0.9rem',
                                 transition: 'all 0.2s ease',
                             }}
@@ -650,20 +762,23 @@ const PublicationCard = ({ publication }) => {
             {/* Right side - Image and extra links */}
             <Box sx={{
                 width: { xs: '100%', md: '45%' },
-                p: { xs: 2, md: 2.5 }, // Reduced padding to minimize white space
-                pb: { xs: 2, md: 2 }, // Reduced bottom padding
+                p: { xs: 3, md: 3 },
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
-                backgroundColor: 'transparent',
-                position: 'relative',
-                zIndex: 1
+                backgroundColor: 'rgba(243, 232, 248, 0.3)',
             }}>
-                <PublicationImage imageName={publication.image} alt={`Image for ${publication.title}`} />
-
-                {/* Extra links centered and pushed closer to image */}
                 <Box sx={{
-                    mt: 1.5, // Reduced margin top
+                    borderRadius: '16px',
+                    overflow: 'hidden',
+                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08)',
+                    mb: 2
+                }}>
+                    <PublicationImage imageName={publication.image} alt={`Image for ${publication.title}`} />
+                </Box>
+
+                {/* Extra links */}
+                <Box sx={{
                     display: 'flex',
                     justifyContent: 'center'
                 }}>
@@ -674,28 +789,45 @@ const PublicationCard = ({ publication }) => {
     );
 };
 
-export default function Publications() {
+export default function Publications({ showTitle = true, isStandalonePage = false }) {
     return (
         <Box
             id="publications"
             sx={{
-                pt: { xs: 4, md: 2 }, // Reduced top padding from 8/10 to 4/2
+                pt: isStandalonePage ? 0 : { xs: 4, md: 2 },
                 pb: { xs: 8, md: 10 },
-                backgroundColor: '#f5f5f7',
+                background: isStandalonePage ? 'transparent' : 'linear-gradient(to bottom, #FFF3E8 0%, #F3E8F8 100%)',
             }}
         >
             <Container maxWidth="lg">
-                <Typography
-                    variant="h4"
-                    component="h2"
-                    sx={{
-                        fontWeight: 700,
-                        mb: { xs: 4, md: 5 },
-                        color: '#222',
-                    }}
-                >
-                    Top Publications
-                </Typography>
+                {/* Section title - only show if showTitle is true */}
+                {showTitle && (
+                    <Box sx={{ mb: { xs: 4, md: 6 }, display: 'flex', alignItems: 'center', gap: 2 }}>
+                        <Typography
+                            variant="h3"
+                            component="h2"
+                            sx={{
+                                fontWeight: 800,
+                                color: '#2D4059',
+                                fontSize: { xs: '2rem', md: '2.5rem' },
+                                letterSpacing: '-0.02em',
+                                position: 'relative',
+                                '&::after': {
+                                    content: '""',
+                                    position: 'absolute',
+                                    bottom: '-8px',
+                                    left: 0,
+                                    width: '60px',
+                                    height: '4px',
+                                    background: 'linear-gradient(90deg, #FF6B35, #FF8C42)',
+                                    borderRadius: '2px'
+                                }
+                            }}
+                        >
+                            Selected Publications
+                        </Typography>
+                    </Box>
+                )}
 
                 {/* Publications List */}
                 <Box>
@@ -703,33 +835,6 @@ export default function Publications() {
                         <PublicationCard key={publication.id} publication={publication} />
                     ))}
                 </Box>
-
-                {/* View All Publications Button */}
-                {/* <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
-                    <Button
-                        variant="outlined"
-                        size="large"
-                        href="/publications"
-                        sx={{
-                            backgroundColor: 'transparent',
-                            color: '#333',
-                            border: '1px solid #333',
-                            borderRadius: '30px',
-                            px: 4,
-                            py: 1.2,
-                            fontWeight: 600,
-                            boxShadow: 'none',
-                            '&:hover': {
-                                backgroundColor: '#333',
-                                color: 'white',
-                                borderColor: 'white',
-                                boxShadow: '0 2px 6px rgba(0,0,0,0.15)',
-                            },
-                        }}
-                    >
-                        View All Publications
-                    </Button>
-                </Box> */}
             </Container>
         </Box>
     );

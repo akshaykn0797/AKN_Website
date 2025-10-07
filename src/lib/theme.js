@@ -4,11 +4,20 @@ const theme = createTheme({
     palette: {
         mode: 'light',
         background: {
-            default: '#FFFFFF',    // <-- your page background
-            paper: '#FFFFFF',    // <-- surfaces (Paper, Card, etc.)
+            default: '#FFF8F3',    // Soft peachy background like sunset sky
+            paper: '#FFFFFF',    // White surfaces for contrast
         },
-        primary: { main: '#ff9800' }, // Changed to orange to match your links
-        secondary: { main: '#9c27b0' },
+        primary: { main: '#FF6B35' }, // Warm sunset coral/orange
+        secondary: { main: '#4A5899' }, // Deep twilight blue
+        sunset: {
+            warmOrange: '#FF8C42',  // Bright sunset orange
+            deepCoral: '#FF6B35',   // Deep coral
+            softPeach: '#FFB997',   // Soft peach
+            lavender: '#A47BB0',    // Twilight lavender
+            deepBlue: '#2D4059',    // Deep water blue
+            lightBlue: '#5A7CA1',   // Light water blue
+            golden: '#FFD23F',      // Golden hour
+        },
     },
     typography: {
         fontFamily: 'var(--font-source-sans-3), "Inter", sans-serif',
@@ -37,7 +46,7 @@ const theme = createTheme({
                     fontFamily: 'var(--font-source-sans-3), "Inter", sans-serif',
                 },
                 '::selection': {
-                    backgroundColor: '#ff9800',
+                    backgroundColor: '#FF6B35',
                     color: '#fff',
                 },
             },
