@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Box, Container, Typography } from '@mui/material';
-import Publications from '@/components/Publications';
+import AllPublications from '@/components/AllPublications';
 
 export default function PublicationsPage() {
     return (
@@ -10,7 +10,8 @@ export default function PublicationsPage() {
             sx={{
                 minHeight: '100vh',
                 background: 'linear-gradient(to bottom, #FFF3E8 0%, #F3E8F8 100%)',
-                pt: { xs: 10, md: 12 }, // Add padding top to account for fixed navbar
+                pt: { xs: 10, md: 12 },
+                pb: { xs: 6, md: 8 },
             }}
         >
             <Container maxWidth="lg">
@@ -53,8 +54,8 @@ export default function PublicationsPage() {
                     </Typography>
                 </Box>
 
-                {/* Publications Component */}
-                <Publications showTitle={false} isStandalonePage={true} />
+                {/* All Publications List */}
+                <AllPublications />
             </Container>
         </Box>
     );

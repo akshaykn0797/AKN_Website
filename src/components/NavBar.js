@@ -37,6 +37,7 @@ export default function NavBar() {
     const navItems = [
         { label: 'Home', href: '/' },
         { label: 'Publications', href: '/publications' },
+        { label: 'Academic', href: '/academic' },
     ];
 
     // Desktop menu state

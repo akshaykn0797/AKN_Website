@@ -1,56 +1,37 @@
-// src/components/Publications.js
+// src/components/AllPublications.js
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import {
     Box,
-    Container,
     Typography,
-    Card,
-    CardContent,
-    CardMedia,
     Button,
-    Grid,
-    IconButton,
-    Link,
-    Paper,
-    Divider,
+    Card,
     useTheme,
     useMediaQuery,
 } from '@mui/material';
 import SchoolIcon from '@mui/icons-material/School';
-import EmojiEventsIcon from '@mui/icons-material/EmojiEvents'; // Trophy icon
-import CodeIcon from '@mui/icons-material/Code'; // Github icon
-import VideoLibraryIcon from '@mui/icons-material/VideoLibrary'; // Video icon
-import StorageIcon from '@mui/icons-material/Storage'; // Dataset icon
-import DescriptionIcon from '@mui/icons-material/Description'; // PDF icon
-import LinkIcon from '@mui/icons-material/Link'; // DOI link icon
-import WebIcon from '@mui/icons-material/Web'; // Project link icon
+import DescriptionIcon from '@mui/icons-material/Description';
+import LinkIcon from '@mui/icons-material/Link';
+import WebIcon from '@mui/icons-material/Web';
+import CodeIcon from '@mui/icons-material/Code';
+import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
 
-// Sample data structure for publications
-const publicationsData = [
+// All publications data
+const allPublicationsData = [
     {
         id: 1,
         title: "Insights in Adaptation: Examining Self-reflection Strategies of Job Seekers with Visual Impairments in India",
         venue: "ACM CSCW 2025",
         date: "October 2025",
-        authors: "Akshay Kolgar Nayak , Yash Prakash, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok",
+        authors: "Akshay Kolgar Nayak, Yash Prakash, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok",
         abstract: "We present a study on self-reflection strategies among blind and visually impaired (BVI) job seekers in India. Despite gaining digital skills, many face challenges aligning with industry expectations due to limited personalized feedback and inaccessible job-prep tools. Self-reflection is often a social process shaped by peer interactions, yet current systems lack the tailored support needed for effective growth. Our findings inform the design of future tools to better guide reflective job-seeking and address the unique needs of BVI individuals in the Global South.",
-        image: "selfReflection", // Corrected image name
-        color: "linear-gradient(135deg, #FFE8DC 0%, #FFF3E8 100%)", // Sunset peach gradient
-        textColor: "#2D4059", // Deep water blue for text
+        image: "selfReflection",
         links: {
             pdf: "Papers/cscw25.pdf",
-            // doi: "https://doi.org/10.1145/3487553.3524254",
-            // project: "https://example.com/accessible-reviews"
         },
-        extraLinks: {
-            // github: "https://github.com/username/restaurant-reviews",
-            // video: "https://youtube.com/watch?v=exampleId",
-            // dataset: "https://example.com/restaurant-dataset"
-        },
+        extraLinks: {},
         awards: [],
-        featured: true
     },
     {
         id: 2,
@@ -59,89 +40,37 @@ const publicationsData = [
         date: "April 2025",
         authors: "Mohan Sunkara, Akshay Kolgar Nayak, Sandeep Kalari, Yash Prakash, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok",
         abstract: "We present QuickCue, an assistive browser extension that improves the usability of online restaurant reviews for blind screen reader users. QuickCue restructures review content into a hierarchical format organized by aspects (e.g., food, service, ambiance) and sentiment (positive/negative), enabling faster, more focused exploration with minimal navigation. Powered by GPT-4, it performs aspect-sentiment classification and generates targeted summaries, significantly reducing listening fatigue and helping users make more informed decisions.",
-        image: "quickCue", // Image filename in public/Publications folder
-        color: "linear-gradient(135deg, #F3E8F8 0%, #F9F0FC 100%)", // Twilight lavender gradient
-        textColor: "#2D4059", // Deep water blue
+        image: "quickCue",
         links: {
             pdf: "Papers/quickCue.pdf",
-            // doi: "https://doi.org/10.1145/3487553.3524255",
-            // project: "https://example.com/accessmenu"
         },
-        extraLinks: {
-            // github: "https://github.com/username/accessmenu",
-        },
+        extraLinks: {},
         awards: [{
             type: "best-paper",
             name: "Best Paper Award"
         }],
-        featured: true
     },
     {
         id: 3,
         title: "Towards Enhancing Low Vision Usability of Data Charts on Smartphones",
         venue: "IEEE VIS (TVCG) 2025",
         date: "September 2024",
-        authors: "Yash Prakash, Pathan Aseef Khan, Akshay Kolgar Nayak, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok ",
+        authors: "Yash Prakash, Pathan Aseef Khan, Akshay Kolgar Nayak, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok",
         abstract: "We present GraphLite, a mobile assistive system that makes data charts more usable for low-vision screen magnifier users. GraphLite transforms static, non-interactive charts into customizable, interactive views that preserve visual context under magnification. Users can selectively focus on key data points, personalize chart appearance, and reduce panning effort through simplified gestures.",
-        image: "graphLite", // Image filename in public/Publications folder
-        color: "linear-gradient(135deg, #E8F0F8 0%, #F0F6FC 100%)", // Light water blue gradient
-        textColor: "#2D4059", // Deep water blue
+        image: "graphLite",
         links: {
             pdf: "Papers/graphLite.pdf",
             doi: "https://doi.org/10.1109/TVCG.2024.3456348",
-            // project: "https://youtu.be/QFw5QH7FwNY"
         },
         extraLinks: {
             github: "https://github.com/accessodu/GraphLite?tab=readme-ov-file",
             video: "https://youtu.be/QFw5QH7FwNY"
         },
         awards: [],
-        featured: true
-    }
+    },
 ];
 
-// Conference/Journal with custom publisher icon
-const VenueInfo = ({ venue, date, publisher }) => {
-    // Default icon is SchoolIcon
-    let icon = <SchoolIcon sx={{ fontSize: '1rem', mr: 1, color: '#424242' }} />;
-
-    // If publisher is specified, use a custom image icon
-    if (publisher) {
-        icon = (
-            <Box
-                component="img"
-                src={`/icons/${publisher}.png`}
-                alt={`${publisher} icon`}
-                sx={{
-                    height: '16px',
-                    width: 'auto',
-                    mr: 1,
-                    display: 'inline-block',
-                    verticalAlign: 'middle'
-                }}
-            />
-        );
-    }
-
-    return (
-        <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-            {icon}
-            <Typography
-                variant="body2"
-                sx={{
-                    color: '#222',
-                    opacity: 0.8,
-                    fontWeight: 600,
-                    fontSize: '0.9rem',
-                }}
-            >
-                {venue} • {date}
-            </Typography>
-        </Box>
-    );
-};
-
-// Award badge component - achievement medal design
+// Award badge component
 const AwardBadge = ({ awards }) => {
     const renderBestPaperBadge = () => (
         <Box sx={{
@@ -179,102 +108,6 @@ const AwardBadge = ({ awards }) => {
         </Box>
     );
 
-    const renderCoreAStarBadge = (name) => (
-        <Box sx={{ position: 'relative', display: 'inline-flex', alignItems: 'center', gap: 1 }}>
-            {/* Star Badge */}
-            <Box sx={{
-                position: 'relative',
-                width: 45,
-                height: 45,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-            }}>
-                {/* Star background using CSS */}
-                <Box sx={{
-                    position: 'absolute',
-                    width: 45,
-                    height: 45,
-                    background: 'linear-gradient(135deg, #7C4DFF 0%, #5E35B1 100%)',
-                    clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)',
-                    boxShadow: '0 4px 16px rgba(94, 53, 177, 0.6)',
-                    '&::before': {
-                        content: '""',
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        bottom: 0,
-                        background: 'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3), transparent)',
-                        clipPath: 'inherit',
-                    }
-                }} />
-                <SchoolIcon sx={{ fontSize: '1.3rem', color: 'white', zIndex: 1 }} />
-            </Box>
-            {/* Text Badge */}
-            <Box sx={{
-                background: 'linear-gradient(135deg, #7C4DFF 0%, #5E35B1 100%)',
-                color: 'white',
-                px: 1.5,
-                py: 0.5,
-                fontSize: '0.7rem',
-                fontWeight: 800,
-                letterSpacing: '0.8px',
-                textTransform: 'uppercase',
-                borderRadius: '4px',
-                boxShadow: '0 2px 8px rgba(94, 53, 177, 0.4)',
-                border: '1px solid rgba(255,255,255,0.3)'
-            }}>
-                {name}
-            </Box>
-        </Box>
-    );
-
-    const renderHonorableMentionBadge = (name) => (
-        <Box sx={{ position: 'relative', display: 'inline-flex', flexDirection: 'column', alignItems: 'center' }}>
-            {/* Hexagon Badge */}
-            <Box sx={{
-                width: 50,
-                height: 45,
-                background: 'linear-gradient(135deg, #FF6B6B 0%, #EE5A6F 100%)',
-                clipPath: 'polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                boxShadow: '0 4px 16px rgba(244, 67, 54, 0.5)',
-                position: 'relative',
-                '&::before': {
-                    content: '""',
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    background: 'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3), transparent)',
-                    clipPath: 'inherit',
-                }
-            }}>
-                <EmojiEventsIcon sx={{ fontSize: '1.6rem', color: 'white', zIndex: 1 }} />
-            </Box>
-            {/* Text */}
-            <Box sx={{
-                mt: 0.5,
-                background: 'linear-gradient(135deg, #FF6B6B 0%, #EE5A6F 100%)',
-                color: 'white',
-                px: 1.5,
-                py: 0.3,
-                fontSize: '0.65rem',
-                fontWeight: 800,
-                letterSpacing: '0.5px',
-                textTransform: 'uppercase',
-                borderRadius: '3px',
-                boxShadow: '0 2px 8px rgba(244, 67, 54, 0.4)',
-            }}>
-                {name}
-            </Box>
-        </Box>
-    );
-
     return (
         <Box
             sx={{
@@ -290,39 +123,19 @@ const AwardBadge = ({ awards }) => {
         >
             {awards.map((award, index) => {
                 if (award.type === 'best-paper') {
-                    return <Box key={index}>{renderBestPaperBadge(award.name)}</Box>;
-                } else if (award.type === 'core-a-star') {
-                    return <Box key={index}>{renderCoreAStarBadge(award.name)}</Box>;
-                } else if (award.type === 'honorable-mention') {
-                    return <Box key={index}>{renderHonorableMentionBadge(award.name)}</Box>;
+                    return <Box key={index}>{renderBestPaperBadge()}</Box>;
                 }
-                // Default badge for unknown types
-                return (
-                    <Box key={index} sx={{
-                        background: 'linear-gradient(135deg, #42A5F5 0%, #2196F3 100%)',
-                        color: 'white',
-                        px: 2,
-                        py: 0.5,
-                        fontSize: '0.75rem',
-                        fontWeight: 800,
-                        borderRadius: '4px',
-                        boxShadow: '0 2px 8px rgba(33, 150, 243, 0.4)',
-                    }}>
-                        {award.name}
-                    </Box>
-                );
+                return null;
             })}
         </Box>
     );
 };
 
-// Simplified Publication Image component with HTML dialog - improved styling
+// Publication Image component
 const PublicationImage = ({ imageName, alt }) => {
-    // Use ref to access the dialog element
     const dialogRef = useRef(null);
     const imgUrl = `/Publications/${imageName}.png`;
 
-    // Open and close handlers using the native dialog element
     const openDialog = () => {
         if (dialogRef.current) {
             dialogRef.current.showModal();
@@ -337,7 +150,6 @@ const PublicationImage = ({ imageName, alt }) => {
 
     return (
         <>
-            {/* Direct image container with better styling */}
             <Box
                 onClick={openDialog}
                 sx={{
@@ -367,8 +179,6 @@ const PublicationImage = ({ imageName, alt }) => {
                         borderRadius: '12px'
                     }}
                 />
-
-                {/* Zoom icon */}
                 <Box
                     sx={{
                         position: 'absolute',
@@ -390,7 +200,6 @@ const PublicationImage = ({ imageName, alt }) => {
                 </Box>
             </Box>
 
-            {/* Native HTML dialog for image */}
             <dialog
                 ref={dialogRef}
                 style={{
@@ -406,13 +215,11 @@ const PublicationImage = ({ imageName, alt }) => {
                     margin: 'auto'
                 }}
                 onClick={(e) => {
-                    // Close dialog if clicking on dialog background
                     if (e.target === dialogRef.current) {
                         closeDialog();
                     }
                 }}
             >
-                {/* Close button */}
                 <button
                     onClick={closeDialog}
                     style={{
@@ -435,8 +242,6 @@ const PublicationImage = ({ imageName, alt }) => {
                 >
                     ✕
                 </button>
-
-                {/* Full-size image */}
                 <img
                     src={imgUrl}
                     alt={alt || `Full-size image for ${imageName}`}
@@ -453,7 +258,7 @@ const PublicationImage = ({ imageName, alt }) => {
     );
 };
 
-// Extra links component for below the image - simplified, transparent design
+// Extra links component
 const ExtraLinks = ({ links }) => {
     if (!links || Object.keys(links).length === 0) return null;
 
@@ -463,8 +268,6 @@ const ExtraLinks = ({ links }) => {
                 return <CodeIcon fontSize="small" />;
             case 'video':
                 return <VideoLibraryIcon fontSize="small" />;
-            case 'dataset':
-                return <StorageIcon fontSize="small" />;
             default:
                 return <LinkIcon fontSize="small" />;
         }
@@ -476,8 +279,6 @@ const ExtraLinks = ({ links }) => {
                 return 'GitHub';
             case 'video':
                 return 'Demo Video';
-            case 'dataset':
-                return 'Dataset';
             default:
                 return type.charAt(0).toUpperCase() + type.slice(1);
         }
@@ -525,7 +326,7 @@ const ExtraLinks = ({ links }) => {
     );
 };
 
-// Publication card component
+// Publication card component (reused from main page)
 const PublicationCard = ({ publication }) => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
@@ -656,10 +457,6 @@ const PublicationCard = ({ publication }) => {
                     sx={{
                         color: '#2D4059',
                         mb: 3,
-                        display: '-webkit-box',
-                        overflow: 'hidden',
-                        WebkitBoxOrient: 'vertical',
-                        WebkitLineClamp: 6,
                         lineHeight: 1.7,
                         fontSize: '0.95rem',
                         opacity: 0.9,
@@ -798,53 +595,12 @@ const PublicationCard = ({ publication }) => {
     );
 };
 
-export default function Publications({ showTitle = true, isStandalonePage = false }) {
+export default function AllPublications() {
     return (
-        <Box
-            id="publications"
-            sx={{
-                pt: isStandalonePage ? 0 : { xs: 4, md: 2 },
-                pb: { xs: 8, md: 10 },
-                background: isStandalonePage ? 'transparent' : 'linear-gradient(to bottom, #FFF3E8 0%, #F3E8F8 100%)',
-            }}
-        >
-            <Container maxWidth="lg">
-                {/* Section title - only show if showTitle is true */}
-                {showTitle && (
-                    <Box sx={{ mb: { xs: 4, md: 6 }, display: 'flex', alignItems: 'center', gap: 2 }}>
-                        <Typography
-                            variant="h3"
-                            component="h2"
-                            sx={{
-                                fontWeight: 800,
-                                color: '#2D4059',
-                                fontSize: { xs: '2rem', md: '2.5rem' },
-                                letterSpacing: '-0.02em',
-                                position: 'relative',
-                                '&::after': {
-                                    content: '""',
-                                    position: 'absolute',
-                                    bottom: '-8px',
-                                    left: 0,
-                                    width: '60px',
-                                    height: '4px',
-                                    background: 'linear-gradient(90deg, #FF6B35, #FF8C42)',
-                                    borderRadius: '2px'
-                                }
-                            }}
-                        >
-                            Selected Publications
-                        </Typography>
-                    </Box>
-                )}
-
-                {/* Publications List */}
-                <Box>
-                    {publicationsData.map((publication) => (
-                        <PublicationCard key={publication.id} publication={publication} />
-                    ))}
-                </Box>
-            </Container>
+        <Box>
+            {allPublicationsData.map((publication) => (
+                <PublicationCard key={publication.id} publication={publication} />
+            ))}
         </Box>
     );
 }
