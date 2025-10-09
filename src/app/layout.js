@@ -21,9 +21,20 @@ const sourceSans3 = Source_Sans_3({
 const clientSideEmotionCache = createEmotionCache();
 
 export default function RootLayout({ children, emotionCache = clientSideEmotionCache }) {
+  React.useEffect(() => {
+    // Update favicon dynamically
+    const link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+    link.type = 'image/png';
+    link.rel = 'icon';
+    link.href = '/Icons/aknlogo.png';
+    document.getElementsByTagName('head')[0].appendChild(link);
+
+    // Update title
+    document.title = 'Akshay K Nayak';
+  }, []);
+
   return (
     <html lang="en" className={sourceSans3.variable}>
-      <head />
       <body>
         <CacheProvider value={emotionCache}>
           <ThemeProvider theme={theme}>

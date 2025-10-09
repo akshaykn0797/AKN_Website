@@ -21,6 +21,20 @@ import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
 const allPublicationsData = [
     {
         id: 1,
+        title: "Examining Inclusive Computing Education for Blind Students in India",
+        venue: "ACM SIGCSE TS '26",
+        date: "February 2026",
+        authors: "Akshay Kolgar Nayak, Yash Prakash, Md Javedul Ferdous, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok",
+        abstract: "We examine the state of inclusive computing education for blind and visually impaired (BVI) students in India, a resource-constrained Global South context. Through an interview study with 15 BVI students, instructors, and professionals, we identify key challenges including inaccessible instructional materials, heavy reliance on peer support, and the cognitive burden of simultaneously learning computing concepts and screen readers. Our findings reveal gaps in curriculum and instructor training, which often confines BVI individuals to basic, non-developer job roles. We provide recommendations to restructure curricula and propose self-learning assistive tools to foster more equitable and accessible computing education.",
+        image: "csed",
+        links: {
+            pdf: "Papers/SIGCSE26.pdf",
+        },
+        extraLinks: {},
+        awards: [],
+    },
+    {
+        id: 2,
         title: "Insights in Adaptation: Examining Self-reflection Strategies of Job Seekers with Visual Impairments in India",
         venue: "ACM CSCW 2025",
         date: "October 2025",
@@ -34,7 +48,7 @@ const allPublicationsData = [
         awards: [],
     },
     {
-        id: 2,
+        id: 3,
         title: "Adapting Online Customer Reviews for Blind Users: A Case Study of Restaurant Reviews",
         venue: "ACM Web4All 2025",
         date: "April 2025",
@@ -51,7 +65,43 @@ const allPublicationsData = [
         }],
     },
     {
-        id: 3,
+        id: 4,
+        title: "Improving Usability of Data Charts in Multimodal Documents for Low Vision Users",
+        venue: "ACM ICMI",
+        date: "November 2024",
+        authors: "Yash Prakash, Akshay Kolgar Nayak, Shoaib Mohammed Alyaan, Pathan Aseef Khan, Hae-Na Lee, Vikas Ashok",
+        abstract: "Multimodal documents pairing charts with text create significant challenges for low vision screen magnifier users on smartphones, who struggle to mentally associate spatially separated information due to limited viewport and constant panning. Following a formative study with 10 low vision participants revealing key requirements, ChartSync transforms static charts into interactive slideshows featuring magnified views of salient data point combinations identified through LLaMA with Chain-of-Thought and ReAct prompting. Each slide includes tailored voice narration addressing the split-attention effect. Evaluation with 12 participants demonstrated significant improvements in task completion time, comprehension, and reduced cognitive load compared to standard screen magnifiers and existing solutions.",
+        image: "icmi24",
+        links: {
+            pdf: "Papers/icmi24.pdf",
+            doi: "https://doi.org/10.1145/3678957.3685714",
+        },
+        extraLinks: {
+            github: "https://github.com/accessodu/ChartSync.git",
+        },
+        awards: [],
+    },
+    {
+        id: 5,
+        title: "Understanding Low Vision Graphical Perception of Bar Charts",
+        venue: "ACM ASSETS",
+        date: "October 2024",
+        authors: "Yash Prakash, Akshay Kolgar Nayak, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok",
+        abstract: "Bar charts are ubiquitous for data representation, yet how low-vision screen magnifier users perceive them remains unexplored. Through four controlled experiments with 25 low-vision participants using a custom screen magnifier logger capturing zooming and panning behaviors, this study reveals critical differences from sighted user perception. Findings show low-vision users invest substantial effort counteracting blurring and contrast effects, with tall distractors significantly elevating error rates contrary to sighted user studies. Adjacent bars within single-column stacks prove harder to interpret than separated bars for some participants, while the \"blurring effect\" causes systematic height estimation errors. These insights inform future chart design guidelines accommodating low-vision needs.",
+        image: "assets24",
+        links: {
+            pdf: "Papers/assets24.pdf",
+            doi: "https://doi.org/10.1145/3663548.3675616",
+        },
+        extraLinks: {
+            github: "https://github.com/accessodu/LV_Graph_BarCharts.git",
+            presentation: "https://youtu.be/VYwg1kaJUos",
+            demo: "https://youtu.be/V7uOzCfy0rM"
+        },
+        awards: [],
+    },
+    {
+        id: 6,
         title: "Towards Enhancing Low Vision Usability of Data Charts on Smartphones",
         venue: "IEEE VIS (TVCG) 2025",
         date: "September 2024",
@@ -65,6 +115,41 @@ const allPublicationsData = [
         extraLinks: {
             github: "https://github.com/accessodu/GraphLite?tab=readme-ov-file",
             video: "https://youtu.be/QFw5QH7FwNY"
+        },
+        awards: [],
+    },
+    {
+        id: 7,
+        title: "Assessing the Accessibility and Usability of Web Archives for Blind Users",
+        venue: "TPDL 2024",
+        date: "September 2024",
+        authors: "Mohan Sunkara, Akshay Kolgar Nayak, Sandeep Kalari, Satwik Ram Kodandaram, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok",
+        abstract: "Web archives preserve digital history for researchers and the public, yet their accessibility for blind users remains unexplored. This study provides the first comprehensive evaluation of five prominent platforms (Wayback Machine, UK Web Archive, Pandora, Trove, Archive.today) through automated analysis of 223 pages and a user study with 10 blind participants. Critical barriers emerged including missing image alternatives, inadequate ARIA labeling, and inaccessible date-selection widgets. Participants averaged 8.21 minutes and 129 shortcuts per task, with Archive.today least accessible and UK Web Archive most usable, informing actionable design recommendations for developers.",
+        image: "tpdl24",
+        links: {
+            pdf: "Papers/tpdl24.pdf",
+            doi: "https://doi.org/10.1007/978-3-031-72437-4_12",
+        },
+        extraLinks: {
+            github: "https://github.com/accessodu/Web_Archives",
+        },
+        awards: [],
+    },
+    {
+        id: 8,
+        title: "All in One Place: Ensuring Usable Access to Online Shopping Items for Blind Users",
+        venue: "ACM EICS (PACMHCI)",
+        date: "June 2024",
+        authors: "Yash Prakash, Akshay Kolgar Nayak, Mohan Sunkara, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok",
+        abstract: "We present InstaFetch, a browser extension that transforms e-commerce accessibility for blind screen reader users by eliminating tedious navigation between product list and detail pages. InstaFetch provides a unified interface that consolidates descriptions, specifications, and reviews in one place using a custom Mask R-CNN model trained on 3,000 annotated webpages. Beyond information aggregation, it features natural language querying powered by LLaMA with Retrieval Augmented Generation, Chain-of-Thought, and ReAct prompting, enabling users to ask complex product questions and receive immediate contextual responses. In evaluations with 14 blind participants, InstaFetch significantly reduced interaction time, keyboard shortcuts, and cognitive workload while enabling exploration of substantially more products.",
+        image: "instafetch24",
+        links: {
+            pdf: "Papers/instafetch24.pdf",
+            doi: "https://doi.org/10.1145/3664639",
+        },
+        extraLinks: {
+            github: "https://github.com/accessodu/InstaFetch.git",
+            video: "https://youtu.be/D9drlAodlRw"
         },
         awards: [],
     },
@@ -135,6 +220,7 @@ const AwardBadge = ({ awards }) => {
 const PublicationImage = ({ imageName, alt }) => {
     const dialogRef = useRef(null);
     const imgUrl = `/Publications/${imageName}.png`;
+    const isAssets24 = imageName === 'assets24';
 
     const openDialog = () => {
         if (dialogRef.current) {
@@ -156,6 +242,7 @@ const PublicationImage = ({ imageName, alt }) => {
                     width: '100%',
                     height: '335px',
                     display: 'flex',
+                    flexDirection: isAssets24 ? 'column' : 'row',
                     justifyContent: 'center',
                     alignItems: 'center',
                     borderRadius: '12px',
@@ -168,17 +255,42 @@ const PublicationImage = ({ imageName, alt }) => {
                     }
                 }}
             >
-                <Box
-                    component="img"
-                    src={imgUrl}
-                    alt={alt || `Image for ${imageName}`}
-                    sx={{
-                        maxWidth: '100%',
-                        maxHeight: '100%',
-                        objectFit: 'contain',
-                        borderRadius: '12px'
-                    }}
-                />
+                {isAssets24 ? (
+                    <>
+                        <Box
+                            component="img"
+                            src="/Publications/assets24_1.png"
+                            alt={alt || `Image 1 for ${imageName}`}
+                            sx={{
+                                width: '100%',
+                                flex: 1,
+                                objectFit: 'contain',
+                            }}
+                        />
+                        <Box
+                            component="img"
+                            src="/Publications/assets24_2.png"
+                            alt={alt || `Image 2 for ${imageName}`}
+                            sx={{
+                                width: '100%',
+                                flex: 1,
+                                objectFit: 'contain',
+                            }}
+                        />
+                    </>
+                ) : (
+                    <Box
+                        component="img"
+                        src={imgUrl}
+                        alt={alt || `Image for ${imageName}`}
+                        sx={{
+                            maxWidth: '100%',
+                            maxHeight: '100%',
+                            objectFit: 'contain',
+                            borderRadius: '12px'
+                        }}
+                    />
+                )}
                 <Box
                     sx={{
                         position: 'absolute',
@@ -242,17 +354,42 @@ const PublicationImage = ({ imageName, alt }) => {
                 >
                     ✕
                 </button>
-                <img
-                    src={imgUrl}
-                    alt={alt || `Full-size image for ${imageName}`}
-                    style={{
-                        maxWidth: '100%',
-                        maxHeight: '80vh',
-                        objectFit: 'contain',
-                        display: 'block',
-                        margin: '0 auto'
-                    }}
-                />
+                {isAssets24 ? (
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center' }}>
+                        <img
+                            src="/Publications/assets24_1.png"
+                            alt={alt || `Full-size image 1 for ${imageName}`}
+                            style={{
+                                maxWidth: '100%',
+                                maxHeight: '40vh',
+                                objectFit: 'contain',
+                                display: 'block'
+                            }}
+                        />
+                        <img
+                            src="/Publications/assets24_2.png"
+                            alt={alt || `Full-size image 2 for ${imageName}`}
+                            style={{
+                                maxWidth: '100%',
+                                maxHeight: '40vh',
+                                objectFit: 'contain',
+                                display: 'block'
+                            }}
+                        />
+                    </div>
+                ) : (
+                    <img
+                        src={imgUrl}
+                        alt={alt || `Full-size image for ${imageName}`}
+                        style={{
+                            maxWidth: '100%',
+                            maxHeight: '80vh',
+                            objectFit: 'contain',
+                            display: 'block',
+                            margin: '0 auto'
+                        }}
+                    />
+                )}
             </dialog>
         </>
     );
@@ -267,6 +404,8 @@ const ExtraLinks = ({ links }) => {
             case 'github':
                 return <CodeIcon fontSize="small" />;
             case 'video':
+            case 'presentation':
+            case 'demo':
                 return <VideoLibraryIcon fontSize="small" />;
             default:
                 return <LinkIcon fontSize="small" />;
@@ -278,7 +417,11 @@ const ExtraLinks = ({ links }) => {
             case 'github':
                 return 'GitHub';
             case 'video':
-                return 'Demo Video';
+                return 'Demo';
+            case 'presentation':
+                return 'Presentation';
+            case 'demo':
+                return 'Demo';
             default:
                 return type.charAt(0).toUpperCase() + type.slice(1);
         }

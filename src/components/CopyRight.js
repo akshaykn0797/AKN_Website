@@ -22,6 +22,10 @@ export default function Copyright() {
                 <Link href="mailto:anaya001@odu.edu" color="inherit">
                     anaya001@odu.edu
                 </Link>
+                {' '}• Built with{' '}
+                <Link href="https://nextjs.org" target="_blank" rel="noopener noreferrer" color="inherit">
+                    Next.js
+                </Link>
             </Typography>
         </Box>
     );

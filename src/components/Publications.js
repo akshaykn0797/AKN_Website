@@ -31,6 +31,23 @@ import WebIcon from '@mui/icons-material/Web'; // Project link icon
 const publicationsData = [
     {
         id: 1,
+        title: "Examining Inclusive Computing Education for Blind Students in India",
+        venue: "ACM SIGCSE TS '26",
+        date: "February 2026",
+        authors: "Akshay Kolgar Nayak, Yash Prakash, Md Javedul Ferdous, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok",
+        abstract: "We examine the state of inclusive computing education for blind and visually impaired (BVI) students in India, a resource-constrained Global South context. Through an interview study with 15 BVI students, instructors, and professionals, we identify key challenges including inaccessible instructional materials, heavy reliance on peer support, and the cognitive burden of simultaneously learning computing concepts and screen readers. Our findings reveal gaps in curriculum and instructor training, which often confines BVI individuals to basic, non-developer job roles. We provide recommendations to restructure curricula and propose self-learning assistive tools to foster more equitable and accessible computing education.",
+        image: "csed",
+        color: "linear-gradient(135deg, #FFE8DC 0%, #FFF3E8 100%)",
+        textColor: "#2D4059",
+        links: {
+            pdf: "Papers/SIGCSE26.pdf",
+        },
+        extraLinks: {},
+        awards: [],
+        featured: true
+    },
+    {
+        id: 2,
         title: "Insights in Adaptation: Examining Self-reflection Strategies of Job Seekers with Visual Impairments in India",
         venue: "ACM CSCW 2025",
         date: "October 2025",
@@ -53,7 +70,7 @@ const publicationsData = [
         featured: true
     },
     {
-        id: 2,
+        id: 3,
         title: "Adapting Online Customer Reviews for Blind Users: A Case Study of Restaurant Reviews",
         venue: "ACM Web4All 2025",
         date: "April 2025",
@@ -77,7 +94,7 @@ const publicationsData = [
         featured: true
     },
     {
-        id: 3,
+        id: 4,
         title: "Towards Enhancing Low Vision Usability of Data Charts on Smartphones",
         venue: "IEEE VIS (TVCG) 2025",
         date: "September 2024",

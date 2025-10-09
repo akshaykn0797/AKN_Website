@@ -22,6 +22,15 @@ import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 const newsItems = [
     {
         id: 1,
+        date: 'September 15, 2025',
+        image: 'sigcse26', // Image filename in public/News folder
+        accentColor: '#4A90E2', // blue accent for SIGCSE
+        headline: 'Paper Accepted - SIGCSE TS 2026',
+        description: 'Our paper, "Examining Inclusive Computing Education for Blind Students in India," has been accepted for presentation at the ACM SIGCSE TS 2026.',
+        link: 'Papers/SIGCSE26.pdf'
+    },
+    {
+        id: 2,
         date: 'April 29, 2025',
         image: 'w4a25', // Image filename in public/News folder
         accentColor: '#FF6B35', // sunset coral accent
@@ -30,16 +39,16 @@ const newsItems = [
         link: 'https://www.w4a.info/2025/awards/'
     },
     {
-        id: 2,
-        date: 'April 29, 2025',
+        id: 3,
+        date: 'April 20, 2025',
         image: 'w4a25', // Image filename in public/News folder
         accentColor: '#FF8C42', // warm orange accent
-        headline: 'Paper Accepted - Web4All 2025',
-        description: 'Our paper, "AccessMenu: Enhancing the Usability of Online Restaurant Menus for Screen-Reader Users," was presented at ACM Web4All 2025 in Sydney, Australia.',
+        headline: '2 Papers Accepted - Web4All 2025',
+        description: 'Our papers "QuickCue and AccessMenu" have been accepted in the ACM Web4All 2025 conference and will be presented in Sydney, Australia.',
         link: 'Papers/accessMenu25.pdf'
     },
     {
-        id: 3,
+        id: 4,
         date: 'March 26, 2025',
         image: 'cscw25', // Image filename in public/News folder
         accentColor: '#A47BB0', // twilight lavender accent
@@ -48,7 +57,7 @@ const newsItems = [
         link: 'Papers/cscw25.pdf'
     },
     {
-        id: 4,
+        id: 5,
         date: 'January 20, 2025',
         image: 'odu', // Image filename in public/News folder
         accentColor: '#5A7CA1', // water blue accent
@@ -128,13 +137,13 @@ const NewsCard = ({ item }) => {
                         borderRadius: '12px',
                         background: `linear-gradient(135deg, ${item.accentColor}15, ${item.accentColor}08)`,
                         border: `2px solid ${item.accentColor}20`,
-                        padding: '8px',
-                        overflow: 'visible'
+                        padding: '6px',
+                        overflow: 'hidden'
                     }}>
                         <NewsImage
                             imageName={item.image}
                             alt={`Icon for ${item.headline}`}
-                            size={48}
+                            size={52}
                         />
                     </Box>
 

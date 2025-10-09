@@ -57,15 +57,18 @@ export default function AcademicPage() {
                     </Typography>
 
                     <Box sx={{
-                        backgroundColor: '#FFFFFF',
+                        background: 'rgba(255, 255, 255, 0.8)',
+                        backdropFilter: 'blur(10px)',
                         borderRadius: '12px',
                         p: { xs: 3, md: 4 },
                         boxShadow: '0 2px 8px rgba(45, 64, 89, 0.08)',
-                        border: '1px solid rgba(255, 107, 53, 0.15)',
+                        border: '1px solid rgba(255, 243, 232, 0.8)',
+                        borderLeft: '4px solid rgba(255, 214, 186, 0.9)',
                         transition: 'all 0.3s ease',
                         '&:hover': {
                             boxShadow: '0 4px 16px rgba(45, 64, 89, 0.12)',
-                            borderColor: 'rgba(255, 107, 53, 0.3)',
+                            borderLeftColor: 'rgba(255, 176, 136, 1)',
+                            transform: 'translateY(-2px)',
                         }
                     }}>
                         <Box sx={{ mb: 3 }}>
@@ -109,15 +112,18 @@ export default function AcademicPage() {
                     </Typography>
 
                     <Box sx={{
-                        backgroundColor: '#FFFFFF',
+                        background: 'rgba(255, 255, 255, 0.8)',
+                        backdropFilter: 'blur(10px)',
                         borderRadius: '12px',
                         p: { xs: 3, md: 4 },
                         boxShadow: '0 2px 8px rgba(45, 64, 89, 0.08)',
-                        border: '1px solid rgba(255, 107, 53, 0.15)',
+                        border: '1px solid rgba(255, 240, 235, 0.8)',
+                        borderLeft: '4px solid rgba(255, 210, 195, 0.9)',
                         transition: 'all 0.3s ease',
                         '&:hover': {
                             boxShadow: '0 4px 16px rgba(45, 64, 89, 0.12)',
-                            borderColor: 'rgba(255, 107, 53, 0.3)',
+                            borderLeftColor: 'rgba(255, 180, 155, 1)',
+                            transform: 'translateY(-2px)',
                         }
                     }}>
                         <Box sx={{ mb: 3 }}>
@@ -200,15 +206,18 @@ export default function AcademicPage() {
                     </Typography>
 
                     <Box sx={{
-                        backgroundColor: '#FFFFFF',
+                        background: 'rgba(255, 255, 255, 0.8)',
+                        backdropFilter: 'blur(10px)',
                         borderRadius: '12px',
                         p: { xs: 3, md: 4 },
                         boxShadow: '0 2px 8px rgba(45, 64, 89, 0.08)',
-                        border: '1px solid rgba(255, 107, 53, 0.15)',
+                        border: '1px solid rgba(252, 237, 240, 0.8)',
+                        borderLeft: '4px solid rgba(248, 215, 225, 0.9)',
                         transition: 'all 0.3s ease',
                         '&:hover': {
                             boxShadow: '0 4px 16px rgba(45, 64, 89, 0.12)',
-                            borderColor: 'rgba(255, 107, 53, 0.3)',
+                            borderLeftColor: 'rgba(243, 190, 210, 1)',
+                            transform: 'translateY(-2px)',
                         }
                     }}>
                         {[
@@ -253,15 +262,18 @@ export default function AcademicPage() {
                     </Typography>
 
                     <Box sx={{
-                        backgroundColor: '#FFFFFF',
+                        background: 'rgba(255, 255, 255, 0.8)',
+                        backdropFilter: 'blur(10px)',
                         borderRadius: '12px',
                         p: { xs: 3, md: 4 },
                         boxShadow: '0 2px 8px rgba(45, 64, 89, 0.08)',
-                        border: '1px solid rgba(255, 107, 53, 0.15)',
+                        border: '1px solid rgba(248, 235, 245, 0.8)',
+                        borderLeft: '4px solid rgba(240, 215, 235, 0.9)',
                         transition: 'all 0.3s ease',
                         '&:hover': {
                             boxShadow: '0 4px 16px rgba(45, 64, 89, 0.12)',
-                            borderColor: 'rgba(255, 107, 53, 0.3)',
+                            borderLeftColor: 'rgba(230, 190, 220, 1)',
+                            transform: 'translateY(-2px)',
                         }
                     }}>
                         <Box sx={{ mb: 3 }}>
@@ -311,15 +323,18 @@ export default function AcademicPage() {
                     </Typography>
 
                     <Box sx={{
-                        backgroundColor: '#FFFFFF',
+                        background: 'rgba(255, 255, 255, 0.8)',
+                        backdropFilter: 'blur(10px)',
                         borderRadius: '12px',
                         p: { xs: 3, md: 4 },
                         boxShadow: '0 2px 8px rgba(45, 64, 89, 0.08)',
-                        border: '1px solid rgba(255, 107, 53, 0.15)',
+                        border: '1px solid rgba(245, 235, 245, 0.8)',
+                        borderLeft: '4px solid rgba(235, 215, 240, 0.9)',
                         transition: 'all 0.3s ease',
                         '&:hover': {
                             boxShadow: '0 4px 16px rgba(45, 64, 89, 0.12)',
-                            borderColor: 'rgba(255, 107, 53, 0.3)',
+                            borderLeftColor: 'rgba(220, 190, 230, 1)',
+                            transform: 'translateY(-2px)',
                         }
                     }}>
                         <Box component="ul" sx={{
@@ -368,15 +383,18 @@ export default function AcademicPage() {
                     </Typography>
 
                     <Box sx={{
-                        backgroundColor: '#FFFFFF',
+                        background: 'rgba(255, 255, 255, 0.8)',
+                        backdropFilter: 'blur(10px)',
                         borderRadius: '12px',
                         p: { xs: 3, md: 4 },
                         boxShadow: '0 2px 8px rgba(45, 64, 89, 0.08)',
-                        border: '1px solid rgba(255, 107, 53, 0.15)',
+                        border: '1px solid rgba(243, 232, 248, 0.8)',
+                        borderLeft: '4px solid rgba(230, 210, 245, 0.9)',
                         transition: 'all 0.3s ease',
                         '&:hover': {
                             boxShadow: '0 4px 16px rgba(45, 64, 89, 0.12)',
-                            borderColor: 'rgba(255, 107, 53, 0.3)',
+                            borderLeftColor: 'rgba(215, 185, 235, 1)',
+                            transform: 'translateY(-2px)',
                         }
                     }}>
                         {[
