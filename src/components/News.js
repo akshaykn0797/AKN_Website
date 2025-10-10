@@ -36,7 +36,7 @@ const newsItems = [
         accentColor: '#1565C0', // Dark blue accent for SIGCSE
         headline: 'Paper Accepted - SIGCSE TS 2026',
         description: 'Our paper, "Examining Inclusive Computing Education for Blind Students in India," has been accepted for presentation at the ACM SIGCSE TS 2026.',
-        link: 'Papers/SIGCSE26.pdf'
+        link: 'Papers/sigcse26.pdf'
     },
     {
         id: 3,
