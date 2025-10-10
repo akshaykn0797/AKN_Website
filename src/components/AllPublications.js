@@ -30,13 +30,13 @@ const allPublicationsData = [
     {
         id: 1,
         title: "Understanding Online Discussion Experiences of Blind Screen Reader Users",
-        venue: "Elsevier IJHCS",
+        venue: "IJHCI",
         date: "2025",
         authors: "Md Javedul Ferdous, Akshay Kolgar Nayak, Yash Prakash, Nithiya Venkatraman, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok",
         abstract: "Online discussion platforms are vital for socializing and information exchange, yet blind screen reader users' conversational experiences remain largely unexplored. Through semi-structured interviews with blind participants active on Reddit, Facebook, and YouTube, we uncovered critical challenges including difficulty joining ongoing conversations, tracking replies to their posts, and comprehending context-dependent content. Participants expressed needs for text standardization, sub-thread summarization, and sub-conversation navigation links. They preferred longer context-rich posts and hierarchical organization over linear presentation. We discuss LLM-driven design solutions including semantic conversation disentanglement using chain-of-thought prompting, dynamic voice profiling for different posts, and intelligent summarization features to reduce cognitive load and enhance participation in online discussions.",
-        image: "ijhcs25",
+        image: "ijhci25",
         links: {
-            pdf: "Papers/ijhcs25.pdf",
+            pdf: "Papers/ijhci25.pdf",
         },
         extraLinks: {},
         awards: [],

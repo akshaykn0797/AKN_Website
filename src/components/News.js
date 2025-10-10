@@ -23,11 +23,11 @@ const newsItems = [
     {
         id: 1,
         date: 'October 9, 2025',
-        image: 'elsevier', // Image filename in public/News folder
+        image: 'taylorFrancis', // Image filename in public/News folder
         accentColor: '#1B5E20', // Dark green accent
-        headline: 'Paper Accepted - IJHCS Journal',
-        description: 'Our paper, "Understanding Online Discussion Experiences of Blind Screen Reader Users," has been accepted for publication in the IJHCS Journal, Elsevier.',
-        link: 'Papers/ijhcs25.pdf'
+        headline: 'Paper Accepted - IJHCI Journal',
+        description: 'Our paper, "Understanding Online Discussion Experiences of Blind Screen Reader Users," has been accepted for publication in the IJHCI Journal.',
+        link: 'Papers/ijhci25.pdf'
     },
     {
         id: 2,
