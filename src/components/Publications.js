@@ -2,6 +2,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import NextLink from 'next/link';
 import {
     Box,
     Container,
@@ -617,18 +618,18 @@ const PublicationCard = ({ publication }) => {
                     display: 'inline-flex',
                     alignItems: 'center',
                     mb: 2,
-                    backgroundColor: 'rgba(255, 107, 53, 0.1)',
+                    backgroundColor: 'rgba(21, 101, 192, 0.1)',
                     px: 2,
                     py: 1,
                     borderRadius: '12px',
                     width: 'fit-content',
-                    border: '1px solid rgba(255, 107, 53, 0.2)'
+                    border: '1px solid rgba(21, 101, 192, 0.2)'
                 }}>
-                    <SchoolIcon sx={{ fontSize: '1.1rem', mr: 1, color: '#FF6B35' }} />
+                    <SchoolIcon sx={{ fontSize: '1.1rem', mr: 1, color: '#1565C0' }} />
                     <Typography
                         variant="body2"
                         sx={{
-                            color: '#FF6B35',
+                            color: '#1565C0',
                             fontWeight: 700,
                             fontSize: '0.9rem',
                         }}
@@ -861,6 +862,45 @@ export default function Publications({ showTitle = true, isStandalonePage = fals
                         <PublicationCard key={publication.id} publication={publication} />
                     ))}
                 </Box>
+
+                {/* All Publications Link - only show on homepage */}
+                {!isStandalonePage && (
+                    <Box sx={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        mt: 6
+                    }}>
+                        <Button
+                            component={NextLink}
+                            href="/publications"
+                            variant="outlined"
+                            size="large"
+                            sx={{
+                                color: '#1565C0',
+                                borderColor: '#1565C0',
+                                borderWidth: '2px',
+                                borderRadius: '12px',
+                                px: 4,
+                                py: 1.5,
+                                fontSize: '1.05rem',
+                                fontWeight: 600,
+                                textTransform: 'none',
+                                boxShadow: '0 4px 12px rgba(21, 101, 192, 0.15)',
+                                transition: 'all 0.3s ease',
+                                '&:hover': {
+                                    backgroundColor: '#1565C0',
+                                    color: 'white',
+                                    borderColor: '#1565C0',
+                                    borderWidth: '2px',
+                                    transform: 'translateY(-2px)',
+                                    boxShadow: '0 6px 20px rgba(21, 101, 192, 0.25)',
+                                }
+                            }}
+                        >
+                            View All Publications →
+                        </Button>
+                    </Box>
+                )}
             </Container>
         </Box>
     );

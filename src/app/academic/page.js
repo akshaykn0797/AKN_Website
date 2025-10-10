@@ -9,13 +9,13 @@ export default function AcademicPage() {
             sx={{
                 minHeight: '100vh',
                 background: 'linear-gradient(to bottom, #FFF3E8 0%, #F3E8F8 100%)',
-                pt: { xs: 10, md: 12 },
+                pt: { xs: 3, md: 4 },
                 pb: { xs: 6, md: 8 },
             }}
         >
             <Container maxWidth="lg">
                 {/* Page Header */}
-                <Box sx={{ mb: { xs: 4, md: 6 }, pt: 4 }}>
+                <Box sx={{ mb: { xs: 4, md: 5 } }}>
                     <Typography
                         variant="h2"
                         component="h1"

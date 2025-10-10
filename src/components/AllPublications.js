@@ -1,7 +1,7 @@
 // src/components/AllPublications.js
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useRef, useState, useMemo } from 'react';
 import {
     Box,
     Typography,
@@ -9,7 +9,15 @@ import {
     Card,
     useTheme,
     useMediaQuery,
+    TextField,
+    InputAdornment,
+    Chip,
+    FormControl,
+    Select,
+    MenuItem,
 } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
+import FilterListIcon from '@mui/icons-material/FilterList';
 import SchoolIcon from '@mui/icons-material/School';
 import DescriptionIcon from '@mui/icons-material/Description';
 import LinkIcon from '@mui/icons-material/Link';
@@ -574,18 +582,18 @@ const PublicationCard = ({ publication }) => {
                     display: 'inline-flex',
                     alignItems: 'center',
                     mb: 2,
-                    backgroundColor: 'rgba(255, 107, 53, 0.1)',
+                    backgroundColor: 'rgba(21, 101, 192, 0.1)',
                     px: 2,
                     py: 1,
                     borderRadius: '12px',
                     width: 'fit-content',
-                    border: '1px solid rgba(255, 107, 53, 0.2)'
+                    border: '1px solid rgba(21, 101, 192, 0.2)'
                 }}>
-                    <SchoolIcon sx={{ fontSize: '1.1rem', mr: 1, color: '#FF6B35' }} />
+                    <SchoolIcon sx={{ fontSize: '1.1rem', mr: 1, color: '#1565C0' }} />
                     <Typography
                         variant="body2"
                         sx={{
-                            color: '#FF6B35',
+                            color: '#1565C0',
                             fontWeight: 700,
                             fontSize: '0.9rem',
                         }}
@@ -769,11 +777,216 @@ const PublicationCard = ({ publication }) => {
 };
 
 export default function AllPublications() {
+    const [searchQuery, setSearchQuery] = useState('');
+    const [selectedYear, setSelectedYear] = useState('all');
+    const [selectedVenue, setSelectedVenue] = useState('all');
+
+    // Extract unique years and venues
+    const years = useMemo(() => {
+        const yearSet = new Set();
+        allPublicationsData.forEach(pub => {
+            const year = pub.date.match(/\d{4}/)?.[0];
+            if (year) yearSet.add(year);
+        });
+        return ['all', ...Array.from(yearSet).sort((a, b) => b - a)];
+    }, []);
+
+    const venues = useMemo(() => {
+        const venueSet = new Set();
+        allPublicationsData.forEach(pub => {
+            // Extract main venue name (before year or special characters)
+            const venueName = pub.venue.replace(/\s*\d{4}.*$/, '').replace(/\s*'\d{2}$/, '').trim();
+            venueSet.add(venueName);
+        });
+        return ['all', ...Array.from(venueSet).sort()];
+    }, []);
+
+    // Filter publications based on search and filters
+    const filteredPublications = useMemo(() => {
+        return allPublicationsData.filter(pub => {
+            // Search filter (by title)
+            const matchesSearch = pub.title.toLowerCase().includes(searchQuery.toLowerCase());
+
+            // Year filter
+            const pubYear = pub.date.match(/\d{4}/)?.[0];
+            const matchesYear = selectedYear === 'all' || pubYear === selectedYear;
+
+            // Venue filter
+            const pubVenue = pub.venue.replace(/\s*\d{4}.*$/, '').replace(/\s*'\d{2}$/, '').trim();
+            const matchesVenue = selectedVenue === 'all' || pubVenue === selectedVenue;
+
+            return matchesSearch && matchesYear && matchesVenue;
+        });
+    }, [searchQuery, selectedYear, selectedVenue]);
+
+    const handleClearFilters = () => {
+        setSearchQuery('');
+        setSelectedYear('all');
+        setSelectedVenue('all');
+    };
+
+    const activeFiltersCount = [
+        searchQuery !== '',
+        selectedYear !== 'all',
+        selectedVenue !== 'all'
+    ].filter(Boolean).length;
+
     return (
         <Box>
-            {allPublicationsData.map((publication) => (
-                <PublicationCard key={publication.id} publication={publication} />
-            ))}
+            {/* Search and Filter Section */}
+            <Box sx={{
+                mb: 4,
+                p: 3,
+                backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                backdropFilter: 'blur(10px)',
+                borderRadius: '16px',
+                boxShadow: '0 2px 12px rgba(45, 64, 89, 0.08)',
+                border: '1px solid rgba(21, 101, 192, 0.1)',
+            }}>
+                {/* Search Bar */}
+                <TextField
+                    fullWidth
+                    placeholder="Search publications by title..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    InputProps={{
+                        startAdornment: (
+                            <InputAdornment position="start">
+                                <SearchIcon sx={{ color: '#5A7CA1' }} />
+                            </InputAdornment>
+                        ),
+                    }}
+                    sx={{
+                        mb: 3,
+                        '& .MuiOutlinedInput-root': {
+                            backgroundColor: 'white',
+                            borderRadius: '12px',
+                            '&:hover fieldset': {
+                                borderColor: '#1565C0',
+                            },
+                            '&.Mui-focused fieldset': {
+                                borderColor: '#1565C0',
+                            },
+                        },
+                    }}
+                />
+
+                {/* Filters Row */}
+                <Box sx={{
+                    display: 'flex',
+                    gap: 2,
+                    flexWrap: 'wrap',
+                    alignItems: 'center',
+                }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                        <FilterListIcon sx={{ color: '#5A7CA1' }} />
+                        <Typography sx={{ fontWeight: 600, color: '#2D4059' }}>
+                            Filters:
+                        </Typography>
+                    </Box>
+
+                    {/* Year Filter */}
+                    <FormControl size="small" sx={{ minWidth: 150 }}>
+                        <Select
+                            value={selectedYear}
+                            onChange={(e) => setSelectedYear(e.target.value)}
+                            sx={{
+                                borderRadius: '8px',
+                                backgroundColor: 'white',
+                                '&:hover': {
+                                    backgroundColor: 'rgba(21, 101, 192, 0.02)',
+                                },
+                            }}
+                        >
+                            {years.map(year => (
+                                <MenuItem key={year} value={year}>
+                                    {year === 'all' ? 'All Years' : year}
+                                </MenuItem>
+                            ))}
+                        </Select>
+                    </FormControl>
+
+                    {/* Venue Filter */}
+                    <FormControl size="small" sx={{ minWidth: 200 }}>
+                        <Select
+                            value={selectedVenue}
+                            onChange={(e) => setSelectedVenue(e.target.value)}
+                            sx={{
+                                borderRadius: '8px',
+                                backgroundColor: 'white',
+                                '&:hover': {
+                                    backgroundColor: 'rgba(21, 101, 192, 0.02)',
+                                },
+                            }}
+                        >
+                            {venues.map(venue => (
+                                <MenuItem key={venue} value={venue}>
+                                    {venue === 'all' ? 'All Conferences' : venue}
+                                </MenuItem>
+                            ))}
+                        </Select>
+                    </FormControl>
+
+                    {/* Active Filters Indicator & Clear Button */}
+                    {activeFiltersCount > 0 && (
+                        <>
+                            <Chip
+                                label={`${activeFiltersCount} filter${activeFiltersCount > 1 ? 's' : ''} active`}
+                                size="small"
+                                sx={{
+                                    backgroundColor: '#1565C0',
+                                    color: 'white',
+                                    fontWeight: 600,
+                                }}
+                            />
+                            <Button
+                                size="small"
+                                onClick={handleClearFilters}
+                                sx={{
+                                    textTransform: 'none',
+                                    color: '#5A7CA1',
+                                    '&:hover': {
+                                        color: '#1565C0',
+                                        backgroundColor: 'rgba(21, 101, 192, 0.05)',
+                                    },
+                                }}
+                            >
+                                Clear All
+                            </Button>
+                        </>
+                    )}
+                </Box>
+
+                {/* Results Count */}
+                <Typography sx={{
+                    mt: 2,
+                    color: '#5A7CA1',
+                    fontSize: '0.9rem',
+                    fontWeight: 500,
+                }}>
+                    Showing {filteredPublications.length} of {allPublicationsData.length} publications
+                </Typography>
+            </Box>
+
+            {/* Publications List */}
+            {filteredPublications.length > 0 ? (
+                filteredPublications.map((publication) => (
+                    <PublicationCard key={publication.id} publication={publication} />
+                ))
+            ) : (
+                <Box sx={{
+                    textAlign: 'center',
+                    py: 8,
+                    px: 3,
+                }}>
+                    <Typography variant="h6" sx={{ color: '#5A7CA1', mb: 1 }}>
+                        No publications found
+                    </Typography>
+                    <Typography sx={{ color: '#5A7CA1', opacity: 0.8 }}>
+                        Try adjusting your search or filters
+                    </Typography>
+                </Box>
+            )}
         </Box>
     );
 }

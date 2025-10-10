@@ -104,23 +104,57 @@ export default function NavBar() {
     const navButtonStyles = {
         color: '#2D4059',
         textTransform: 'none',
-        ml: 3,
-        fontSize: '1.1rem', // Increased font size here
-        padding: '6px 12px', // Added padding for better touch target
+        ml: { xs: 1.5, md: 2 },
+        fontSize: '0.98rem',
+        fontWeight: 500,
+        padding: '7px 16px',
+        borderRadius: '8px',
+        position: 'relative',
+        transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
+        '&::before': {
+            content: '""',
+            position: 'absolute',
+            bottom: -2,
+            left: '50%',
+            transform: 'translateX(-50%)',
+            width: '0%',
+            height: '2px',
+            background: 'linear-gradient(90deg, #1B5E20, #1565C0)',
+            borderRadius: '1px',
+            transition: 'width 0.3s ease',
+        },
         '&:hover': {
-            backgroundColor: 'rgba(255, 107, 53, 0.1)',
-            color: '#FF6B35',
+            backgroundColor: 'rgba(21, 101, 192, 0.05)',
+            color: '#1565C0',
+        },
+        '&:hover::before': {
+            width: '50%',
         }
     };
 
     // Mobile drawer content
     const mobileDrawer = (
         <Box
-            sx={{ width: 250 }}
+            sx={{
+                width: 270,
+                height: '100%',
+                backgroundColor: '#FFFFFF',
+                position: 'relative',
+                '&::before': {
+                    content: '""',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '3px',
+                    height: '100%',
+                    background: 'linear-gradient(180deg, #1B5E20 0%, #1565C0 50%, #5A7CA1 100%)',
+                    opacity: 0.6,
+                }
+            }}
             role="presentation"
             onKeyDown={toggleDrawer(false)}
         >
-            <List>
+            <List sx={{ pt: 2.5, px: 1.5 }}>
                 {navItems.map((item) => {
                     // Item with submenu
                     if (item.children) {
@@ -131,12 +165,21 @@ export default function NavBar() {
                                     onClick={() => handleMobileSubmenu(item.label)}
                                     aria-expanded={openMobileSubmenu === item.label}
                                     aria-controls={`submenu-${item.label}`}
+                                    sx={{
+                                        borderRadius: '10px',
+                                        mb: 0.75,
+                                        backgroundColor: item.children.some(child => isActive(child.href)) ? 'rgba(21, 101, 192, 0.08)' : 'transparent',
+                                        '&:hover': {
+                                            backgroundColor: 'rgba(21, 101, 192, 0.06)',
+                                        }
+                                    }}
                                 >
                                     <ListItemText
                                         primary={item.label}
                                         primaryTypographyProps={{
-                                            fontWeight: item.children.some(child => isActive(child.href)) ? 700 : 500,
-                                            fontSize: '1.1rem' // Increased font size here too
+                                            fontWeight: item.children.some(child => isActive(child.href)) ? 600 : 500,
+                                            fontSize: '1.05rem',
+                                            color: item.children.some(child => isActive(child.href)) ? '#1565C0' : '#2D4059',
                                         }}
                                     />
                                     {openMobileSubmenu === item.label ? <ExpandLess /> : <ExpandMore />}
@@ -153,14 +196,24 @@ export default function NavBar() {
                                                     if (child.anchorId) handleScroll(child.anchorId);
                                                     setDrawerOpen(false);
                                                 }}
-                                                sx={{ pl: 4 }}
+                                                sx={{
+                                                    pl: 4,
+                                                    borderRadius: '8px',
+                                                    mx: 0.75,
+                                                    mb: 0.5,
+                                                    backgroundColor: isActive(child.href) ? 'rgba(21, 101, 192, 0.1)' : 'transparent',
+                                                    '&:hover': {
+                                                        backgroundColor: 'rgba(21, 101, 192, 0.08)',
+                                                    }
+                                                }}
                                                 selected={isActive(child.href)}
                                             >
                                                 <ListItemText
                                                     primary={child.label}
                                                     primaryTypographyProps={{
-                                                        fontWeight: isActive(child.href) ? 700 : 500,
-                                                        fontSize: '1rem' // Increased font size for submenu items
+                                                        fontWeight: isActive(child.href) ? 600 : 500,
+                                                        fontSize: '0.95rem',
+                                                        color: isActive(child.href) ? '#1565C0' : '#2D4059',
                                                     }}
                                                 />
                                             </ListItem>
@@ -183,12 +236,21 @@ export default function NavBar() {
                                 setDrawerOpen(false);
                             }}
                             selected={isActive(item.href)}
+                            sx={{
+                                borderRadius: '10px',
+                                mb: 0.75,
+                                backgroundColor: isActive(item.href) ? 'rgba(21, 101, 192, 0.08)' : 'transparent',
+                                '&:hover': {
+                                    backgroundColor: 'rgba(21, 101, 192, 0.06)',
+                                }
+                            }}
                         >
                             <ListItemText
                                 primary={item.label}
                                 primaryTypographyProps={{
-                                    fontWeight: isActive(item.href) ? 700 : 500,
-                                    fontSize: '1.1rem' // Increased font size here too
+                                    fontWeight: isActive(item.href) ? 600 : 500,
+                                    fontSize: '1.05rem',
+                                    color: isActive(item.href) ? '#1565C0' : '#2D4059',
                                 }}
                             />
                         </ListItem>
@@ -200,17 +262,27 @@ export default function NavBar() {
 
     return (
         <div suppressHydrationWarning>
-            <AppBar position="fixed" elevation={0} sx={{
-                bgcolor: '#FFF8F3',
-                backgroundImage: 'none',
-                borderBottom: '1px solid rgba(255, 107, 53, 0.1)',
-                backdropFilter: 'blur(10px)',
-                backgroundColor: 'rgba(255, 248, 243, 0.95)',
-                zIndex: 1100
+            <AppBar position="sticky" elevation={0} sx={{
+                top: 0,
+                background: 'linear-gradient(135deg, rgba(255, 250, 245, 0.98) 0%, rgba(255, 248, 243, 0.98) 100%)',
+                backdropFilter: 'blur(20px) saturate(180%)',
+                borderBottom: '1px solid rgba(90, 124, 161, 0.15)',
+                boxShadow: '0 2px 16px rgba(45, 64, 89, 0.06), 0 1px 0 rgba(255, 255, 255, 0.8) inset',
+                zIndex: 1100,
+                '&::after': {
+                    content: '""',
+                    position: 'absolute',
+                    bottom: -1,
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    width: '85%',
+                    height: '1px',
+                    background: 'linear-gradient(90deg, transparent 0%, rgba(90, 124, 161, 0.2) 50%, transparent 100%)',
+                }
             }}>
-                <Toolbar sx={{ justifyContent: 'space-between', py: 1 }}> {/* Added padding to make navbar taller */}
+                <Toolbar sx={{ justifyContent: 'space-between', py: 1.8, px: { xs: 2, md: 4 } }}>
                     {/* Left: name+tag */}
-                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                         <Typography
                             component={NextLink}
                             href="/"
@@ -219,20 +291,48 @@ export default function NavBar() {
                                 color: '#2D4059',
                                 textDecoration: 'none',
                                 fontWeight: 700,
+                                letterSpacing: '-0.01em',
+                                fontSize: { xs: '1.4rem', md: '1.6rem' },
+                                transition: 'all 0.25s ease',
+                                position: 'relative',
+                                '&:hover': {
+                                    color: '#1565C0',
+                                }
                             }}
                         >
                             Akshay K Nayak
                         </Typography>
-                        <Typography
-                            variant="subtitle1"
+                        <Box
                             sx={{
-                                color: '#5A7CA1',
-                                ml: 2,
-                                display: { xs: 'none', sm: 'block' }
+                                display: { xs: 'none', sm: 'flex' },
+                                alignItems: 'center',
+                                gap: 1.5,
+                                position: 'relative',
+                                '&::before': {
+                                    content: '""',
+                                    position: 'absolute',
+                                    left: -12,
+                                    top: '50%',
+                                    transform: 'translateY(-50%)',
+                                    width: '2px',
+                                    height: '24px',
+                                    background: 'linear-gradient(180deg, transparent, #5A7CA1, transparent)',
+                                    opacity: 0.3,
+                                }
                             }}
                         >
-                            Researcher, Engineer
-                        </Typography>
+                            <Typography
+                                variant="subtitle1"
+                                sx={{
+                                    color: '#5A7CA1',
+                                    fontWeight: 500,
+                                    fontSize: '0.95rem',
+                                    opacity: 0.9,
+                                }}
+                            >
+                                Researcher, Engineer
+                            </Typography>
+                        </Box>
                     </Box>
 
                     {/* Mobile menu icon - only render after mount */}
@@ -242,9 +342,20 @@ export default function NavBar() {
                             aria-label="open drawer"
                             edge="end"
                             onClick={toggleDrawer(true)}
-                            sx={{ color: '#2D4059' }}
+                            sx={{
+                                color: '#2D4059',
+                                backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                                border: '1px solid rgba(45, 64, 89, 0.1)',
+                                borderRadius: '10px',
+                                boxShadow: '0 2px 8px rgba(45, 64, 89, 0.06)',
+                                '&:hover': {
+                                    backgroundColor: 'rgba(21, 101, 192, 0.05)',
+                                    borderColor: 'rgba(21, 101, 192, 0.2)',
+                                },
+                                transition: 'all 0.25s ease',
+                            }}
                         >
-                            <MenuIcon fontSize="large" /> {/* Increased icon size */}
+                            <MenuIcon />
                         </IconButton>
                     )}
 
@@ -264,7 +375,14 @@ export default function NavBar() {
                                                 aria-controls={openMenuKey === item.label ? 'menu-list' : undefined}
                                                 sx={{
                                                     ...navButtonStyles,
-                                                    fontWeight: item.children.some(child => isActive(child.href)) ? 700 : 500,
+                                                    fontWeight: item.children.some(child => isActive(child.href)) ? 600 : 500,
+                                                    ...(item.children.some(child => isActive(child.href)) && {
+                                                        color: '#1565C0',
+                                                        backgroundColor: 'rgba(21, 101, 192, 0.06)',
+                                                        '&::before': {
+                                                            width: '50%',
+                                                        }
+                                                    })
                                                 }}
                                             >
                                                 {item.label}
@@ -279,6 +397,26 @@ export default function NavBar() {
                                                 MenuListProps={{
                                                     'aria-labelledby': 'basic-button',
                                                 }}
+                                                sx={{
+                                                    '& .MuiPaper-root': {
+                                                        borderRadius: '12px',
+                                                        boxShadow: '0 4px 20px rgba(45, 64, 89, 0.1), 0 0 0 1px rgba(21, 101, 192, 0.06)',
+                                                        mt: 1,
+                                                        backdropFilter: 'blur(12px)',
+                                                        backgroundColor: 'rgba(255, 255, 255, 0.98)',
+                                                        overflow: 'hidden',
+                                                        '&::before': {
+                                                            content: '""',
+                                                            position: 'absolute',
+                                                            top: 0,
+                                                            left: 0,
+                                                            right: 0,
+                                                            height: '2px',
+                                                            background: 'linear-gradient(90deg, #1B5E20, #1565C0, #5A7CA1)',
+                                                            opacity: 0.4,
+                                                        }
+                                                    }
+                                                }}
                                             >
                                                 {item.children.map((sub) => (
                                                     <MenuItem
@@ -291,9 +429,19 @@ export default function NavBar() {
                                                         }}
                                                         sx={{
                                                             textTransform: 'none',
-                                                            fontWeight: isActive(sub.href) ? 700 : 500,
-                                                            fontSize: '1rem', // Increased font size for dropdown items
-                                                            backgroundColor: isActive(sub.href) ? 'rgba(0, 0, 0, 0.04)' : 'transparent',
+                                                            fontWeight: isActive(sub.href) ? 600 : 500,
+                                                            fontSize: '0.95rem',
+                                                            py: 1.25,
+                                                            px: 2,
+                                                            borderRadius: '6px',
+                                                            mx: 0.75,
+                                                            my: 0.4,
+                                                            backgroundColor: isActive(sub.href) ? 'rgba(21, 101, 192, 0.08)' : 'transparent',
+                                                            color: isActive(sub.href) ? '#1565C0' : '#2D4059',
+                                                            '&:hover': {
+                                                                backgroundColor: 'rgba(21, 101, 192, 0.06)',
+                                                                color: '#1565C0',
+                                                            }
                                                         }}
                                                     >
                                                         {sub.label}
@@ -328,7 +476,14 @@ export default function NavBar() {
                                         href={item.href}
                                         sx={{
                                             ...navButtonStyles,
-                                            fontWeight: isActive(item.href) ? 700 : 500,
+                                            fontWeight: isActive(item.href) ? 600 : 500,
+                                            ...(isActive(item.href) && {
+                                                color: '#1565C0',
+                                                backgroundColor: 'rgba(21, 101, 192, 0.06)',
+                                                '&::before': {
+                                                    width: '50%',
+                                                }
+                                            })
                                         }}
                                     >
                                         {item.label}

@@ -99,7 +99,7 @@ export default function About() {
                                                 right: '-8px',
                                                 bottom: '-8px',
                                                 borderRadius: '24px',
-                                                background: 'linear-gradient(135deg, #FF6B3520, #5A7CA120)',
+                                                background: 'linear-gradient(135deg, #1B5E2020, #5A7CA120)',
                                                 zIndex: 0,
                                             }}
                                         />
@@ -149,13 +149,13 @@ export default function About() {
                                                 display: 'inline-flex',
                                                 alignItems: 'center',
                                                 gap: 0.5,
-                                                color: '#FF6B35',
+                                                color: '#1B5E20',
                                                 textDecoration: 'none',
                                                 fontWeight: 600,
                                                 fontSize: '0.9rem',
                                                 transition: 'all 0.2s ease',
                                                 '&:hover': {
-                                                    color: '#FF8C42',
+                                                    color: '#2E7D32',
                                                     transform: 'translateX(2px)',
                                                 }
                                             }}
@@ -207,15 +207,15 @@ export default function About() {
                                                 justifyContent: 'center',
                                                 borderRadius: '50%',
                                                 backgroundColor: 'rgba(255, 255, 255, 0.8)',
-                                                color: '#FF6B35',
+                                                color: '#1B5E20',
                                                 backdropFilter: 'blur(10px)',
-                                                boxShadow: '0 2px 8px rgba(255, 107, 53, 0.15)',
+                                                boxShadow: '0 2px 8px rgba(27, 94, 32, 0.15)',
                                                 transition: 'all 0.3s ease',
                                                 '&:hover': {
-                                                    backgroundColor: '#FF6B35',
+                                                    backgroundColor: '#1B5E20',
                                                     color: 'white',
                                                     transform: 'translateY(-3px) scale(1.05)',
-                                                    boxShadow: '0 6px 16px rgba(255, 107, 53, 0.3)'
+                                                    boxShadow: '0 6px 16px rgba(27, 94, 32, 0.3)'
                                                 }
                                             }}
                                         >
@@ -332,7 +332,7 @@ export default function About() {
                                             sx={{
                                                 flex: 1,
                                                 height: '3px',
-                                                background: 'linear-gradient(90deg, #FF6B35, transparent)',
+                                                background: 'linear-gradient(90deg, #1B5E20, transparent)',
                                                 borderRadius: '2px'
                                             }}
                                         />
@@ -353,7 +353,7 @@ export default function About() {
                                                 href="https://www.odu.edu/"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                sx={{ color: '#FF6B35', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline', color: '#FF8C42' } }}
+                                                sx={{ color: '#1B5E20', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline', color: '#2E7D32' } }}
                                             >
                                                 Old Dominion University
                                             </Link>
@@ -362,7 +362,7 @@ export default function About() {
                                                 href="https://www.cs.odu.edu/~vashok/Lab/index.html"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                sx={{ color: '#FF6B35', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline', color: '#FF8C42' } }}
+                                                sx={{ color: '#1B5E20', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline', color: '#2E7D32' } }}
                                             >
                                                 Accessible Computing Lab
                                             </Link>
@@ -371,11 +371,11 @@ export default function About() {
                                                 href="https://www.cs.odu.edu/~vashok/"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                sx={{ color: '#FF6B35', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline', color: '#FF8C42' } }}
+                                                sx={{ color: '#1B5E20', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline', color: '#2E7D32' } }}
                                             >
                                                 Dr. Vikas Ashok
                                             </Link>
-                                            . His interdisciplinary work bridges Human-Centered AI, Accessibility, Usability, Eye Tracking, and Social Computing, with a focus on developing intelligent solutions to improve the usability and accessibility of digital technologies. He has conducted research across various domains, including data visualizations, e-commerce platforms, user-generated content (such as discussion forums and reviews), web archives, and social computing systems. His most recent research focuses on adapting technologies originally developed in affluent settings to support reliable information access for resource-constrained populations, and on designing eye-tracking-based solutions to enhance the usability of dynamic digital content for individuals with low vision. His work has been published in top-tier HCI venues such as CSCW, IEEE VIS (TVCG), ASSETS, ICMI, and EICS (PACMHCI).
+                                            . His interdisciplinary work bridges Human-Centered AI, Accessibility, Usability, Eye Tracking, and Social Computing, with a focus on developing intelligent solutions to improve the usability and accessibility of digital technologies. He has conducted research across various domains, including data visualizations, e-commerce platforms, user-generated content (such as discussion forums and reviews), web archives, and social computing systems. His most recent research focuses on adapting technologies originally developed in affluent settings to support reliable information access for resource-constrained populations, and on designing eye-tracking-based solutions to enhance the usability of dynamic digital content for individuals with low vision. His work has been published in top-tier HCI venues such as CSCW, SIGCSE TS, IEEE VIS (TVCG), IJHCS, ASSETS, ICMI, and EICS (PACMHCI).
                                         </Typography>
 
                                         <Typography
@@ -392,7 +392,7 @@ export default function About() {
                                                 href="https://vtu.ac.in/"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                sx={{ color: '#FF6B35', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline', color: '#FF8C42' } }}
+                                                sx={{ color: '#1B5E20', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline', color: '#2E7D32' } }}
                                             >
                                                 Visvesvaraya Technological University (VTU)
                                             </Link>
@@ -401,7 +401,7 @@ export default function About() {
                                                 href="https://www.cs.odu.edu/~vashok/Lab/index.html"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                sx={{ color: '#FF6B35', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline', color: '#FF8C42' } }}
+                                                sx={{ color: '#1B5E20', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline', color: '#2E7D32' } }}
                                             >
                                                 HandsOn Lab
                                             </Link>
@@ -410,7 +410,7 @@ export default function About() {
                                                 href="https://www.lseg.com/"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                sx={{ color: '#FF6B35', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline', color: '#FF8C42' } }}
+                                                sx={{ color: '#1B5E20', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline', color: '#2E7D32' } }}
                                             >
                                                 London Stock Exchange Group (LSEG)
                                             </Link>
@@ -419,7 +419,7 @@ export default function About() {
                                                 href="https://www.betanxt.com/"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                sx={{ color: '#FF6B35', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline', color: '#FF8C42' } }}
+                                                sx={{ color: '#1B5E20', fontWeight: 600, textDecoration: 'none', '&:hover': { textDecoration: 'underline', color: '#2E7D32' } }}
                                             >
                                                 BetaNXT
                                             </Link>
@@ -440,7 +440,7 @@ export default function About() {
                                                     top: 0,
                                                     bottom: 0,
                                                     width: '4px',
-                                                    background: 'linear-gradient(180deg, #FF6B35, #FF8C42)',
+                                                    background: 'linear-gradient(180deg, #1B5E20, #2E7D32)',
                                                     borderRadius: '2px'
                                                 }
                                             }}
