@@ -22,45 +22,54 @@ import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 const newsItems = [
     {
         id: 1,
+        date: 'October 9, 2025',
+        image: 'elsevier', // Image filename in public/News folder
+        accentColor: '#1B5E20', // Dark green accent
+        headline: 'Paper Accepted - IJHCS Journal',
+        description: 'Our paper, "Understanding Online Discussion Experiences of Blind Screen Reader Users," has been accepted for publication in the IJHCS Journal, Elsevier.',
+        link: 'Papers/ijhcs25.pdf'
+    },
+    {
+        id: 2,
         date: 'September 15, 2025',
         image: 'sigcse26', // Image filename in public/News folder
-        accentColor: '#4A90E2', // blue accent for SIGCSE
+        accentColor: '#1565C0', // Dark blue accent for SIGCSE
         headline: 'Paper Accepted - SIGCSE TS 2026',
         description: 'Our paper, "Examining Inclusive Computing Education for Blind Students in India," has been accepted for presentation at the ACM SIGCSE TS 2026.',
         link: 'Papers/SIGCSE26.pdf'
     },
     {
-        id: 2,
+        id: 3,
         date: 'April 29, 2025',
         image: 'w4a25', // Image filename in public/News folder
-        accentColor: '#FF6B35', // sunset coral accent
+        accentColor: '#C62828', // Deep red accent
         headline: 'Best Paper - Web4All 2025',
         description: 'Our Paper "Adapting Online Customer Reviews for Blind Users: A Case Study of Restaurant Reviews" received a  🏆 Best Paper Award at Web4All 2025!',
         link: 'https://www.w4a.info/2025/awards/'
     },
     {
-        id: 3,
+        id: 4,
         date: 'April 20, 2025',
         image: 'w4a25', // Image filename in public/News folder
-        accentColor: '#FF8C42', // warm orange accent
+        accentColor: '#6A1B9A', // Deep purple accent
         headline: '2 Papers Accepted - Web4All 2025',
         description: 'Our papers "QuickCue and AccessMenu" have been accepted in the ACM Web4All 2025 conference and will be presented in Sydney, Australia.',
         link: 'Papers/accessMenu25.pdf'
     },
     {
-        id: 4,
+        id: 5,
         date: 'March 26, 2025',
         image: 'cscw25', // Image filename in public/News folder
-        accentColor: '#A47BB0', // twilight lavender accent
+        accentColor: '#D84315', // Deep orange-red accent
         headline: 'Paper Accepted - ACM CSCW 2025',
         description: 'Our paper, "Insights in Adaptation: Examining Self-reflection Strategies of Job Seekers with Visual Impairments in India," has been accepted for presentation at the ACM CSCW Conference.',
         link: 'Papers/cscw25.pdf'
     },
     {
-        id: 5,
+        id: 6,
         date: 'January 20, 2025',
         image: 'odu', // Image filename in public/News folder
-        accentColor: '#5A7CA1', // water blue accent
+        accentColor: '#01579B', // Deep ocean blue accent
         headline: 'Awarded Dr. Hussein Abdel-Wahab Memorial Graduate Fellowship',
         description: 'Honored to receive ODU\'s Dr. Hussein Abdel-Wahab Memorial Graduate Fellowship, celebrating his pioneering CS legacy and supporting my continued research excellence.',
         link: 'https://www.odu.edu/computer-science/scholarships/wahab'
@@ -69,10 +78,13 @@ const newsItems = [
 
 // Image component with improved handling
 const NewsImage = ({ imageName, alt, size = 56 }) => {
+    // Use .svg for elsevier, .png for others
+    const extension = imageName === 'elsevier' ? 'svg' : 'png';
+
     return (
         <Box
             component="img"
-            src={`/News/${imageName}.png`}
+            src={`/News/${imageName}.${extension}`}
             alt={alt || `Icon for ${imageName}`}
             sx={{
                 width: size,

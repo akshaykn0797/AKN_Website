@@ -81,7 +81,7 @@ const publicationsData = [
         textColor: "#2D4059", // Deep water blue
         links: {
             pdf: "Papers/quickCue.pdf",
-            // doi: "https://doi.org/10.1145/3487553.3524255",
+            doi: "https://doi.org/10.1145/3744257.3744276",
             // project: "https://example.com/accessmenu"
         },
         extraLinks: {

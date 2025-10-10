@@ -21,6 +21,20 @@ import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
 const allPublicationsData = [
     {
         id: 1,
+        title: "Understanding Online Discussion Experiences of Blind Screen Reader Users",
+        venue: "Elsevier IJHCS",
+        date: "2025",
+        authors: "Md Javedul Ferdous, Akshay Kolgar Nayak, Yash Prakash, Nithiya Venkatraman, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok",
+        abstract: "Online discussion platforms are vital for socializing and information exchange, yet blind screen reader users' conversational experiences remain largely unexplored. Through semi-structured interviews with blind participants active on Reddit, Facebook, and YouTube, we uncovered critical challenges including difficulty joining ongoing conversations, tracking replies to their posts, and comprehending context-dependent content. Participants expressed needs for text standardization, sub-thread summarization, and sub-conversation navigation links. They preferred longer context-rich posts and hierarchical organization over linear presentation. We discuss LLM-driven design solutions including semantic conversation disentanglement using chain-of-thought prompting, dynamic voice profiling for different posts, and intelligent summarization features to reduce cognitive load and enhance participation in online discussions.",
+        image: "ijhcs25",
+        links: {
+            pdf: "Papers/ijhcs25.pdf",
+        },
+        extraLinks: {},
+        awards: [],
+    },
+    {
+        id: 2,
         title: "Examining Inclusive Computing Education for Blind Students in India",
         venue: "ACM SIGCSE TS '26",
         date: "February 2026",
@@ -34,7 +48,7 @@ const allPublicationsData = [
         awards: [],
     },
     {
-        id: 2,
+        id: 3,
         title: "Insights in Adaptation: Examining Self-reflection Strategies of Job Seekers with Visual Impairments in India",
         venue: "ACM CSCW 2025",
         date: "October 2025",
@@ -48,7 +62,22 @@ const allPublicationsData = [
         awards: [],
     },
     {
-        id: 3,
+        id: 4,
+        title: "AccessMenu: Enhancing Usability of Online Restaurant Menus for Screen Reader Users",
+        venue: "ACM Web4All",
+        date: "April 2025",
+        authors: "Nithiya Venkatraman*, Akshay Kolgar Nayak*, Suyog Dahal, Yash Prakash, Hae-Na Lee, Vikas Ashok",
+        abstract: "Visual restaurant menus in PDF and image formats create substantial barriers for blind screen reader users ordering food online. An interview study with 12 BVI participants revealed that current OCR tools produce illogically ordered outputs, contextual hallucinations, and legend misinterpretations. AccessMenu addresses these issues through a browser extension leveraging GPT-4o-mini with custom Chain-of-Thought prompting to extract menu content (0.80 Entity F1) and re-render it in linearly navigable HTML. The system supports natural language queries for efficient menu filtering. Evaluation with 10 blind participants demonstrated significant improvements in usability and reduced task workload versus JAWS OCR, with participants covering twice as many menu items.",
+        image: "accessMenu25",
+        links: {
+            pdf: "Papers/accessMenu25.pdf",
+            doi: "https://doi.org/10.1145/3744257.3744275",
+        },
+        extraLinks: {},
+        awards: [],
+    },
+    {
+        id: 5,
         title: "Adapting Online Customer Reviews for Blind Users: A Case Study of Restaurant Reviews",
         venue: "ACM Web4All 2025",
         date: "April 2025",
@@ -57,6 +86,7 @@ const allPublicationsData = [
         image: "quickCue",
         links: {
             pdf: "Papers/quickCue.pdf",
+            doi: "https://doi.org/10.1145/3744257.3744276",
         },
         extraLinks: {},
         awards: [{
@@ -65,7 +95,7 @@ const allPublicationsData = [
         }],
     },
     {
-        id: 4,
+        id: 6,
         title: "Improving Usability of Data Charts in Multimodal Documents for Low Vision Users",
         venue: "ACM ICMI",
         date: "November 2024",
@@ -82,7 +112,7 @@ const allPublicationsData = [
         awards: [],
     },
     {
-        id: 5,
+        id: 7,
         title: "Understanding Low Vision Graphical Perception of Bar Charts",
         venue: "ACM ASSETS",
         date: "October 2024",
@@ -101,7 +131,7 @@ const allPublicationsData = [
         awards: [],
     },
     {
-        id: 6,
+        id: 8,
         title: "Towards Enhancing Low Vision Usability of Data Charts on Smartphones",
         venue: "IEEE VIS (TVCG) 2025",
         date: "September 2024",
@@ -119,7 +149,7 @@ const allPublicationsData = [
         awards: [],
     },
     {
-        id: 7,
+        id: 9,
         title: "Assessing the Accessibility and Usability of Web Archives for Blind Users",
         venue: "TPDL 2024",
         date: "September 2024",
@@ -136,7 +166,7 @@ const allPublicationsData = [
         awards: [],
     },
     {
-        id: 8,
+        id: 10,
         title: "All in One Place: Ensuring Usable Access to Online Shopping Items for Blind Users",
         venue: "ACM EICS (PACMHCI)",
         date: "June 2024",
