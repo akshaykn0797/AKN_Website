@@ -262,8 +262,10 @@ export default function NavBar() {
 
     return (
         <div suppressHydrationWarning>
-            <AppBar position="sticky" elevation={0} sx={{
+            <AppBar position="fixed" elevation={0} sx={{
                 top: 0,
+                left: 0,
+                right: 0,
                 background: 'linear-gradient(135deg, rgba(255, 250, 245, 0.98) 0%, rgba(255, 248, 243, 0.98) 100%)',
                 backdropFilter: 'blur(20px) saturate(180%)',
                 borderBottom: '1px solid rgba(90, 124, 161, 0.15)',

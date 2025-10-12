@@ -9,7 +9,7 @@ export default function AcademicPage() {
             sx={{
                 minHeight: '100vh',
                 background: 'linear-gradient(to bottom, #FFF3E8 0%, #F3E8F8 100%)',
-                pt: { xs: 3, md: 4 },
+                pt: { xs: 12, md: 12 },
                 pb: { xs: 6, md: 8 },
             }}
         >

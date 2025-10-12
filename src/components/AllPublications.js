@@ -17,7 +17,6 @@ import {
     MenuItem,
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import FilterListIcon from '@mui/icons-material/FilterList';
 import SchoolIcon from '@mui/icons-material/School';
 import DescriptionIcon from '@mui/icons-material/Description';
 import LinkIcon from '@mui/icons-material/Link';
@@ -833,139 +832,198 @@ export default function AllPublications() {
 
     return (
         <Box>
-            {/* Search and Filter Section */}
+            {/* Modern Search and Filter Section */}
             <Box sx={{
-                mb: 4,
-                p: 3,
-                backgroundColor: 'rgba(255, 255, 255, 0.8)',
-                backdropFilter: 'blur(10px)',
-                borderRadius: '16px',
-                boxShadow: '0 2px 12px rgba(45, 64, 89, 0.08)',
-                border: '1px solid rgba(21, 101, 192, 0.1)',
+                mb: 5,
+                position: 'relative',
             }}>
-                {/* Search Bar */}
-                <TextField
-                    fullWidth
-                    placeholder="Search publications by title..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    InputProps={{
-                        startAdornment: (
-                            <InputAdornment position="start">
-                                <SearchIcon sx={{ color: '#5A7CA1' }} />
-                            </InputAdornment>
-                        ),
-                    }}
-                    sx={{
-                        mb: 3,
-                        '& .MuiOutlinedInput-root': {
-                            backgroundColor: 'white',
-                            borderRadius: '12px',
-                            '&:hover fieldset': {
-                                borderColor: '#1565C0',
+                {/* Search Bar - Prominent and Modern */}
+                <Box sx={{
+                    mb: 3,
+                    position: 'relative',
+                }}>
+                    <TextField
+                        fullWidth
+                        placeholder="Search publications by title..."
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        InputProps={{
+                            startAdornment: (
+                                <InputAdornment position="start">
+                                    <SearchIcon sx={{ color: '#1565C0', fontSize: '1.5rem' }} />
+                                </InputAdornment>
+                            ),
+                        }}
+                        sx={{
+                            '& .MuiOutlinedInput-root': {
+                                backgroundColor: 'white',
+                                borderRadius: '16px',
+                                fontSize: '1.05rem',
+                                padding: '4px 8px',
+                                boxShadow: '0 4px 20px rgba(21, 101, 192, 0.08)',
+                                border: '2px solid transparent',
+                                transition: 'all 0.3s ease',
+                                '& fieldset': {
+                                    border: 'none',
+                                },
+                                '&:hover': {
+                                    boxShadow: '0 6px 24px rgba(21, 101, 192, 0.12)',
+                                    transform: 'translateY(-1px)',
+                                },
+                                '&.Mui-focused': {
+                                    boxShadow: '0 6px 28px rgba(21, 101, 192, 0.16)',
+                                    border: '2px solid rgba(21, 101, 192, 0.3)',
+                                },
                             },
-                            '&.Mui-focused fieldset': {
-                                borderColor: '#1565C0',
-                            },
-                        },
-                    }}
-                />
+                            '& input': {
+                                padding: '14px 8px',
+                            }
+                        }}
+                    />
+                </Box>
 
-                {/* Filters Row */}
+                {/* Filters - Clean Dropdown Style */}
                 <Box sx={{
                     display: 'flex',
                     gap: 2,
                     flexWrap: 'wrap',
                     alignItems: 'center',
+                    justifyContent: 'space-between',
                 }}>
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                        <FilterListIcon sx={{ color: '#5A7CA1' }} />
-                        <Typography sx={{ fontWeight: 600, color: '#2D4059' }}>
-                            Filters:
-                        </Typography>
-                    </Box>
-
-                    {/* Year Filter */}
-                    <FormControl size="small" sx={{ minWidth: 150 }}>
-                        <Select
-                            value={selectedYear}
-                            onChange={(e) => setSelectedYear(e.target.value)}
-                            sx={{
-                                borderRadius: '8px',
-                                backgroundColor: 'white',
-                                '&:hover': {
-                                    backgroundColor: 'rgba(21, 101, 192, 0.02)',
-                                },
-                            }}
-                        >
-                            {years.map(year => (
-                                <MenuItem key={year} value={year}>
-                                    {year === 'all' ? 'All Years' : year}
-                                </MenuItem>
-                            ))}
-                        </Select>
-                    </FormControl>
-
-                    {/* Venue Filter */}
-                    <FormControl size="small" sx={{ minWidth: 200 }}>
-                        <Select
-                            value={selectedVenue}
-                            onChange={(e) => setSelectedVenue(e.target.value)}
-                            sx={{
-                                borderRadius: '8px',
-                                backgroundColor: 'white',
-                                '&:hover': {
-                                    backgroundColor: 'rgba(21, 101, 192, 0.02)',
-                                },
-                            }}
-                        >
-                            {venues.map(venue => (
-                                <MenuItem key={venue} value={venue}>
-                                    {venue === 'all' ? 'All Conferences' : venue}
-                                </MenuItem>
-                            ))}
-                        </Select>
-                    </FormControl>
-
-                    {/* Active Filters Indicator & Clear Button */}
-                    {activeFiltersCount > 0 && (
-                        <>
-                            <Chip
-                                label={`${activeFiltersCount} filter${activeFiltersCount > 1 ? 's' : ''} active`}
-                                size="small"
+                    {/* Left side - Filter controls */}
+                    <Box sx={{
+                        display: 'flex',
+                        gap: 2,
+                        flexWrap: 'wrap',
+                        alignItems: 'center',
+                    }}>
+                        {/* Year Filter */}
+                        <FormControl size="small">
+                            <Select
+                                value={selectedYear}
+                                onChange={(e) => setSelectedYear(e.target.value)}
+                                displayEmpty
                                 sx={{
-                                    backgroundColor: '#1565C0',
-                                    color: 'white',
-                                    fontWeight: 600,
+                                    minWidth: 140,
+                                    borderRadius: '12px',
+                                    backgroundColor: 'white',
+                                    boxShadow: '0 2px 8px rgba(45, 64, 89, 0.06)',
+                                    fontWeight: 500,
+                                    '& .MuiOutlinedInput-notchedOutline': {
+                                        border: 'none',
+                                    },
+                                    '&:hover': {
+                                        backgroundColor: 'white',
+                                        boxShadow: '0 4px 12px rgba(45, 64, 89, 0.1)',
+                                    },
+                                    '&.Mui-focused': {
+                                        backgroundColor: 'white',
+                                    },
                                 }}
-                            />
+                            >
+                                {years.map(year => (
+                                    <MenuItem key={year} value={year}>
+                                        {year === 'all' ? 'All Years' : year}
+                                    </MenuItem>
+                                ))}
+                            </Select>
+                        </FormControl>
+
+                        {/* Venue Filter */}
+                        <FormControl size="small">
+                            <Select
+                                value={selectedVenue}
+                                onChange={(e) => setSelectedVenue(e.target.value)}
+                                displayEmpty
+                                sx={{
+                                    minWidth: 200,
+                                    borderRadius: '12px',
+                                    backgroundColor: 'white',
+                                    boxShadow: '0 2px 8px rgba(45, 64, 89, 0.06)',
+                                    fontWeight: 500,
+                                    '& .MuiOutlinedInput-notchedOutline': {
+                                        border: 'none',
+                                    },
+                                    '&:hover': {
+                                        backgroundColor: 'white',
+                                        boxShadow: '0 4px 12px rgba(45, 64, 89, 0.1)',
+                                    },
+                                    '&.Mui-focused': {
+                                        backgroundColor: 'white',
+                                    },
+                                }}
+                            >
+                                {venues.map(venue => (
+                                    <MenuItem key={venue} value={venue}>
+                                        {venue === 'all' ? 'All Venues' : venue}
+                                    </MenuItem>
+                                ))}
+                            </Select>
+                        </FormControl>
+
+                        {/* Clear Filters Button */}
+                        {activeFiltersCount > 0 && (
                             <Button
                                 size="small"
                                 onClick={handleClearFilters}
                                 sx={{
                                     textTransform: 'none',
+                                    borderRadius: '12px',
+                                    px: 2,
+                                    py: 0.75,
                                     color: '#5A7CA1',
+                                    fontWeight: 500,
+                                    backgroundColor: 'white',
+                                    boxShadow: '0 2px 8px rgba(45, 64, 89, 0.06)',
                                     '&:hover': {
-                                        color: '#1565C0',
-                                        backgroundColor: 'rgba(21, 101, 192, 0.05)',
+                                        color: '#C62828',
+                                        backgroundColor: 'rgba(198, 40, 40, 0.05)',
+                                        boxShadow: '0 4px 12px rgba(198, 40, 40, 0.1)',
                                     },
                                 }}
                             >
-                                Clear All
+                                Clear Filters
                             </Button>
-                        </>
-                    )}
-                </Box>
+                        )}
+                    </Box>
 
-                {/* Results Count */}
-                <Typography sx={{
-                    mt: 2,
-                    color: '#5A7CA1',
-                    fontSize: '0.9rem',
-                    fontWeight: 500,
-                }}>
-                    Showing {filteredPublications.length} of {allPublicationsData.length} publications
-                </Typography>
+                    {/* Right side - Results count */}
+                    <Box sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 1.5,
+                        px: 2.5,
+                        py: 1,
+                        borderRadius: '12px',
+                        backgroundColor: activeFiltersCount > 0 ? 'rgba(21, 101, 192, 0.08)' : 'rgba(90, 124, 161, 0.08)',
+                        transition: 'all 0.3s ease',
+                    }}>
+                        <Typography sx={{
+                            color: activeFiltersCount > 0 ? '#1565C0' : '#5A7CA1',
+                            fontSize: '0.95rem',
+                            fontWeight: 600,
+                        }}>
+                            {filteredPublications.length} {filteredPublications.length === 1 ? 'result' : 'results'}
+                        </Typography>
+                        {activeFiltersCount > 0 && (
+                            <Chip
+                                label={activeFiltersCount}
+                                size="small"
+                                sx={{
+                                    backgroundColor: '#1565C0',
+                                    color: 'white',
+                                    fontWeight: 700,
+                                    height: '22px',
+                                    fontSize: '0.75rem',
+                                    minWidth: '22px',
+                                    '& .MuiChip-label': {
+                                        px: 0.75,
+                                    }
+                                }}
+                            />
+                        )}
+                    </Box>
+                </Box>
             </Box>
 
             {/* Publications List */}
