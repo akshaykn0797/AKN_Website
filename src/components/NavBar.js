@@ -136,10 +136,11 @@ export default function NavBar() {
     const mobileDrawer = (
         <Box
             sx={{
-                width: 270,
+                width: 280,
                 height: '100%',
-                backgroundColor: '#FFFFFF',
+                background: 'linear-gradient(135deg, rgba(255, 250, 245, 0.98) 0%, rgba(255, 248, 243, 0.98) 100%)',
                 position: 'relative',
+                boxShadow: '-4px 0 20px rgba(45, 64, 89, 0.08)',
                 '&::before': {
                     content: '""',
                     position: 'absolute',
@@ -148,20 +149,30 @@ export default function NavBar() {
                     width: '3px',
                     height: '100%',
                     background: 'linear-gradient(180deg, #1B5E20 0%, #1565C0 50%, #5A7CA1 100%)',
-                    opacity: 0.6,
+                    opacity: 0.8,
+                },
+                '&::after': {
+                    content: '""',
+                    position: 'absolute',
+                    top: 0,
+                    left: 3,
+                    right: 0,
+                    height: '2px',
+                    background: 'linear-gradient(90deg, #1B5E20, #1565C0, transparent)',
+                    opacity: 0.4,
                 }
             }}
             role="presentation"
             onKeyDown={toggleDrawer(false)}
         >
-            <List sx={{ pt: 2.5, px: 1.5 }}>
+            <List sx={{ pt: 3.5, px: 1.5 }}>
                 {navItems.map((item) => {
                     // Item with submenu
                     if (item.children) {
                         return (
                             <React.Fragment key={item.label}>
                                 <ListItem
-                                    button
+                                    component="button"
                                     onClick={() => handleMobileSubmenu(item.label)}
                                     aria-expanded={openMobileSubmenu === item.label}
                                     aria-controls={`submenu-${item.label}`}
@@ -169,6 +180,12 @@ export default function NavBar() {
                                         borderRadius: '10px',
                                         mb: 0.75,
                                         backgroundColor: item.children.some(child => isActive(child.href)) ? 'rgba(21, 101, 192, 0.08)' : 'transparent',
+                                        cursor: 'pointer',
+                                        border: 'none',
+                                        width: '100%',
+                                        textAlign: 'left',
+                                        display: 'flex',
+                                        alignItems: 'center',
                                         '&:hover': {
                                             backgroundColor: 'rgba(21, 101, 192, 0.06)',
                                         }
@@ -188,9 +205,8 @@ export default function NavBar() {
                                     <List component="div" disablePadding>
                                         {item.children.map((child) => (
                                             <ListItem
-                                                button
                                                 key={child.label}
-                                                component={child.href ? NextLink : 'div'}
+                                                component={child.href ? NextLink : 'button'}
                                                 href={child.href}
                                                 onClick={() => {
                                                     if (child.anchorId) handleScroll(child.anchorId);
@@ -202,11 +218,15 @@ export default function NavBar() {
                                                     mx: 0.75,
                                                     mb: 0.5,
                                                     backgroundColor: isActive(child.href) ? 'rgba(21, 101, 192, 0.1)' : 'transparent',
+                                                    cursor: 'pointer',
+                                                    border: 'none',
+                                                    width: 'calc(100% - 12px)',
+                                                    textAlign: 'left',
+                                                    display: 'flex',
                                                     '&:hover': {
                                                         backgroundColor: 'rgba(21, 101, 192, 0.08)',
                                                     }
                                                 }}
-                                                selected={isActive(child.href)}
                                             >
                                                 <ListItemText
                                                     primary={child.label}
@@ -227,19 +247,22 @@ export default function NavBar() {
                     // Regular item or anchor
                     return (
                         <ListItem
-                            button
                             key={item.label}
-                            component={item.href ? NextLink : 'div'}
+                            component={item.href ? NextLink : 'button'}
                             href={item.href}
                             onClick={() => {
                                 if (item.anchorId) handleScroll(item.anchorId);
                                 setDrawerOpen(false);
                             }}
-                            selected={isActive(item.href)}
                             sx={{
                                 borderRadius: '10px',
                                 mb: 0.75,
                                 backgroundColor: isActive(item.href) ? 'rgba(21, 101, 192, 0.08)' : 'transparent',
+                                cursor: 'pointer',
+                                border: 'none',
+                                width: '100%',
+                                textAlign: 'left',
+                                display: 'flex',
                                 '&:hover': {
                                     backgroundColor: 'rgba(21, 101, 192, 0.06)',
                                 }
@@ -284,7 +307,7 @@ export default function NavBar() {
             }}>
                 <Toolbar sx={{ justifyContent: 'space-between', py: 1.8, px: { xs: 2, md: 4 } }}>
                     {/* Left: name+tag */}
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, flex: 1, minWidth: 0 }}>
                         <Typography
                             component={NextLink}
                             href="/"
@@ -294,9 +317,12 @@ export default function NavBar() {
                                 textDecoration: 'none',
                                 fontWeight: 700,
                                 letterSpacing: '-0.01em',
-                                fontSize: { xs: '1.4rem', md: '1.6rem' },
+                                fontSize: { xs: '1.25rem', sm: '1.4rem', md: '1.6rem' },
                                 transition: 'all 0.25s ease',
                                 position: 'relative',
+                                whiteSpace: 'nowrap',
+                                overflow: 'hidden',
+                                textOverflow: 'ellipsis',
                                 '&:hover': {
                                     color: '#1565C0',
                                 }
@@ -346,18 +372,37 @@ export default function NavBar() {
                             onClick={toggleDrawer(true)}
                             sx={{
                                 color: '#2D4059',
-                                backgroundColor: 'rgba(255, 255, 255, 0.8)',
-                                border: '1px solid rgba(45, 64, 89, 0.1)',
-                                borderRadius: '10px',
-                                boxShadow: '0 2px 8px rgba(45, 64, 89, 0.06)',
-                                '&:hover': {
-                                    backgroundColor: 'rgba(21, 101, 192, 0.05)',
-                                    borderColor: 'rgba(21, 101, 192, 0.2)',
+                                backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                                border: '1.5px solid rgba(21, 101, 192, 0.15)',
+                                borderRadius: '12px',
+                                boxShadow: '0 2px 12px rgba(45, 64, 89, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.8) inset',
+                                padding: '10px',
+                                position: 'relative',
+                                overflow: 'hidden',
+                                flexShrink: 0,
+                                '&::before': {
+                                    content: '""',
+                                    position: 'absolute',
+                                    top: 0,
+                                    left: 0,
+                                    right: 0,
+                                    height: '2px',
+                                    background: 'linear-gradient(90deg, #1B5E20, #1565C0)',
+                                    opacity: 0.6,
                                 },
-                                transition: 'all 0.25s ease',
+                                '&:hover': {
+                                    backgroundColor: 'rgba(21, 101, 192, 0.08)',
+                                    borderColor: 'rgba(21, 101, 192, 0.3)',
+                                    transform: 'translateY(-1px)',
+                                    boxShadow: '0 4px 16px rgba(21, 101, 192, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.9) inset',
+                                },
+                                '&:active': {
+                                    transform: 'translateY(0px)',
+                                },
+                                transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
                             }}
                         >
-                            <MenuIcon />
+                            <MenuIcon sx={{ fontSize: '1.5rem' }} />
                         </IconButton>
                     )}
 
