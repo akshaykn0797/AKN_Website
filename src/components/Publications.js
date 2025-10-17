@@ -803,12 +803,16 @@ const PublicationCard = ({ publication }) => {
                     display: 'inline-flex',
                     alignItems: 'center',
                     mb: 2,
-                    backgroundColor: 'rgba(21, 101, 192, 0.1)',
+                    backgroundColor: publication.venue && publication.venue.includes('IEEE')
+                        ? 'rgba(0, 114, 206, 0.1)'
+                        : 'rgba(21, 101, 192, 0.1)',
                     px: 2,
                     py: 1,
                     borderRadius: '12px',
                     width: 'fit-content',
-                    border: '1px solid rgba(21, 101, 192, 0.2)'
+                    border: publication.venue && publication.venue.includes('IEEE')
+                        ? '1px solid rgba(0, 114, 206, 0.2)'
+                        : '1px solid rgba(21, 101, 192, 0.2)'
                 }}>
                     {publication.venue && (publication.venue.includes('ACM') || publication.venue.includes('SIGACCESS') || publication.venue.includes('SIGCSE') || publication.venue.includes('CSCW') || publication.venue.includes('EICS') || publication.venue.includes('Web4All') || publication.venue.includes('ICMI') || publication.venue.includes('ASSETS')) ? (
                         <Box
@@ -821,13 +825,39 @@ const PublicationCard = ({ publication }) => {
                                 mr: 1,
                             }}
                         />
+                    ) : publication.venue && publication.venue.includes('IEEE') ? (
+                        <Box
+                            component="img"
+                            src="/Icons/ieee.png"
+                            alt="IEEE"
+                            sx={{
+                                height: '16px',
+                                width: 'auto',
+                                mr: 1,
+                            }}
+                        />
+                    ) : publication.venue && publication.venue.includes('IJHCI') ? (
+                        <Box
+                            component="img"
+                            src="/News/taylorFrancis.png"
+                            alt="Taylor & Francis"
+                            sx={{
+                                height: '16px',
+                                width: 'auto',
+                                mr: 1,
+                            }}
+                        />
                     ) : (
-                        <SchoolIcon sx={{ fontSize: '1.1rem', mr: 1, color: '#1565C0' }} />
+                        <SchoolIcon sx={{
+                            fontSize: '1.1rem',
+                            mr: 1,
+                            color: publication.venue && publication.venue.includes('IEEE') ? '#0072CE' : '#1565C0'
+                        }} />
                     )}
                     <Typography
                         variant="body2"
                         sx={{
-                            color: '#1565C0',
+                            color: publication.venue && publication.venue.includes('IEEE') ? '#0072CE' : '#1565C0',
                             fontWeight: 700,
                             fontSize: '0.9rem',
                         }}
