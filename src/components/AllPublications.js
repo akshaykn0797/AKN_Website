@@ -1,7 +1,7 @@
 // src/components/AllPublications.js
 'use client';
 
-import React, { useRef, useState, useMemo } from 'react';
+import React, { useRef, useState, useMemo, useEffect } from 'react';
 import {
     Box,
     Typography,
@@ -15,6 +15,7 @@ import {
     FormControl,
     Select,
     MenuItem,
+    Tooltip,
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import SchoolIcon from '@mui/icons-material/School';
@@ -23,6 +24,18 @@ import LinkIcon from '@mui/icons-material/Link';
 import WebIcon from '@mui/icons-material/Web';
 import CodeIcon from '@mui/icons-material/Code';
 import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
+import GetAppIcon from '@mui/icons-material/GetApp';
+import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import CheckIcon from '@mui/icons-material/Check';
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogContent from '@mui/material/DialogContent';
+import DialogActions from '@mui/material/DialogActions';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
 
 // All publications data
 const allPublicationsData = [
@@ -116,6 +129,19 @@ const allPublicationsData = [
         extraLinks: {
             github: "https://github.com/accessodu/ChartSync.git",
         },
+        citation: {
+            bibtex: `@inproceedings{prakash2024improving,
+  title={Improving Usability of Data Charts in Multimodal Documents for Low Vision Users},
+  author={Prakash, Yash and Kolgar Nayak, Akshay and Alyaan, Shoaib Mohammed and Khan, Pathan Aseef and Lee, Hae-Na and Ashok, Vikas},
+  booktitle={Proceedings of the 26th International Conference on Multimodal Interaction},
+  pages={498--507},
+  year={2024}
+}`,
+            apa: "Prakash, Y., Kolgar Nayak, A., Alyaan, S. M., Khan, P. A., Lee, H. N., & Ashok, V. (2024). Improving Usability of Data Charts in Multimodal Documents for Low Vision Users. In Proceedings of the 26th International Conference on Multimodal Interaction (pp. 498-507).",
+            mla: "Prakash, Yash, et al. \"Improving Usability of Data Charts in Multimodal Documents for Low Vision Users.\" Proceedings of the 26th International Conference on Multimodal Interaction. 2024. 498-507.",
+            chicago: "Prakash, Yash, Akshay Kolgar Nayak, Shoaib Mohammed Alyaan, Pathan Aseef Khan, Hae-Na Lee, and Vikas Ashok. \"Improving Usability of Data Charts in Multimodal Documents for Low Vision Users.\" In Proceedings of the 26th International Conference on Multimodal Interaction, pp. 498-507, 2024.",
+            ieee: "Y. Prakash, A. Kolgar Nayak, S. M. Alyaan, P. A. Khan, H. N. Lee, and V. Ashok, \"Improving Usability of Data Charts in Multimodal Documents for Low Vision Users,\" in Proceedings of the 26th International Conference on Multimodal Interaction, 2024, pp. 498-507.",
+        },
         awards: [],
     },
     {
@@ -135,6 +161,19 @@ const allPublicationsData = [
             presentation: "https://youtu.be/VYwg1kaJUos",
             demo: "https://youtu.be/V7uOzCfy0rM"
         },
+        citation: {
+            bibtex: `@inproceedings{prakash2024understanding,
+  title={Understanding Low Vision Graphical Perception of Bar Charts},
+  author={Prakash, Yash and Kolgar Nayak, Akshay and Jayarathna, Sampath and Lee, Hae-Na and Ashok, Vikas},
+  booktitle={Proceedings of the 26th International ACM SIGACCESS Conference on Computers and Accessibility},
+  pages={1--10},
+  year={2024}
+}`,
+            apa: "Prakash, Y., Kolgar Nayak, A., Jayarathna, S., Lee, H. N., & Ashok, V. (2024). Understanding Low Vision Graphical Perception of Bar Charts. In Proceedings of the 26th International ACM SIGACCESS Conference on Computers and Accessibility (pp. 1-10).",
+            mla: "Prakash, Yash, et al. \"Understanding Low Vision Graphical Perception of Bar Charts.\" Proceedings of the 26th International ACM SIGACCESS Conference on Computers and Accessibility. 2024. 1-10.",
+            chicago: "Prakash, Yash, Akshay Kolgar Nayak, Sampath Jayarathna, Hae-Na Lee, and Vikas Ashok. \"Understanding Low Vision Graphical Perception of Bar Charts.\" In Proceedings of the 26th International ACM SIGACCESS Conference on Computers and Accessibility, pp. 1-10, 2024.",
+            ieee: "Y. Prakash, A. Kolgar Nayak, S. Jayarathna, H. N. Lee, and V. Ashok, \"Understanding Low Vision Graphical Perception of Bar Charts,\" in Proceedings of the 26th International ACM SIGACCESS Conference on Computers and Accessibility, 2024, pp. 1-10.",
+        },
         awards: [],
     },
     {
@@ -153,6 +192,19 @@ const allPublicationsData = [
             github: "https://github.com/accessodu/GraphLite?tab=readme-ov-file",
             video: "https://youtu.be/QFw5QH7FwNY"
         },
+        citation: {
+            bibtex: `@article{prakash2024towards,
+  title={Towards Enhancing Low Vision Usability of Data Charts on Smartphones},
+  author={Prakash, Yash and Khan, Pathan Aseef and Nayak, Akshay Kolgar and Jayarathna, Sampath and Lee, Hae-Na and Ashok, Vikas},
+  journal={IEEE Transactions on Visualization and Computer Graphics},
+  year={2024},
+  publisher={IEEE}
+}`,
+            apa: "Prakash, Y., Khan, P. A., Nayak, A. K., Jayarathna, S., Lee, H. N., & Ashok, V. (2024). Towards Enhancing Low Vision Usability of Data Charts on Smartphones. IEEE Transactions on Visualization and Computer Graphics. IEEE.",
+            mla: "Prakash, Yash, et al. \"Towards Enhancing Low Vision Usability of Data Charts on Smartphones.\" IEEE Transactions on Visualization and Computer Graphics (2024).",
+            chicago: "Prakash, Yash, Pathan Aseef Khan, Akshay Kolgar Nayak, Sampath Jayarathna, Hae-Na Lee, and Vikas Ashok. \"Towards Enhancing Low Vision Usability of Data Charts on Smartphones.\" IEEE Transactions on Visualization and Computer Graphics (2024).",
+            ieee: "Y. Prakash, P. A. Khan, A. K. Nayak, S. Jayarathna, H. N. Lee, and V. Ashok, \"Towards Enhancing Low Vision Usability of Data Charts on Smartphones,\" IEEE Transactions on Visualization and Computer Graphics, 2024.",
+        },
         awards: [],
     },
     {
@@ -169,6 +221,20 @@ const allPublicationsData = [
         },
         extraLinks: {
             github: "https://github.com/accessodu/Web_Archives",
+        },
+        citation: {
+            bibtex: `@inproceedings{sunkara2024assessing,
+  title={Assessing the Accessibility and Usability of Web Archives for Blind Users},
+  author={Sunkara, Mohan and Nayak, Akshay Kolgar and Kalari, Sandeep and Kodandaram, Satwik Ram and Jayarathna, Sampath and Lee, Hae-Na and Ashok, Vikas},
+  booktitle={International Conference on Theory and Practice of Digital Libraries},
+  pages={203--221},
+  year={2024},
+  organization={Springer}
+}`,
+            apa: "Sunkara, M., Nayak, A. K., Kalari, S., Kodandaram, S. R., Jayarathna, S., Lee, H. N., & Ashok, V. (2024). Assessing the Accessibility and Usability of Web Archives for Blind Users. In International Conference on Theory and Practice of Digital Libraries (pp. 203-221). Springer.",
+            mla: "Sunkara, Mohan, et al. \"Assessing the Accessibility and Usability of Web Archives for Blind Users.\" International Conference on Theory and Practice of Digital Libraries. Springer, 2024. 203-221.",
+            chicago: "Sunkara, Mohan, Akshay Kolgar Nayak, Sandeep Kalari, Satwik Ram Kodandaram, Sampath Jayarathna, Hae-Na Lee, and Vikas Ashok. \"Assessing the Accessibility and Usability of Web Archives for Blind Users.\" In International Conference on Theory and Practice of Digital Libraries, pp. 203-221. Springer, 2024.",
+            ieee: "M. Sunkara, A. K. Nayak, S. Kalari, S. R. Kodandaram, S. Jayarathna, H. N. Lee, and V. Ashok, \"Assessing the Accessibility and Usability of Web Archives for Blind Users,\" in International Conference on Theory and Practice of Digital Libraries, Springer, 2024, pp. 203-221.",
         },
         awards: [],
     },
@@ -188,9 +254,267 @@ const allPublicationsData = [
             github: "https://github.com/accessodu/InstaFetch.git",
             video: "https://youtu.be/D9drlAodlRw"
         },
+        acmAuthorizer: {
+            url: "https://dl.acm.org/doi/10.1145/3664639?cid=99661242236",
+            doi: "10.1145/3664639",
+            cid: "99661242236",
+        },
+        citation: {
+            bibtex: `@article{prakash2024all,
+  title={All in one place: Ensuring usable access to online shopping items for blind users},
+  author={Prakash, Yash and Nayak, Akshay Kolgar and Sunkara, Mohan and Jayarathna, Sampath and Lee, Hae-Na and Ashok, Vikas},
+  journal={Proceedings of the ACM on Human-Computer Interaction},
+  volume={8},
+  number={EICS},
+  pages={1--25},
+  year={2024},
+  publisher={ACM New York, NY, USA}
+}`,
+            apa: "Prakash, Y., Nayak, A. K., Sunkara, M., Jayarathna, S., Lee, H. N., & Ashok, V. (2024). All in one place: Ensuring usable access to online shopping items for blind users. Proceedings of the ACM on Human-Computer Interaction, 8(EICS), 1-25.",
+            mla: "Prakash, Yash, et al. \"All in One Place: Ensuring Usable Access to Online Shopping Items for Blind Users.\" Proceedings of the ACM on Human-Computer Interaction 8.EICS (2024): 1-25.",
+            chicago: "Prakash, Yash, Akshay Kolgar Nayak, Mohan Sunkara, Sampath Jayarathna, Hae-Na Lee, and Vikas Ashok. \"All in One Place: Ensuring Usable Access to Online Shopping Items for Blind Users.\" Proceedings of the ACM on Human-Computer Interaction 8, no. EICS (2024): 1-25.",
+            ieee: "Y. Prakash, A. K. Nayak, M. Sunkara, S. Jayarathna, H. N. Lee, and V. Ashok, \"All in One Place: Ensuring Usable Access to Online Shopping Items for Blind Users,\" Proceedings of the ACM on Human-Computer Interaction, vol. 8, no. EICS, pp. 1-25, 2024.",
+        },
         awards: [],
     },
 ];
+
+// Citation Dialog Component
+const CitationDialog = ({ open, onClose, citation }) => {
+    const [selectedTab, setSelectedTab] = useState(0);
+    const [copiedFormat, setCopiedFormat] = useState(null);
+
+    const formats = [
+        { label: 'BibTeX', value: citation?.bibtex || '', key: 'bibtex' },
+        { label: 'APA', value: citation?.apa || '', key: 'apa' },
+        { label: 'MLA', value: citation?.mla || '', key: 'mla' },
+        { label: 'Chicago', value: citation?.chicago || '', key: 'chicago' },
+        { label: 'IEEE', value: citation?.ieee || '', key: 'ieee' },
+    ];
+
+    const handleCopy = (text, formatKey) => {
+        navigator.clipboard.writeText(text);
+        setCopiedFormat(formatKey);
+        setTimeout(() => setCopiedFormat(null), 2000);
+    };
+
+    const handleTabChange = (event, newValue) => {
+        setSelectedTab(newValue);
+    };
+
+    return (
+        <Dialog
+            open={open}
+            onClose={onClose}
+            maxWidth="md"
+            fullWidth
+            PaperProps={{
+                sx: {
+                    borderRadius: '16px',
+                    boxShadow: '0 8px 32px rgba(45, 64, 89, 0.2)',
+                }
+            }}
+        >
+            <DialogTitle sx={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                pb: 2,
+                borderBottom: '1px solid rgba(45, 64, 89, 0.1)'
+            }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                    <FormatQuoteIcon sx={{ color: '#1565C0', fontSize: '1.5rem' }} />
+                    <Typography variant="h6" sx={{ fontWeight: 700, color: '#2D4059' }}>
+                        Cite this article
+                    </Typography>
+                </Box>
+                <IconButton
+                    onClick={onClose}
+                    size="small"
+                    sx={{
+                        color: '#5A7CA1',
+                        '&:hover': { backgroundColor: 'rgba(90, 124, 161, 0.1)' }
+                    }}
+                >
+                    <CloseIcon />
+                </IconButton>
+            </DialogTitle>
+
+            <DialogContent sx={{ pt: 3 }}>
+                <Tabs
+                    value={selectedTab}
+                    onChange={handleTabChange}
+                    sx={{
+                        mb: 3,
+                        '& .MuiTab-root': {
+                            textTransform: 'none',
+                            fontWeight: 600,
+                            fontSize: '0.95rem',
+                            color: '#5A7CA1',
+                            minWidth: 'auto',
+                            px: 3,
+                            '&.Mui-selected': {
+                                color: '#1565C0',
+                            }
+                        },
+                        '& .MuiTabs-indicator': {
+                            backgroundColor: '#1565C0',
+                            height: 3,
+                            borderRadius: '3px 3px 0 0'
+                        }
+                    }}
+                >
+                    {formats.map((format, index) => (
+                        <Tab key={format.key} label={format.label} />
+                    ))}
+                </Tabs>
+
+                {formats.map((format, index) => (
+                    selectedTab === index && (
+                        <Box key={format.key} sx={{ position: 'relative' }}>
+                            <Box
+                                sx={{
+                                    backgroundColor: '#F5F7FA',
+                                    border: '1px solid rgba(45, 64, 89, 0.1)',
+                                    borderRadius: '12px',
+                                    p: 3,
+                                    fontFamily: 'monospace',
+                                    fontSize: '0.9rem',
+                                    lineHeight: 1.6,
+                                    color: '#2D4059',
+                                    whiteSpace: 'pre-wrap',
+                                    wordBreak: 'break-word',
+                                    maxHeight: '300px',
+                                    overflowY: 'auto',
+                                    position: 'relative',
+                                }}
+                            >
+                                {format.value}
+                            </Box>
+                            <Button
+                                startIcon={copiedFormat === format.key ? <CheckIcon /> : <ContentCopyIcon />}
+                                onClick={() => handleCopy(format.value, format.key)}
+                                variant="contained"
+                                size="small"
+                                sx={{
+                                    mt: 2,
+                                    backgroundColor: copiedFormat === format.key ? '#1B5E20' : '#1565C0',
+                                    color: 'white',
+                                    textTransform: 'none',
+                                    fontWeight: 600,
+                                    borderRadius: '8px',
+                                    px: 3,
+                                    '&:hover': {
+                                        backgroundColor: copiedFormat === format.key ? '#2E7D32' : '#0D47A1',
+                                    }
+                                }}
+                            >
+                                {copiedFormat === format.key ? 'Copied!' : 'Copy to clipboard'}
+                            </Button>
+                        </Box>
+                    )
+                ))}
+            </DialogContent>
+        </Dialog>
+    );
+};
+
+// ACM Author-Izer Button Component
+const ACMAuthorizerButton = ({ acmData }) => {
+    const [stats, setStats] = useState({
+        downloads: null,
+        citations: null,
+        loading: true,
+        error: false
+    });
+
+    useEffect(() => {
+        // Fetch ACM statistics
+        const fetchACMStats = async () => {
+            try {
+                // ACM provides stats through their API or embedded script
+                // Note: This may fail in localhost due to CORS restrictions
+                const response = await fetch(`https://dl.acm.org/action/ajaxShowCitedBy?doi=${acmData.doi}`, {
+                    mode: 'cors',
+                    credentials: 'omit',
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    setStats({
+                        citations: data.citationCount || null,
+                        downloads: data.downloadCount || null,
+                        loading: false,
+                        error: false
+                    });
+                } else {
+                    // API request failed, use placeholder
+                    setStats({ citations: null, downloads: null, loading: false, error: true });
+                }
+            } catch (error) {
+                // CORS or network error - common in localhost
+                // Silently fail and show button without stats
+                setStats({ citations: null, downloads: null, loading: false, error: true });
+            }
+        };
+
+        if (acmData && acmData.doi) {
+            // Add a small delay to avoid hammering the API
+            const timer = setTimeout(() => {
+                fetchACMStats();
+            }, 100);
+
+            return () => clearTimeout(timer);
+        } else {
+            setStats({ citations: null, downloads: null, loading: false, error: false });
+        }
+    }, [acmData]);
+
+    return (
+        <Tooltip
+            title="Access on ACM Digital Library (free via Author-Izer)"
+            arrow
+            placement="top"
+        >
+            <Button
+                component="a"
+                href={acmData.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                    minWidth: 'auto',
+                    backgroundColor: 'transparent',
+                    color: '#0085CA',
+                    borderRadius: '50%',
+                    width: '44px',
+                    height: '44px',
+                    p: 0,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    border: '2px solid rgba(0, 133, 202, 0.2)',
+                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                    '&:hover': {
+                        backgroundColor: 'rgba(0, 133, 202, 0.08)',
+                        borderColor: '#0085CA',
+                        transform: 'scale(1.1)',
+                        boxShadow: '0 4px 12px rgba(0, 133, 202, 0.2)',
+                    },
+                }}
+            >
+                <Box
+                    component="img"
+                    src="/Icons/dl.png"
+                    alt="ACM DL"
+                    sx={{
+                        height: '22px',
+                        width: 'auto',
+                    }}
+                />
+            </Button>
+        </Tooltip>
+    );
+};
 
 // Award badge component
 const AwardBadge = ({ awards }) => {
@@ -510,6 +834,7 @@ const ExtraLinks = ({ links }) => {
 const PublicationCard = ({ publication }) => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+    const [citationDialogOpen, setCitationDialogOpen] = useState(false);
 
     return (
         <Card
@@ -588,7 +913,20 @@ const PublicationCard = ({ publication }) => {
                     width: 'fit-content',
                     border: '1px solid rgba(21, 101, 192, 0.2)'
                 }}>
-                    <SchoolIcon sx={{ fontSize: '1.1rem', mr: 1, color: '#1565C0' }} />
+                    {publication.venue && (publication.venue.includes('ACM') || publication.venue.includes('SIGACCESS') || publication.venue.includes('SIGCSE') || publication.venue.includes('CSCW') || publication.venue.includes('EICS') || publication.venue.includes('Web4All') || publication.venue.includes('ICMI') || publication.venue.includes('ASSETS')) ? (
+                        <Box
+                            component="img"
+                            src="/Icons/acm.png"
+                            alt="ACM"
+                            sx={{
+                                height: '16px',
+                                width: 'auto',
+                                mr: 1,
+                            }}
+                        />
+                    ) : (
+                        <SchoolIcon sx={{ fontSize: '1.1rem', mr: 1, color: '#1565C0' }} />
+                    )}
                     <Typography
                         variant="body2"
                         sx={{
@@ -646,101 +984,141 @@ const PublicationCard = ({ publication }) => {
                     {publication.abstract}
                 </Typography>
 
-                {/* Action Buttons */}
+                {/* Action Buttons - Elegant Icon Design */}
                 <Box sx={{
                     display: 'flex',
-                    gap: 1.5,
+                    gap: 2,
                     mt: 'auto',
+                    alignItems: 'center',
                     flexWrap: 'wrap',
                 }}>
                     {publication.links.pdf && (
-                        <Button
-                            variant="contained"
-                            size="medium"
-                            startIcon={<DescriptionIcon />}
-                            href={publication.links.pdf}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            sx={{
-                                backgroundColor: '#FF6B35',
-                                color: 'white',
-                                borderRadius: '12px',
-                                boxShadow: '0 4px 12px rgba(255, 107, 53, 0.25)',
-                                '&:hover': {
-                                    backgroundColor: '#FF8C42',
-                                    boxShadow: '0 6px 16px rgba(255, 107, 53, 0.35)',
-                                    transform: 'translateY(-2px)',
-                                },
-                                fontWeight: 700,
-                                textTransform: 'none',
-                                px: 3,
-                                py: 1,
-                                fontSize: '0.9rem',
-                                transition: 'all 0.2s ease',
-                            }}
-                        >
-                            PDF
-                        </Button>
+                        <Tooltip title="Download PDF" arrow placement="top">
+                            <Button
+                                component="a"
+                                href={publication.links.pdf}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                sx={{
+                                    minWidth: 'auto',
+                                    backgroundColor: 'transparent',
+                                    color: '#FF6B35',
+                                    borderRadius: '50%',
+                                    width: '44px',
+                                    height: '44px',
+                                    p: 0,
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    border: '2px solid rgba(255, 107, 53, 0.2)',
+                                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                                    '&:hover': {
+                                        backgroundColor: 'rgba(255, 107, 53, 0.08)',
+                                        borderColor: '#FF6B35',
+                                        transform: 'scale(1.1)',
+                                        boxShadow: '0 4px 12px rgba(255, 107, 53, 0.2)',
+                                    },
+                                }}
+                            >
+                                <DescriptionIcon sx={{ fontSize: '1.3rem' }} />
+                            </Button>
+                        </Tooltip>
+                    )}
+                    {publication.acmAuthorizer && (
+                        <ACMAuthorizerButton acmData={publication.acmAuthorizer} />
                     )}
                     {publication.links.doi && (
-                        <Button
-                            variant="outlined"
-                            size="medium"
-                            startIcon={<LinkIcon />}
-                            href={publication.links.doi}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            sx={{
-                                backgroundColor: 'transparent',
-                                color: '#5A7CA1',
-                                border: '2px solid #5A7CA1',
-                                borderRadius: '12px',
-                                '&:hover': {
-                                    backgroundColor: '#5A7CA1',
-                                    color: 'white',
-                                    borderColor: '#5A7CA1',
-                                    transform: 'translateY(-2px)',
-                                },
-                                fontWeight: 700,
-                                textTransform: 'none',
-                                px: 3,
-                                py: 1,
-                                fontSize: '0.9rem',
-                                transition: 'all 0.2s ease',
-                            }}
-                        >
-                            DOI
-                        </Button>
+                        <Tooltip title="View DOI" arrow placement="top">
+                            <Button
+                                component="a"
+                                href={publication.links.doi}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                sx={{
+                                    minWidth: 'auto',
+                                    backgroundColor: 'transparent',
+                                    color: '#1565C0',
+                                    borderRadius: '50%',
+                                    width: '44px',
+                                    height: '44px',
+                                    p: 0,
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    border: '2px solid rgba(21, 101, 192, 0.2)',
+                                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                                    '&:hover': {
+                                        backgroundColor: 'rgba(21, 101, 192, 0.08)',
+                                        borderColor: '#1565C0',
+                                        transform: 'scale(1.1)',
+                                        boxShadow: '0 4px 12px rgba(21, 101, 192, 0.2)',
+                                    },
+                                }}
+                            >
+                                <LinkIcon sx={{ fontSize: '1.3rem' }} />
+                            </Button>
+                        </Tooltip>
+                    )}
+                    {publication.citation && (
+                        <Tooltip title="Cite this article" arrow placement="top">
+                            <Button
+                                onClick={() => setCitationDialogOpen(true)}
+                                sx={{
+                                    minWidth: 'auto',
+                                    backgroundColor: 'transparent',
+                                    color: '#1B5E20',
+                                    borderRadius: '50%',
+                                    width: '44px',
+                                    height: '44px',
+                                    p: 0,
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    border: '2px solid rgba(27, 94, 32, 0.2)',
+                                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                                    '&:hover': {
+                                        backgroundColor: 'rgba(27, 94, 32, 0.08)',
+                                        borderColor: '#1B5E20',
+                                        transform: 'scale(1.1)',
+                                        boxShadow: '0 4px 12px rgba(27, 94, 32, 0.2)',
+                                    },
+                                }}
+                            >
+                                <FormatQuoteIcon sx={{ fontSize: '1.3rem' }} />
+                            </Button>
+                        </Tooltip>
                     )}
                     {publication.links.project && (
-                        <Button
-                            variant="outlined"
-                            size="medium"
-                            startIcon={<WebIcon />}
-                            href={publication.links.project}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            sx={{
-                                backgroundColor: 'transparent',
-                                color: '#5A7CA1',
-                                border: '2px solid #5A7CA1',
-                                borderRadius: '12px',
-                                '&:hover': {
-                                    backgroundColor: '#5A7CA1',
-                                    color: 'white',
-                                    borderColor: '#5A7CA1',
-                                    transform: 'translateY(-2px)',
-                                },
-                                fontWeight: 700,
-                                textTransform: 'none',
-                                px: 3,
-                                py: 1,
-                                fontSize: '0.9rem',
-                                transition: 'all 0.2s ease',
-                            }}
-                        >
-                            Project
-                        </Button>
+                        <Tooltip title="Project Page" arrow placement="top">
+                            <Button
+                                component="a"
+                                href={publication.links.project}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                sx={{
+                                    minWidth: 'auto',
+                                    backgroundColor: 'transparent',
+                                    color: '#7B1FA2',
+                                    borderRadius: '50%',
+                                    width: '44px',
+                                    height: '44px',
+                                    p: 0,
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    border: '2px solid rgba(123, 31, 162, 0.2)',
+                                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                                    '&:hover': {
+                                        backgroundColor: 'rgba(123, 31, 162, 0.08)',
+                                        borderColor: '#7B1FA2',
+                                        transform: 'scale(1.1)',
+                                        boxShadow: '0 4px 12px rgba(123, 31, 162, 0.2)',
+                                    },
+                                }}
+                            >
+                                <WebIcon sx={{ fontSize: '1.3rem' }} />
+                            </Button>
+                        </Tooltip>
                     )}
                 </Box>
             </Box>
@@ -771,6 +1149,15 @@ const PublicationCard = ({ publication }) => {
                     <ExtraLinks links={publication.extraLinks} />
                 </Box>
             </Box>
+
+            {/* Citation Dialog */}
+            {publication.citation && (
+                <CitationDialog
+                    open={citationDialogOpen}
+                    onClose={() => setCitationDialogOpen(false)}
+                    citation={publication.citation}
+                />
+            )}
         </Card>
     );
 };
