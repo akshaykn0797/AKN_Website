@@ -70,15 +70,37 @@ const allPublicationsData = [
     {
         id: 3,
         title: "Insights in Adaptation: Examining Self-reflection Strategies of Job Seekers with Visual Impairments in India",
-        venue: "ACM CSCW 2025",
+        venue: "ACM CSCW",
         date: "October 2025",
         authors: "Akshay Kolgar Nayak, Yash Prakash, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok",
         abstract: "We present a study on self-reflection strategies among blind and visually impaired (BVI) job seekers in India. Despite gaining digital skills, many face challenges aligning with industry expectations due to limited personalized feedback and inaccessible job-prep tools. Self-reflection is often a social process shaped by peer interactions, yet current systems lack the tailored support needed for effective growth. Our findings inform the design of future tools to better guide reflective job-seeking and address the unique needs of BVI individuals in the Global South.",
         image: "selfReflection",
         links: {
             pdf: "Papers/cscw25.pdf",
+            doi: "https://doi.org/10.1145/3757485",
         },
         extraLinks: {},
+        acmAuthorizer: {
+            url: "https://dl.acm.org/doi/10.1145/3757485?cid=99661242236",
+            doi: "10.1145/3757485",
+            cid: "99661242236",
+        },
+        citation: {
+            bibtex: `@article{kolgar2025insights,
+  title={Insights in Adaptation: Examining Self-reflection Strategies of Job Seekers with Visual Impairments in India},
+  author={Kolgar Nayak, Akshay and Prakash, Yash and Jayarathna, Sampath and Lee, Hae-Na and Ashok, Vikas},
+  journal={Proceedings of the ACM on Human-Computer Interaction},
+  volume={9},
+  number={7},
+  pages={1--30},
+  year={2025},
+  publisher={ACM New York, NY, USA}
+}`,
+            apa: "Kolgar Nayak, A., Prakash, Y., Jayarathna, S., Lee, H. N., & Ashok, V. (2025). Insights in Adaptation: Examining Self-reflection Strategies of Job Seekers with Visual Impairments in India. Proceedings of the ACM on Human-Computer Interaction, 9(7), 1-30.",
+            mla: "Kolgar Nayak, Akshay, et al. \"Insights in Adaptation: Examining Self-reflection Strategies of Job Seekers with Visual Impairments in India.\" Proceedings of the ACM on Human-Computer Interaction 9.7 (2025): 1-30.",
+            chicago: "Kolgar Nayak, Akshay, Yash Prakash, Sampath Jayarathna, Hae-Na Lee, and Vikas Ashok. \"Insights in Adaptation: Examining Self-reflection Strategies of Job Seekers with Visual Impairments in India.\" Proceedings of the ACM on Human-Computer Interaction 9, no. 7 (2025): 1-30.",
+            ieee: "A. Kolgar Nayak, Y. Prakash, S. Jayarathna, H. N. Lee, and V. Ashok, \"Insights in Adaptation: Examining Self-reflection Strategies of Job Seekers with Visual Impairments in India,\" Proceedings of the ACM on Human-Computer Interaction, vol. 9, no. 7, pp. 1-30, 2025.",
+        },
         awards: [],
     },
     {
@@ -94,12 +116,30 @@ const allPublicationsData = [
             doi: "https://doi.org/10.1145/3744257.3744275",
         },
         extraLinks: {},
+        acmAuthorizer: {
+            url: "https://dl.acm.org/doi/10.1145/3744257.3744275?cid=99661242236",
+            doi: "10.1145/3744257.3744275",
+            cid: "99661242236",
+        },
+        citation: {
+            bibtex: `@inproceedings{venkatraman2025accessmenu,
+  title={AccessMenu: Enhancing Usability of Online Restaurant Menus for Screen Reader Users},
+  author={Venkatraman, Nithiya and Kolgar Nayak, Akshay and Dahal, Suyog and Prakash, Yash and Lee, Hae-Na and Ashok, Vikas},
+  booktitle={Proceedings of the 22nd International Web for All Conference},
+  pages={36--47},
+  year={2025}
+}`,
+            apa: "Venkatraman, N., Kolgar Nayak, A., Dahal, S., Prakash, Y., Lee, H. N., & Ashok, V. (2025). AccessMenu: Enhancing Usability of Online Restaurant Menus for Screen Reader Users. In Proceedings of the 22nd International Web for All Conference (pp. 36-47).",
+            mla: "Venkatraman, Nithiya, et al. \"AccessMenu: Enhancing Usability of Online Restaurant Menus for Screen Reader Users.\" Proceedings of the 22nd International Web for All Conference. 2025. 36-47.",
+            chicago: "Venkatraman, Nithiya, Akshay Kolgar Nayak, Suyog Dahal, Yash Prakash, Hae-Na Lee, and Vikas Ashok. \"AccessMenu: Enhancing Usability of Online Restaurant Menus for Screen Reader Users.\" In Proceedings of the 22nd International Web for All Conference, pp. 36-47, 2025.",
+            ieee: "N. Venkatraman, A. Kolgar Nayak, S. Dahal, Y. Prakash, H. N. Lee, and V. Ashok, \"AccessMenu: Enhancing Usability of Online Restaurant Menus for Screen Reader Users,\" in Proceedings of the 22nd International Web for All Conference, 2025, pp. 36-47.",
+        },
         awards: [],
     },
     {
         id: 5,
         title: "Adapting Online Customer Reviews for Blind Users: A Case Study of Restaurant Reviews",
-        venue: "ACM Web4All 2025",
+        venue: "ACM Web4All",
         date: "April 2025",
         authors: "Mohan Sunkara, Akshay Kolgar Nayak, Sandeep Kalari, Yash Prakash, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok",
         abstract: "We present QuickCue, an assistive browser extension that improves the usability of online restaurant reviews for blind screen reader users. QuickCue restructures review content into a hierarchical format organized by aspects (e.g., food, service, ambiance) and sentiment (positive/negative), enabling faster, more focused exploration with minimal navigation. Powered by GPT-4, it performs aspect-sentiment classification and generates targeted summaries, significantly reducing listening fatigue and helping users make more informed decisions.",
@@ -109,6 +149,24 @@ const allPublicationsData = [
             doi: "https://doi.org/10.1145/3744257.3744276",
         },
         extraLinks: {},
+        acmAuthorizer: {
+            url: "https://dl.acm.org/doi/10.1145/3744257.3744276?cid=99661242236",
+            doi: "10.1145/3744257.3744276",
+            cid: "99661242236",
+        },
+        citation: {
+            bibtex: `@inproceedings{sunkara2025adapting,
+  title={Adapting Online Customer Reviews for Blind Users: A Case Study of Restaurant Reviews},
+  author={Sunkara, Mohan and Kolgar Nayak, Akshay and Kalari, Sandeep and Prakash, Yash and Jayarathna, Sampath and Lee, Hae-Na and Ashok, Vikas},
+  booktitle={Proceedings of the 22nd International Web for All Conference},
+  pages={135--146},
+  year={2025}
+}`,
+            apa: "Sunkara, M., Kolgar Nayak, A., Kalari, S., Prakash, Y., Jayarathna, S., Lee, H. N., & Ashok, V. (2025). Adapting Online Customer Reviews for Blind Users: A Case Study of Restaurant Reviews. In Proceedings of the 22nd International Web for All Conference (pp. 135-146).",
+            mla: "Sunkara, Mohan, et al. \"Adapting Online Customer Reviews for Blind Users: A Case Study of Restaurant Reviews.\" Proceedings of the 22nd International Web for All Conference. 2025. 135-146.",
+            chicago: "Sunkara, Mohan, Akshay Kolgar Nayak, Sandeep Kalari, Yash Prakash, Sampath Jayarathna, Hae-Na Lee, and Vikas Ashok. \"Adapting Online Customer Reviews for Blind Users: A Case Study of Restaurant Reviews.\" In Proceedings of the 22nd International Web for All Conference, pp. 135-146, 2025.",
+            ieee: "M. Sunkara, A. Kolgar Nayak, S. Kalari, Y. Prakash, S. Jayarathna, H. N. Lee, and V. Ashok, \"Adapting Online Customer Reviews for Blind Users: A Case Study of Restaurant Reviews,\" in Proceedings of the 22nd International Web for All Conference, 2025, pp. 135-146.",
+        },
         awards: [{
             type: "best-paper",
             name: "Best Paper Award"
@@ -128,6 +186,11 @@ const allPublicationsData = [
         },
         extraLinks: {
             github: "https://github.com/accessodu/ChartSync.git",
+        },
+        acmAuthorizer: {
+            url: "https://dl.acm.org/doi/10.1145/3678957.3685714?cid=99661242236",
+            doi: "10.1145/3678957.3685714",
+            cid: "99661242236",
         },
         citation: {
             bibtex: `@inproceedings{prakash2024improving,
@@ -161,6 +224,11 @@ const allPublicationsData = [
             presentation: "https://youtu.be/VYwg1kaJUos",
             demo: "https://youtu.be/V7uOzCfy0rM"
         },
+        acmAuthorizer: {
+            url: "https://dl.acm.org/doi/10.1145/3663548.3675616?cid=99661242236",
+            doi: "10.1145/3663548.3675616",
+            cid: "99661242236",
+        },
         citation: {
             bibtex: `@inproceedings{prakash2024understanding,
   title={Understanding Low Vision Graphical Perception of Bar Charts},
@@ -179,7 +247,7 @@ const allPublicationsData = [
     {
         id: 8,
         title: "Towards Enhancing Low Vision Usability of Data Charts on Smartphones",
-        venue: "IEEE VIS (TVCG) 2025",
+        venue: "IEEE VIS (TVCG)",
         date: "September 2024",
         authors: "Yash Prakash, Pathan Aseef Khan, Akshay Kolgar Nayak, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok",
         abstract: "We present GraphLite, a mobile assistive system that makes data charts more usable for low-vision screen magnifier users. GraphLite transforms static, non-interactive charts into customizable, interactive views that preserve visual context under magnification. Users can selectively focus on key data points, personalize chart appearance, and reduce panning effort through simplified gestures.",
@@ -210,7 +278,7 @@ const allPublicationsData = [
     {
         id: 9,
         title: "Assessing the Accessibility and Usability of Web Archives for Blind Users",
-        venue: "TPDL 2024",
+        venue: "TPDL",
         date: "September 2024",
         authors: "Mohan Sunkara, Akshay Kolgar Nayak, Sandeep Kalari, Satwik Ram Kodandaram, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok",
         abstract: "Web archives preserve digital history for researchers and the public, yet their accessibility for blind users remains unexplored. This study provides the first comprehensive evaluation of five prominent platforms (Wayback Machine, UK Web Archive, Pandora, Trove, Archive.today) through automated analysis of 223 pages and a user study with 10 blind participants. Critical barriers emerged including missing image alternatives, inadequate ARIA labeling, and inaccessible date-selection widgets. Participants averaged 8.21 minutes and 129 shortcuts per task, with Archive.today least accessible and UK Web Archive most usable, informing actionable design recommendations for developers.",

@@ -277,12 +277,33 @@ export default function AcademicPage() {
                         }
                     }}>
                         <Box sx={{ mb: 3 }}>
-                            <Typography sx={{ fontWeight: 700, color: '#2D4059', mb: 1.5, fontSize: '1.05rem' }}>
-                                Reviewer
-                            </Typography>
-                            <Typography sx={{ color: '#2D4059', lineHeight: 1.8, fontSize: '1rem', fontWeight: 500 }}>
-                                CHI 2025, CSCW 2025, HAI 2025, IMWUT 2025, IUI 2025, UIST 2025, SIGCSE 2025
-                            </Typography>
+                            <Box sx={{ display: 'flex', gap: 3, alignItems: 'flex-start', justifyContent: 'space-between' }}>
+                                <Box sx={{ flex: 1 }}>
+                                    <Typography sx={{ fontWeight: 700, color: '#2D4059', mb: 1.5, fontSize: '1.05rem' }}>
+                                        Reviewer / PC Member
+                                    </Typography>
+                                    <Typography sx={{ color: '#2D4059', lineHeight: 1.8, fontSize: '1rem', fontWeight: 500 }}>
+                                        <strong>2026:</strong> CHI, IUI
+                                    </Typography>
+                                    <Typography sx={{ color: '#2D4059', lineHeight: 1.8, fontSize: '1rem', fontWeight: 500, mt: 1 }}>
+                                        <strong>2025:</strong> CHI, CSCW, HAI, IMWUT, IUI, UIST, SIGCSE
+                                    </Typography>
+                                </Box>
+                                <Box sx={{
+                                    p: 1.5,
+                                    backgroundColor: 'rgba(255, 107, 53, 0.08)',
+                                    borderRadius: '8px',
+                                    borderLeft: '3px solid #FF6B35',
+                                    minWidth: '180px'
+                                }}>
+                                    <Typography sx={{ color: '#2D4059', lineHeight: 1.6, fontSize: '0.9rem', fontWeight: 500 }}>
+                                        <strong>Total Reviews:</strong> 20+
+                                    </Typography>
+                                    <Typography sx={{ color: '#2D4059', lineHeight: 1.6, fontSize: '0.9rem', fontWeight: 500, mt: 0.5 }}>
+                                        <strong>Recognition:</strong> CSCW 2025
+                                    </Typography>
+                                </Box>
+                            </Box>
                         </Box>
 
                         <Divider sx={{ my: 3 }} />

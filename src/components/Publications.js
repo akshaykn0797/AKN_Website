@@ -60,22 +60,38 @@ const publicationsData = [
     {
         id: 2,
         title: "Insights in Adaptation: Examining Self-reflection Strategies of Job Seekers with Visual Impairments in India",
-        venue: "ACM CSCW 2025",
+        venue: "ACM CSCW",
         date: "October 2025",
-        authors: "Akshay Kolgar Nayak , Yash Prakash, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok",
+        authors: "Akshay Kolgar Nayak, Yash Prakash, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok",
         abstract: "We present a study on self-reflection strategies among blind and visually impaired (BVI) job seekers in India. Despite gaining digital skills, many face challenges aligning with industry expectations due to limited personalized feedback and inaccessible job-prep tools. Self-reflection is often a social process shaped by peer interactions, yet current systems lack the tailored support needed for effective growth. Our findings inform the design of future tools to better guide reflective job-seeking and address the unique needs of BVI individuals in the Global South.",
         image: "selfReflection", // Corrected image name
         color: "linear-gradient(135deg, #FFE8DC 0%, #FFF3E8 100%)", // Sunset peach gradient
         textColor: "#2D4059", // Deep water blue for text
         links: {
             pdf: "Papers/cscw25.pdf",
-            // doi: "https://doi.org/10.1145/3487553.3524254",
-            // project: "https://example.com/accessible-reviews"
+            doi: "https://doi.org/10.1145/3757485",
         },
-        extraLinks: {
-            // github: "https://github.com/username/restaurant-reviews",
-            // video: "https://youtube.com/watch?v=exampleId",
-            // dataset: "https://example.com/restaurant-dataset"
+        extraLinks: {},
+        acmAuthorizer: {
+            url: "https://dl.acm.org/doi/10.1145/3757485?cid=99661242236",
+            doi: "10.1145/3757485",
+            cid: "99661242236",
+        },
+        citation: {
+            bibtex: `@article{kolgar2025insights,
+  title={Insights in Adaptation: Examining Self-reflection Strategies of Job Seekers with Visual Impairments in India},
+  author={Kolgar Nayak, Akshay and Prakash, Yash and Jayarathna, Sampath and Lee, Hae-Na and Ashok, Vikas},
+  journal={Proceedings of the ACM on Human-Computer Interaction},
+  volume={9},
+  number={7},
+  pages={1--30},
+  year={2025},
+  publisher={ACM New York, NY, USA}
+}`,
+            apa: "Kolgar Nayak, A., Prakash, Y., Jayarathna, S., Lee, H. N., & Ashok, V. (2025). Insights in Adaptation: Examining Self-reflection Strategies of Job Seekers with Visual Impairments in India. Proceedings of the ACM on Human-Computer Interaction, 9(7), 1-30.",
+            mla: "Kolgar Nayak, Akshay, et al. \"Insights in Adaptation: Examining Self-reflection Strategies of Job Seekers with Visual Impairments in India.\" Proceedings of the ACM on Human-Computer Interaction 9.7 (2025): 1-30.",
+            chicago: "Kolgar Nayak, Akshay, Yash Prakash, Sampath Jayarathna, Hae-Na Lee, and Vikas Ashok. \"Insights in Adaptation: Examining Self-reflection Strategies of Job Seekers with Visual Impairments in India.\" Proceedings of the ACM on Human-Computer Interaction 9, no. 7 (2025): 1-30.",
+            ieee: "A. Kolgar Nayak, Y. Prakash, S. Jayarathna, H. N. Lee, and V. Ashok, \"Insights in Adaptation: Examining Self-reflection Strategies of Job Seekers with Visual Impairments in India,\" Proceedings of the ACM on Human-Computer Interaction, vol. 9, no. 7, pp. 1-30, 2025.",
         },
         awards: [],
         featured: true
@@ -83,7 +99,7 @@ const publicationsData = [
     {
         id: 3,
         title: "Adapting Online Customer Reviews for Blind Users: A Case Study of Restaurant Reviews",
-        venue: "ACM Web4All 2025",
+        venue: "ACM Web4All",
         date: "April 2025",
         authors: "Mohan Sunkara, Akshay Kolgar Nayak, Sandeep Kalari, Yash Prakash, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok",
         abstract: "We present QuickCue, an assistive browser extension that improves the usability of online restaurant reviews for blind screen reader users. QuickCue restructures review content into a hierarchical format organized by aspects (e.g., food, service, ambiance) and sentiment (positive/negative), enabling faster, more focused exploration with minimal navigation. Powered by GPT-4, it performs aspect-sentiment classification and generates targeted summaries, significantly reducing listening fatigue and helping users make more informed decisions.",
@@ -98,6 +114,24 @@ const publicationsData = [
         extraLinks: {
             // github: "https://github.com/username/accessmenu",
         },
+        acmAuthorizer: {
+            url: "https://dl.acm.org/doi/10.1145/3744257.3744276?cid=99661242236",
+            doi: "10.1145/3744257.3744276",
+            cid: "99661242236",
+        },
+        citation: {
+            bibtex: `@inproceedings{sunkara2025adapting,
+  title={Adapting Online Customer Reviews for Blind Users: A Case Study of Restaurant Reviews},
+  author={Sunkara, Mohan and Kolgar Nayak, Akshay and Kalari, Sandeep and Prakash, Yash and Jayarathna, Sampath and Lee, Hae-Na and Ashok, Vikas},
+  booktitle={Proceedings of the 22nd International Web for All Conference},
+  pages={135--146},
+  year={2025}
+}`,
+            apa: "Sunkara, M., Kolgar Nayak, A., Kalari, S., Prakash, Y., Jayarathna, S., Lee, H. N., & Ashok, V. (2025). Adapting Online Customer Reviews for Blind Users: A Case Study of Restaurant Reviews. In Proceedings of the 22nd International Web for All Conference (pp. 135-146).",
+            mla: "Sunkara, Mohan, et al. \"Adapting Online Customer Reviews for Blind Users: A Case Study of Restaurant Reviews.\" Proceedings of the 22nd International Web for All Conference. 2025. 135-146.",
+            chicago: "Sunkara, Mohan, Akshay Kolgar Nayak, Sandeep Kalari, Yash Prakash, Sampath Jayarathna, Hae-Na Lee, and Vikas Ashok. \"Adapting Online Customer Reviews for Blind Users: A Case Study of Restaurant Reviews.\" In Proceedings of the 22nd International Web for All Conference, pp. 135-146, 2025.",
+            ieee: "M. Sunkara, A. Kolgar Nayak, S. Kalari, Y. Prakash, S. Jayarathna, H. N. Lee, and V. Ashok, \"Adapting Online Customer Reviews for Blind Users: A Case Study of Restaurant Reviews,\" in Proceedings of the 22nd International Web for All Conference, 2025, pp. 135-146.",
+        },
         awards: [{
             type: "best-paper",
             name: "Best Paper Award"
@@ -107,7 +141,7 @@ const publicationsData = [
     {
         id: 4,
         title: "Towards Enhancing Low Vision Usability of Data Charts on Smartphones",
-        venue: "IEEE VIS (TVCG) 2025",
+        venue: "IEEE VIS (TVCG)",
         date: "September 2024",
         authors: "Yash Prakash, Pathan Aseef Khan, Akshay Kolgar Nayak, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok ",
         abstract: "We present GraphLite, a mobile assistive system that makes data charts more usable for low-vision screen magnifier users. GraphLite transforms static, non-interactive charts into customizable, interactive views that preserve visual context under magnification. Users can selectively focus on key data points, personalize chart appearance, and reduce panning effort through simplified gestures.",
@@ -278,6 +312,103 @@ const CitationDialog = ({ open, onClose, citation }) => {
                 ))}
             </DialogContent>
         </Dialog>
+    );
+};
+
+// ACM Author-Izer Button Component
+const ACMAuthorizerButton = ({ acmData }) => {
+    const [stats, setStats] = useState({
+        downloads: null,
+        citations: null,
+        loading: true,
+        error: false
+    });
+
+    useEffect(() => {
+        // Fetch ACM statistics
+        const fetchACMStats = async () => {
+            try {
+                // ACM provides stats through their API or embedded script
+                // Note: This may fail in localhost due to CORS restrictions
+                const response = await fetch(`https://dl.acm.org/action/ajaxShowCitedBy?doi=${acmData.doi}`, {
+                    mode: 'cors',
+                    credentials: 'omit',
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    setStats({
+                        citations: data.citationCount || null,
+                        downloads: data.downloadCount || null,
+                        loading: false,
+                        error: false
+                    });
+                } else {
+                    // API request failed, use placeholder
+                    setStats({ citations: null, downloads: null, loading: false, error: true });
+                }
+            } catch (error) {
+                // CORS or network error - common in localhost
+                // Silently fail and show button without stats
+                setStats({ citations: null, downloads: null, loading: false, error: true });
+            }
+        };
+
+        if (acmData && acmData.doi) {
+            // Add a small delay to avoid hammering the API
+            const timer = setTimeout(() => {
+                fetchACMStats();
+            }, 100);
+
+            return () => clearTimeout(timer);
+        } else {
+            setStats({ citations: null, downloads: null, loading: false, error: false });
+        }
+    }, [acmData]);
+
+    return (
+        <Tooltip
+            title="Access on ACM Digital Library (free via Author-Izer)"
+            arrow
+            placement="top"
+        >
+            <Button
+                component="a"
+                href={acmData.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                    minWidth: 'auto',
+                    backgroundColor: 'transparent',
+                    color: '#0085CA',
+                    borderRadius: '50%',
+                    width: '44px',
+                    height: '44px',
+                    p: 0,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    border: '2px solid rgba(0, 133, 202, 0.2)',
+                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                    '&:hover': {
+                        backgroundColor: 'rgba(0, 133, 202, 0.08)',
+                        borderColor: '#0085CA',
+                        transform: 'scale(1.1)',
+                        boxShadow: '0 4px 12px rgba(0, 133, 202, 0.2)',
+                    },
+                }}
+            >
+                <Box
+                    component="img"
+                    src="/Icons/dl.png"
+                    alt="ACM DL"
+                    sx={{
+                        height: '22px',
+                        width: 'auto',
+                    }}
+                />
+            </Button>
+        </Tooltip>
     );
 };
 
@@ -902,10 +1033,6 @@ const PublicationCard = ({ publication }) => {
                     sx={{
                         color: '#2D4059',
                         mb: 3,
-                        display: '-webkit-box',
-                        overflow: 'hidden',
-                        WebkitBoxOrient: 'vertical',
-                        WebkitLineClamp: 6,
                         lineHeight: 1.7,
                         fontSize: '0.95rem',
                         opacity: 0.9,
@@ -1047,6 +1174,9 @@ const PublicationCard = ({ publication }) => {
                                 <FormatQuoteIcon sx={{ fontSize: '1.3rem' }} />
                             </Button>
                         </Tooltip>
+                    )}
+                    {publication.acmAuthorizer && (
+                        <ACMAuthorizerButton acmData={publication.acmAuthorizer} />
                     )}
                 </Box>
             </Box>
