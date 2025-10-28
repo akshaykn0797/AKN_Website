@@ -121,6 +121,8 @@ export default function About() {
                                                 component="img"
                                                 src="/akn.jpeg"
                                                 alt="Akshay K Nayak"
+                                                loading="eager"
+                                                fetchPriority="high"
                                                 sx={{
                                                     width: '100%',
                                                     display: 'block',

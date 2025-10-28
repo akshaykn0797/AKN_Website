@@ -489,55 +489,7 @@ const CitationDialog = ({ open, onClose, citation }) => {
 
 // ACM Author-Izer Button Component
 const ACMAuthorizerButton = ({ acmData }) => {
-    const [stats, setStats] = useState({
-        downloads: null,
-        citations: null,
-        loading: true,
-        error: false
-    });
-
-    useEffect(() => {
-        // Fetch ACM statistics
-        const fetchACMStats = async () => {
-            try {
-                // ACM provides stats through their API or embedded script
-                // Note: This may fail in localhost due to CORS restrictions
-                const response = await fetch(`https://dl.acm.org/action/ajaxShowCitedBy?doi=${acmData.doi}`, {
-                    mode: 'cors',
-                    credentials: 'omit',
-                });
-
-                if (response.ok) {
-                    const data = await response.json();
-                    setStats({
-                        citations: data.citationCount || null,
-                        downloads: data.downloadCount || null,
-                        loading: false,
-                        error: false
-                    });
-                } else {
-                    // API request failed, use placeholder
-                    setStats({ citations: null, downloads: null, loading: false, error: true });
-                }
-            } catch (error) {
-                // CORS or network error - common in localhost
-                // Silently fail and show button without stats
-                setStats({ citations: null, downloads: null, loading: false, error: true });
-            }
-        };
-
-        if (acmData && acmData.doi) {
-            // Add a small delay to avoid hammering the API
-            const timer = setTimeout(() => {
-                fetchACMStats();
-            }, 100);
-
-            return () => clearTimeout(timer);
-        } else {
-            setStats({ citations: null, downloads: null, loading: false, error: false });
-        }
-    }, [acmData]);
-
+    // Removed API call to improve performance - stats not currently displayed anyway
     return (
         <Tooltip
             title="Access on ACM Digital Library (free via Author-Izer)"
@@ -690,6 +642,7 @@ const PublicationImage = ({ imageName, alt }) => {
                             component="img"
                             src="/Publications/assets24_1.png"
                             alt={alt || `Image 1 for ${imageName}`}
+                            loading="lazy"
                             sx={{
                                 width: '100%',
                                 flex: 1,
@@ -700,6 +653,7 @@ const PublicationImage = ({ imageName, alt }) => {
                             component="img"
                             src="/Publications/assets24_2.png"
                             alt={alt || `Image 2 for ${imageName}`}
+                            loading="lazy"
                             sx={{
                                 width: '100%',
                                 flex: 1,
@@ -712,6 +666,7 @@ const PublicationImage = ({ imageName, alt }) => {
                         component="img"
                         src={imgUrl}
                         alt={alt || `Image for ${imageName}`}
+                        loading="lazy"
                         sx={{
                             maxWidth: '100%',
                             maxHeight: '100%',

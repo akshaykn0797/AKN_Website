@@ -24,9 +24,11 @@ export default function RootLayout({ children, emotionCache = clientSideEmotionC
   return (
     <html lang="en" className={sourceSans3.variable}>
       <head>
-        <link rel="icon" href="/Icons/aknlogo.png" type="image/png" sizes="any" />
-        <link rel="shortcut icon" href="/Icons/aknlogo.png" />
-        <link rel="apple-touch-icon" href="/Icons/aknlogo.png" />
+        {/* Favicon - multiple formats for better browser support */}
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/icon.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/icon.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon.png" />
         <meta name="theme-color" content="#1B5E20" />
         <title>Akshay K Nayak</title>
 
