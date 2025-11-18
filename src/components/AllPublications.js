@@ -62,7 +62,7 @@ const allPublicationsData = [
         abstract: "We examine the state of inclusive computing education for blind and visually impaired (BVI) students in India, a resource-constrained Global South context. Through an interview study with 15 BVI students, instructors, and professionals, we identify key challenges including inaccessible instructional materials, heavy reliance on peer support, and the cognitive burden of simultaneously learning computing concepts and screen readers. Our findings reveal gaps in curriculum and instructor training, which often confines BVI individuals to basic, non-developer job roles. We provide recommendations to restructure curricula and propose self-learning assistive tools to foster more equitable and accessible computing education.",
         image: "csed",
         links: {
-            pdf: "Papers/SIGCSE26.pdf",
+            pdf: "Papers/sigcse26.pdf",
         },
         extraLinks: {},
         awards: [],

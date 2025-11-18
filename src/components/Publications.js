@@ -51,7 +51,7 @@ const publicationsData = [
         color: "linear-gradient(135deg, #FFE8DC 0%, #FFF3E8 100%)",
         textColor: "#2D4059",
         links: {
-            pdf: "Papers/SIGCSE26.pdf",
+            pdf: "Papers/sigcse26.pdf",
         },
         extraLinks: {},
         awards: [],
