@@ -22,6 +22,24 @@ import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 const newsItems = [
     {
         id: 1,
+        date: 'January 15, 2026',
+        image: 'CHI_2026', // Image filename in public/News folder
+        accentColor: '#880E4F', // Dark magenta accent
+        headline: 'Paper Accepted - ACM CHI 2026',
+        description: 'Our paper, "Contextual Scaffolding and Self-Efficacy: Supporting Computer Skill Development among Blind Learners in India," has been accepted at ACM CHI 2026.',
+        link: 'Papers/CHI_2026.pdf'
+    },
+    {
+        id: 2,
+        date: 'December 6, 2024',
+        image: 'CHIIR_2026', // Image filename in public/News folder
+        accentColor: '#004D40', // Dark teal accent
+        headline: '2 Papers Accepted - ACM CHIIR 2026',
+        description: 'Two of our papers have been accepted for presentation at the ACM CHIIR 2026 conference in Seattle, WA.',
+        link: 'Papers/Vox_Vista_2026.pdf'
+    },
+    {
+        id: 3,
         date: 'October 9, 2025',
         image: 'taylorFrancis', // Image filename in public/News folder
         accentColor: '#1B5E20', // Dark green accent
@@ -30,7 +48,7 @@ const newsItems = [
         link: 'Papers/ijhci25.pdf'
     },
     {
-        id: 2,
+        id: 4,
         date: 'September 15, 2025',
         image: 'sigcse26', // Image filename in public/News folder
         accentColor: '#1565C0', // Dark blue accent for SIGCSE
@@ -39,7 +57,7 @@ const newsItems = [
         link: 'Papers/sigcse26.pdf'
     },
     {
-        id: 3,
+        id: 5,
         date: 'April 29, 2025',
         image: 'w4a25', // Image filename in public/News folder
         accentColor: '#C62828', // Deep red accent
@@ -48,7 +66,7 @@ const newsItems = [
         link: 'https://www.w4a.info/2025/awards/'
     },
     {
-        id: 4,
+        id: 6,
         date: 'April 20, 2025',
         image: 'w4a25', // Image filename in public/News folder
         accentColor: '#6A1B9A', // Deep purple accent
@@ -57,7 +75,7 @@ const newsItems = [
         link: 'Papers/accessMenu25.pdf'
     },
     {
-        id: 5,
+        id: 7,
         date: 'March 26, 2025',
         image: 'cscw25', // Image filename in public/News folder
         accentColor: '#D84315', // Deep orange-red accent
@@ -66,7 +84,7 @@ const newsItems = [
         link: 'Papers/cscw25.pdf'
     },
     {
-        id: 6,
+        id: 8,
         date: 'January 20, 2025',
         image: 'odu', // Image filename in public/News folder
         accentColor: '#01579B', // Deep ocean blue accent

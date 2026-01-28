@@ -42,16 +42,16 @@ import CloseIcon from '@mui/icons-material/Close';
 const publicationsData = [
     {
         id: 1,
-        title: "Examining Inclusive Computing Education for Blind Students in India",
-        venue: "ACM SIGCSE TS '26",
-        date: "February 2026",
-        authors: "Akshay Kolgar Nayak, Yash Prakash, Md Javedul Ferdous, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok",
-        abstract: "We examine the state of inclusive computing education for blind and visually impaired (BVI) students in India, a resource-constrained Global South context. Through an interview study with 15 BVI students, instructors, and professionals, we identify key challenges including inaccessible instructional materials, heavy reliance on peer support, and the cognitive burden of simultaneously learning computing concepts and screen readers. Our findings reveal gaps in curriculum and instructor training, which often confines BVI individuals to basic, non-developer job roles. We provide recommendations to restructure curricula and propose self-learning assistive tools to foster more equitable and accessible computing education.",
+        title: "Contextual Scaffolding and Self-Efficacy: Supporting Computer Skill Development among Blind Learners in India",
+        venue: "ACM CHI '26",
+        date: "April 2026",
+        authors: "Akshay Kolgar Nayak, Yash Prakash, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok",
+        abstract: "Inclusive computer literacy initiatives for blind or visually impaired (BVI) learners are growing, but research largely reflects well-resourced Global North settings. To understand challenges in resource-constrained, multicultural contexts like India, we conducted a four-month contextual inquiry at two training centers serving 94 BVI students. We found rigid, experience-driven instruction and a visually centered curriculum that overlooks BVI learners’ lived experiences and weakens self-efficacy. We argue for culturally responsive computing pedagogy supported by locally adaptable scaffolds for BVI students in developing societies.",
         image: "csed",
         color: "linear-gradient(135deg, #FFE8DC 0%, #FFF3E8 100%)",
         textColor: "#2D4059",
         links: {
-            pdf: "Papers/sigcse26.pdf",
+            pdf: "Papers/CHI_2026.pdf",
         },
         extraLinks: {},
         awards: [],

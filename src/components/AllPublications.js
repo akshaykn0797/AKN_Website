@@ -41,25 +41,61 @@ import CloseIcon from '@mui/icons-material/Close';
 const allPublicationsData = [
     {
         id: 1,
-        title: "Understanding Online Discussion Experiences of Blind Screen Reader Users",
-        venue: "IJHCI",
-        date: "2025",
-        authors: "Md Javedul Ferdous, Akshay Kolgar Nayak, Yash Prakash, Nithiya Venkatraman, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok",
-        abstract: "Online discussion platforms are vital for socializing and information exchange, yet blind screen reader users' conversational experiences remain largely unexplored. Through semi-structured interviews with blind participants active on Reddit, Facebook, and YouTube, we uncovered critical challenges including difficulty joining ongoing conversations, tracking replies to their posts, and comprehending context-dependent content. Participants expressed needs for text standardization, sub-thread summarization, and sub-conversation navigation links. They preferred longer context-rich posts and hierarchical organization over linear presentation. We discuss LLM-driven design solutions including semantic conversation disentanglement using chain-of-thought prompting, dynamic voice profiling for different posts, and intelligent summarization features to reduce cognitive load and enhance participation in online discussions.",
-        image: "ijhci25",
+        title: "Contextual Scaffolding and Self-Efficacy: Supporting Computer Skill Development among Blind Learners in India",
+        venue: "ACM CHI",
+        date: "April 2026",
+        authors: "Akshay Kolgar Nayak, Yash Prakash, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok",
+        abstract:
+            "Through a four-month contextual inquiry at two computer training centers serving 94 blind or visually impaired (BVI) learners in India, we identify rigid, experience-driven instruction and a visually centered curriculum that can undermine learners’ self-efficacy. We argue for moving beyond functional accessibility toward culturally responsive computing pedagogy, supported by locally adaptable contextual scaffolds tailored to resource-constrained, multicultural settings.",
+        image: "CHI_26",
         links: {
-            pdf: "Papers/ijhci25.pdf",
+            pdf: "Papers/CHI_2026.pdf",
+            doi: "https://doi.org/10.1145/3772318.3791509",
         },
         extraLinks: {},
         awards: [],
     },
     {
         id: 2,
+        title: "Micro-Behavioral Analysis of Online Shopping Patterns for Blind Users",
+        venue: "ACM CHIIR",
+        date: "March 2026",
+        authors: "Yash Prakash, Akshay Kolgar Nayak, Nithiya Venkatraman, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok",
+        abstract:
+            "While online shopping platforms provide convenience and autonomy to blind users, their non-visual interactions remain underexplored at a micro-behavioral level. We report a longitudinal study with 25 blind participants, combining keyboard activity and screen reader logs across familiar and unfamiliar e-commerce websites with interviews. We show how cognitive maps and shortcut routines formed on familiar sites streamline navigation, while unfamiliar sites increase navigation entropy, shortcut failures, and exploratory behavior as users rebuild mental models. We discuss design considerations for assistive technologies and e-commerce platforms to improve non-visual shopping.",
+        image: "MicroBehavior",
+        links: {
+            pdf: "Papers/MicroBehavior_2026.pdf",
+            doi: "https://doi.org/10.1145/3786304.3788841",
+        },
+        extraLinks: {},
+        awards: [],
+    },
+    {
+        id: 3,
+        title: "VoxVista: Enhancing Screen Reading Experience for Online User Comments",
+        venue: "ACM CHIIR",
+        date: "March 2026",
+        authors: "Yash Prakash, Akshay Kolgar Nayak, Shoaib Alyaan, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok",
+        abstract:
+            "Blind users often experience online comment threads as long, monotone narration that increases fatigue and makes it harder to track conversational flow and emotional intent. VoxVista introduces an LLM-driven multi-voice framework that assigns personalized voice profiles to posts using a custom voice-preference dataset, creating more expressive and context-aware narration. A study with 20 blind participants shows improved engagement, comprehension, and willingness to continue listening to longer discussions.",
+        image: "VoxVista",
+        links: {
+            pdf: "Papers/Vox_Vista_2026.pdf",
+            doi: "https://doi.org/10.1145/3786304.3788850",
+        },
+        extraLinks: {},
+        awards: [],
+    },
+    {
+        id: 4,
         title: "Examining Inclusive Computing Education for Blind Students in India",
         venue: "ACM SIGCSE TS '26",
         date: "February 2026",
-        authors: "Akshay Kolgar Nayak, Yash Prakash, Md Javedul Ferdous, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok",
-        abstract: "We examine the state of inclusive computing education for blind and visually impaired (BVI) students in India, a resource-constrained Global South context. Through an interview study with 15 BVI students, instructors, and professionals, we identify key challenges including inaccessible instructional materials, heavy reliance on peer support, and the cognitive burden of simultaneously learning computing concepts and screen readers. Our findings reveal gaps in curriculum and instructor training, which often confines BVI individuals to basic, non-developer job roles. We provide recommendations to restructure curricula and propose self-learning assistive tools to foster more equitable and accessible computing education.",
+        authors:
+            "Akshay Kolgar Nayak, Yash Prakash, Md Javedul Ferdous, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok",
+        abstract:
+            "We examine the state of inclusive computing education for blind and visually impaired (BVI) students in India, a resource-constrained Global South context. Through an interview study with 15 BVI students, instructors, and professionals, we identify key challenges including inaccessible instructional materials, heavy reliance on peer support, and the cognitive burden of simultaneously learning computing concepts and screen readers. Our findings reveal gaps in curriculum and instructor training, which often confines BVI individuals to basic, non-developer job roles. We provide recommendations to restructure curricula and propose self-learning assistive tools to foster more equitable and accessible computing education.",
         image: "csed",
         links: {
             pdf: "Papers/sigcse26.pdf",
@@ -68,12 +104,14 @@ const allPublicationsData = [
         awards: [],
     },
     {
-        id: 3,
-        title: "Insights in Adaptation: Examining Self-reflection Strategies of Job Seekers with Visual Impairments in India",
+        id: 5,
+        title:
+            "Insights in Adaptation: Examining Self-reflection Strategies of Job Seekers with Visual Impairments in India",
         venue: "ACM CSCW",
         date: "October 2025",
         authors: "Akshay Kolgar Nayak, Yash Prakash, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok",
-        abstract: "We present a study on self-reflection strategies among blind and visually impaired (BVI) job seekers in India. Despite gaining digital skills, many face challenges aligning with industry expectations due to limited personalized feedback and inaccessible job-prep tools. Self-reflection is often a social process shaped by peer interactions, yet current systems lack the tailored support needed for effective growth. Our findings inform the design of future tools to better guide reflective job-seeking and address the unique needs of BVI individuals in the Global South.",
+        abstract:
+            "We present a study on self-reflection strategies among blind and visually impaired (BVI) job seekers in India. Despite gaining digital skills, many face challenges aligning with industry expectations due to limited personalized feedback and inaccessible job-prep tools. Self-reflection is often a social process shaped by peer interactions, yet current systems lack the tailored support needed for effective growth. Our findings inform the design of future tools to better guide reflective job-seeking and address the unique needs of BVI individuals in the Global South.",
         image: "selfReflection",
         links: {
             pdf: "Papers/cscw25.pdf",
@@ -87,29 +125,48 @@ const allPublicationsData = [
         },
         citation: {
             bibtex: `@article{kolgar2025insights,
-  title={Insights in Adaptation: Examining Self-reflection Strategies of Job Seekers with Visual Impairments in India},
-  author={Kolgar Nayak, Akshay and Prakash, Yash and Jayarathna, Sampath and Lee, Hae-Na and Ashok, Vikas},
-  journal={Proceedings of the ACM on Human-Computer Interaction},
-  volume={9},
-  number={7},
-  pages={1--30},
-  year={2025},
-  publisher={ACM New York, NY, USA}
-}`,
+    title={Insights in Adaptation: Examining Self-reflection Strategies of Job Seekers with Visual Impairments in India},
+    author={Kolgar Nayak, Akshay and Prakash, Yash and Jayarathna, Sampath and Lee, Hae-Na and Ashok, Vikas},
+    journal={Proceedings of the ACM on Human-Computer Interaction},
+    volume={9},
+    number={7},
+    pages={1--30},
+    year={2025},
+    publisher={ACM New York, NY, USA}
+  }`,
             apa: "Kolgar Nayak, A., Prakash, Y., Jayarathna, S., Lee, H. N., & Ashok, V. (2025). Insights in Adaptation: Examining Self-reflection Strategies of Job Seekers with Visual Impairments in India. Proceedings of the ACM on Human-Computer Interaction, 9(7), 1-30.",
-            mla: "Kolgar Nayak, Akshay, et al. \"Insights in Adaptation: Examining Self-reflection Strategies of Job Seekers with Visual Impairments in India.\" Proceedings of the ACM on Human-Computer Interaction 9.7 (2025): 1-30.",
-            chicago: "Kolgar Nayak, Akshay, Yash Prakash, Sampath Jayarathna, Hae-Na Lee, and Vikas Ashok. \"Insights in Adaptation: Examining Self-reflection Strategies of Job Seekers with Visual Impairments in India.\" Proceedings of the ACM on Human-Computer Interaction 9, no. 7 (2025): 1-30.",
-            ieee: "A. Kolgar Nayak, Y. Prakash, S. Jayarathna, H. N. Lee, and V. Ashok, \"Insights in Adaptation: Examining Self-reflection Strategies of Job Seekers with Visual Impairments in India,\" Proceedings of the ACM on Human-Computer Interaction, vol. 9, no. 7, pp. 1-30, 2025.",
+            mla: 'Kolgar Nayak, Akshay, et al. "Insights in Adaptation: Examining Self-reflection Strategies of Job Seekers with Visual Impairments in India." Proceedings of the ACM on Human-Computer Interaction 9.7 (2025): 1-30.',
+            chicago:
+                'Kolgar Nayak, Akshay, Yash Prakash, Sampath Jayarathna, Hae-Na Lee, and Vikas Ashok. "Insights in Adaptation: Examining Self-reflection Strategies of Job Seekers with Visual Impairments in India." Proceedings of the ACM on Human-Computer Interaction 9, no. 7 (2025): 1-30.',
+            ieee:
+                'A. Kolgar Nayak, Y. Prakash, S. Jayarathna, H. N. Lee, and V. Ashok, "Insights in Adaptation: Examining Self-reflection Strategies of Job Seekers with Visual Impairments in India," Proceedings of the ACM on Human-Computer Interaction, vol. 9, no. 7, pp. 1-30, 2025.',
         },
         awards: [],
     },
     {
-        id: 4,
+        id: 6,
+        title: "Understanding Online Discussion Experiences of Blind Screen Reader Users",
+        venue: "IJHCI",
+        date: "2025",
+        authors:
+            "Md Javedul Ferdous, Akshay Kolgar Nayak, Yash Prakash, Nithiya Venkatraman, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok",
+        abstract:
+            "Online discussion platforms are vital for socializing and information exchange, yet blind screen reader users' conversational experiences remain largely unexplored. Through semi-structured interviews with blind participants active on Reddit, Facebook, and YouTube, we uncovered critical challenges including difficulty joining ongoing conversations, tracking replies to their posts, and comprehending context-dependent content. Participants expressed needs for text standardization, sub-thread summarization, and sub-conversation navigation links. They preferred longer context-rich posts and hierarchical organization over linear presentation. We discuss LLM-driven design solutions including semantic conversation disentanglement using chain-of-thought prompting, dynamic voice profiling for different posts, and intelligent summarization features to reduce cognitive load and enhance participation in online discussions.",
+        image: "ijhci25",
+        links: {
+            pdf: "Papers/ijhci25.pdf",
+        },
+        extraLinks: {},
+        awards: [],
+    },
+    {
+        id: 7,
         title: "AccessMenu: Enhancing Usability of Online Restaurant Menus for Screen Reader Users",
         venue: "ACM Web4All",
         date: "April 2025",
         authors: "Nithiya Venkatraman*, Akshay Kolgar Nayak*, Suyog Dahal, Yash Prakash, Hae-Na Lee, Vikas Ashok",
-        abstract: "Visual restaurant menus in PDF and image formats create substantial barriers for blind screen reader users ordering food online. An interview study with 12 BVI participants revealed that current OCR tools produce illogically ordered outputs, contextual hallucinations, and legend misinterpretations. AccessMenu addresses these issues through a browser extension leveraging GPT-4o-mini with custom Chain-of-Thought prompting to extract menu content (0.80 Entity F1) and re-render it in linearly navigable HTML. The system supports natural language queries for efficient menu filtering. Evaluation with 10 blind participants demonstrated significant improvements in usability and reduced task workload versus JAWS OCR, with participants covering twice as many menu items.",
+        abstract:
+            "Visual restaurant menus in PDF and image formats create substantial barriers for blind screen reader users ordering food online. An interview study with 12 BVI participants revealed that current OCR tools produce illogically ordered outputs, contextual hallucinations, and legend misinterpretations. AccessMenu addresses these issues through a browser extension leveraging GPT-4o-mini with custom Chain-of-Thought prompting to extract menu content (0.80 Entity F1) and re-render it in linearly navigable HTML. The system supports natural language queries for efficient menu filtering. Evaluation with 10 blind participants demonstrated significant improvements in usability and reduced task workload versus JAWS OCR, with participants covering twice as many menu items.",
         image: "accessMenu25",
         links: {
             pdf: "Papers/accessMenu25.pdf",
@@ -123,26 +180,29 @@ const allPublicationsData = [
         },
         citation: {
             bibtex: `@inproceedings{venkatraman2025accessmenu,
-  title={AccessMenu: Enhancing Usability of Online Restaurant Menus for Screen Reader Users},
-  author={Venkatraman, Nithiya and Kolgar Nayak, Akshay and Dahal, Suyog and Prakash, Yash and Lee, Hae-Na and Ashok, Vikas},
-  booktitle={Proceedings of the 22nd International Web for All Conference},
-  pages={36--47},
-  year={2025}
-}`,
+    title={AccessMenu: Enhancing Usability of Online Restaurant Menus for Screen Reader Users},
+    author={Venkatraman, Nithiya and Kolgar Nayak, Akshay and Dahal, Suyog and Prakash, Yash and Lee, Hae-Na and Ashok, Vikas},
+    booktitle={Proceedings of the 22nd International Web for All Conference},
+    pages={36--47},
+    year={2025}
+  }`,
             apa: "Venkatraman, N., Kolgar Nayak, A., Dahal, S., Prakash, Y., Lee, H. N., & Ashok, V. (2025). AccessMenu: Enhancing Usability of Online Restaurant Menus for Screen Reader Users. In Proceedings of the 22nd International Web for All Conference (pp. 36-47).",
-            mla: "Venkatraman, Nithiya, et al. \"AccessMenu: Enhancing Usability of Online Restaurant Menus for Screen Reader Users.\" Proceedings of the 22nd International Web for All Conference. 2025. 36-47.",
-            chicago: "Venkatraman, Nithiya, Akshay Kolgar Nayak, Suyog Dahal, Yash Prakash, Hae-Na Lee, and Vikas Ashok. \"AccessMenu: Enhancing Usability of Online Restaurant Menus for Screen Reader Users.\" In Proceedings of the 22nd International Web for All Conference, pp. 36-47, 2025.",
-            ieee: "N. Venkatraman, A. Kolgar Nayak, S. Dahal, Y. Prakash, H. N. Lee, and V. Ashok, \"AccessMenu: Enhancing Usability of Online Restaurant Menus for Screen Reader Users,\" in Proceedings of the 22nd International Web for All Conference, 2025, pp. 36-47.",
+            mla: 'Venkatraman, Nithiya, et al. "AccessMenu: Enhancing Usability of Online Restaurant Menus for Screen Reader Users." Proceedings of the 22nd International Web for All Conference. 2025. 36-47.',
+            chicago:
+                'Venkatraman, Nithiya, Akshay Kolgar Nayak, Suyog Dahal, Yash Prakash, Hae-Na Lee, and Vikas Ashok. "AccessMenu: Enhancing Usability of Online Restaurant Menus for Screen Reader Users." In Proceedings of the 22nd International Web for All Conference, pp. 36-47, 2025.',
+            ieee:
+                'N. Venkatraman, A. Kolgar Nayak, S. Dahal, Y. Prakash, H. N. Lee, and V. Ashok, "AccessMenu: Enhancing Usability of Online Restaurant Menus for Screen Reader Users," in Proceedings of the 22nd International Web for All Conference, 2025, pp. 36-47.',
         },
         awards: [],
     },
     {
-        id: 5,
+        id: 8,
         title: "Adapting Online Customer Reviews for Blind Users: A Case Study of Restaurant Reviews",
         venue: "ACM Web4All",
         date: "April 2025",
         authors: "Mohan Sunkara, Akshay Kolgar Nayak, Sandeep Kalari, Yash Prakash, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok",
-        abstract: "We present QuickCue, an assistive browser extension that improves the usability of online restaurant reviews for blind screen reader users. QuickCue restructures review content into a hierarchical format organized by aspects (e.g., food, service, ambiance) and sentiment (positive/negative), enabling faster, more focused exploration with minimal navigation. Powered by GPT-4, it performs aspect-sentiment classification and generates targeted summaries, significantly reducing listening fatigue and helping users make more informed decisions.",
+        abstract:
+            "We present QuickCue, an assistive browser extension that improves the usability of online restaurant reviews for blind screen reader users. QuickCue restructures review content into a hierarchical format organized by aspects (e.g., food, service, ambiance) and sentiment (positive/negative), enabling faster, more focused exploration with minimal navigation. Powered by GPT-4, it performs aspect-sentiment classification and generates targeted summaries, significantly reducing listening fatigue and helping users make more informed decisions.",
         image: "quickCue",
         links: {
             pdf: "Papers/quickCue.pdf",
@@ -156,29 +216,34 @@ const allPublicationsData = [
         },
         citation: {
             bibtex: `@inproceedings{sunkara2025adapting,
-  title={Adapting Online Customer Reviews for Blind Users: A Case Study of Restaurant Reviews},
-  author={Sunkara, Mohan and Kolgar Nayak, Akshay and Kalari, Sandeep and Prakash, Yash and Jayarathna, Sampath and Lee, Hae-Na and Ashok, Vikas},
-  booktitle={Proceedings of the 22nd International Web for All Conference},
-  pages={135--146},
-  year={2025}
-}`,
+    title={Adapting Online Customer Reviews for Blind Users: A Case Study of Restaurant Reviews},
+    author={Sunkara, Mohan and Kolgar Nayak, Akshay and Kalari, Sandeep and Prakash, Yash and Jayarathna, Sampath and Lee, Hae-Na and Ashok, Vikas},
+    booktitle={Proceedings of the 22nd International Web for All Conference},
+    pages={135--146},
+    year={2025}
+  }`,
             apa: "Sunkara, M., Kolgar Nayak, A., Kalari, S., Prakash, Y., Jayarathna, S., Lee, H. N., & Ashok, V. (2025). Adapting Online Customer Reviews for Blind Users: A Case Study of Restaurant Reviews. In Proceedings of the 22nd International Web for All Conference (pp. 135-146).",
-            mla: "Sunkara, Mohan, et al. \"Adapting Online Customer Reviews for Blind Users: A Case Study of Restaurant Reviews.\" Proceedings of the 22nd International Web for All Conference. 2025. 135-146.",
-            chicago: "Sunkara, Mohan, Akshay Kolgar Nayak, Sandeep Kalari, Yash Prakash, Sampath Jayarathna, Hae-Na Lee, and Vikas Ashok. \"Adapting Online Customer Reviews for Blind Users: A Case Study of Restaurant Reviews.\" In Proceedings of the 22nd International Web for All Conference, pp. 135-146, 2025.",
-            ieee: "M. Sunkara, A. Kolgar Nayak, S. Kalari, Y. Prakash, S. Jayarathna, H. N. Lee, and V. Ashok, \"Adapting Online Customer Reviews for Blind Users: A Case Study of Restaurant Reviews,\" in Proceedings of the 22nd International Web for All Conference, 2025, pp. 135-146.",
+            mla: 'Sunkara, Mohan, et al. "Adapting Online Customer Reviews for Blind Users: A Case Study of Restaurant Reviews." Proceedings of the 22nd International Web for All Conference. 2025. 135-146.',
+            chicago:
+                'Sunkara, Mohan, Akshay Kolgar Nayak, Sandeep Kalari, Yash Prakash, Sampath Jayarathna, Hae-Na Lee, and Vikas Ashok. "Adapting Online Customer Reviews for Blind Users: A Case Study of Restaurant Reviews." In Proceedings of the 22nd International Web for All Conference, pp. 135-146, 2025.',
+            ieee:
+                'M. Sunkara, A. Kolgar Nayak, S. Kalari, Y. Prakash, S. Jayarathna, H. N. Lee, and V. Ashok, "Adapting Online Customer Reviews for Blind Users: A Case Study of Restaurant Reviews," in Proceedings of the 22nd International Web for All Conference, 2025, pp. 135-146.',
         },
-        awards: [{
-            type: "best-paper",
-            name: "Best Paper Award"
-        }],
+        awards: [
+            {
+                type: "best-paper",
+                name: "Best Paper Award",
+            },
+        ],
     },
     {
-        id: 6,
+        id: 9,
         title: "Improving Usability of Data Charts in Multimodal Documents for Low Vision Users",
         venue: "ACM ICMI",
         date: "November 2024",
         authors: "Yash Prakash, Akshay Kolgar Nayak, Shoaib Mohammed Alyaan, Pathan Aseef Khan, Hae-Na Lee, Vikas Ashok",
-        abstract: "Multimodal documents pairing charts with text create significant challenges for low vision screen magnifier users on smartphones, who struggle to mentally associate spatially separated information due to limited viewport and constant panning. Following a formative study with 10 low vision participants revealing key requirements, ChartSync transforms static charts into interactive slideshows featuring magnified views of salient data point combinations identified through LLaMA with Chain-of-Thought and ReAct prompting. Each slide includes tailored voice narration addressing the split-attention effect. Evaluation with 12 participants demonstrated significant improvements in task completion time, comprehension, and reduced cognitive load compared to standard screen magnifiers and existing solutions.",
+        abstract:
+            "Multimodal documents pairing charts with text create significant challenges for low vision screen magnifier users on smartphones, who struggle to mentally associate spatially separated information due to limited viewport and constant panning. Following a formative study with 10 low vision participants revealing key requirements, ChartSync transforms static charts into interactive slideshows featuring magnified views of salient data point combinations identified through LLaMA with Chain-of-Thought and ReAct prompting. Each slide includes tailored voice narration addressing the split-attention effect. Evaluation with 12 participants demonstrated significant improvements in task completion time, comprehension, and reduced cognitive load compared to standard screen magnifiers and existing solutions.",
         image: "icmi24",
         links: {
             pdf: "Papers/icmi24.pdf",
@@ -194,26 +259,29 @@ const allPublicationsData = [
         },
         citation: {
             bibtex: `@inproceedings{prakash2024improving,
-  title={Improving Usability of Data Charts in Multimodal Documents for Low Vision Users},
-  author={Prakash, Yash and Kolgar Nayak, Akshay and Alyaan, Shoaib Mohammed and Khan, Pathan Aseef and Lee, Hae-Na and Ashok, Vikas},
-  booktitle={Proceedings of the 26th International Conference on Multimodal Interaction},
-  pages={498--507},
-  year={2024}
-}`,
+    title={Improving Usability of Data Charts in Multimodal Documents for Low Vision Users},
+    author={Prakash, Yash and Kolgar Nayak, Akshay and Alyaan, Shoaib Mohammed and Khan, Pathan Aseef and Lee, Hae-Na and Ashok, Vikas},
+    booktitle={Proceedings of the 26th International Conference on Multimodal Interaction},
+    pages={498--507},
+    year={2024}
+  }`,
             apa: "Prakash, Y., Kolgar Nayak, A., Alyaan, S. M., Khan, P. A., Lee, H. N., & Ashok, V. (2024). Improving Usability of Data Charts in Multimodal Documents for Low Vision Users. In Proceedings of the 26th International Conference on Multimodal Interaction (pp. 498-507).",
-            mla: "Prakash, Yash, et al. \"Improving Usability of Data Charts in Multimodal Documents for Low Vision Users.\" Proceedings of the 26th International Conference on Multimodal Interaction. 2024. 498-507.",
-            chicago: "Prakash, Yash, Akshay Kolgar Nayak, Shoaib Mohammed Alyaan, Pathan Aseef Khan, Hae-Na Lee, and Vikas Ashok. \"Improving Usability of Data Charts in Multimodal Documents for Low Vision Users.\" In Proceedings of the 26th International Conference on Multimodal Interaction, pp. 498-507, 2024.",
-            ieee: "Y. Prakash, A. Kolgar Nayak, S. M. Alyaan, P. A. Khan, H. N. Lee, and V. Ashok, \"Improving Usability of Data Charts in Multimodal Documents for Low Vision Users,\" in Proceedings of the 26th International Conference on Multimodal Interaction, 2024, pp. 498-507.",
+            mla: 'Prakash, Yash, et al. "Improving Usability of Data Charts in Multimodal Documents for Low Vision Users." Proceedings of the 26th International Conference on Multimodal Interaction. 2024. 498-507.',
+            chicago:
+                'Prakash, Yash, Akshay Kolgar Nayak, Shoaib Mohammed Alyaan, Pathan Aseef Khan, Hae-Na Lee, and Vikas Ashok. "Improving Usability of Data Charts in Multimodal Documents for Low Vision Users." In Proceedings of the 26th International Conference on Multimodal Interaction, pp. 498-507, 2024.',
+            ieee:
+                'Y. Prakash, A. Kolgar Nayak, S. M. Alyaan, P. A. Khan, H. N. Lee, and V. Ashok, "Improving Usability of Data Charts in Multimodal Documents for Low Vision Users," in Proceedings of the 26th International Conference on Multimodal Interaction, 2024, pp. 498-507.',
         },
         awards: [],
     },
     {
-        id: 7,
+        id: 10,
         title: "Understanding Low Vision Graphical Perception of Bar Charts",
         venue: "ACM ASSETS",
         date: "October 2024",
         authors: "Yash Prakash, Akshay Kolgar Nayak, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok",
-        abstract: "Bar charts are ubiquitous for data representation, yet how low-vision screen magnifier users perceive them remains unexplored. Through four controlled experiments with 25 low-vision participants using a custom screen magnifier logger capturing zooming and panning behaviors, this study reveals critical differences from sighted user perception. Findings show low-vision users invest substantial effort counteracting blurring and contrast effects, with tall distractors significantly elevating error rates contrary to sighted user studies. Adjacent bars within single-column stacks prove harder to interpret than separated bars for some participants, while the \"blurring effect\" causes systematic height estimation errors. These insights inform future chart design guidelines accommodating low-vision needs.",
+        abstract:
+            "Bar charts are ubiquitous for data representation, yet how low-vision screen magnifier users perceive them remains unexplored. Through four controlled experiments with 25 low-vision participants using a custom screen magnifier logger capturing zooming and panning behaviors, this study reveals critical differences from sighted user perception. Findings show low-vision users invest substantial effort counteracting blurring and contrast effects, with tall distractors significantly elevating error rates contrary to sighted user studies. Adjacent bars within single-column stacks prove harder to interpret than separated bars for some participants, while the \"blurring effect\" causes systematic height estimation errors. These insights inform future chart design guidelines accommodating low-vision needs.",
         image: "assets24",
         links: {
             pdf: "Papers/assets24.pdf",
@@ -222,7 +290,7 @@ const allPublicationsData = [
         extraLinks: {
             github: "https://github.com/accessodu/LV_Graph_BarCharts.git",
             presentation: "https://youtu.be/VYwg1kaJUos",
-            demo: "https://youtu.be/V7uOzCfy0rM"
+            demo: "https://youtu.be/V7uOzCfy0rM",
         },
         acmAuthorizer: {
             url: "https://dl.acm.org/doi/10.1145/3663548.3675616?cid=99661242236",
@@ -231,26 +299,29 @@ const allPublicationsData = [
         },
         citation: {
             bibtex: `@inproceedings{prakash2024understanding,
-  title={Understanding Low Vision Graphical Perception of Bar Charts},
-  author={Prakash, Yash and Kolgar Nayak, Akshay and Jayarathna, Sampath and Lee, Hae-Na and Ashok, Vikas},
-  booktitle={Proceedings of the 26th International ACM SIGACCESS Conference on Computers and Accessibility},
-  pages={1--10},
-  year={2024}
-}`,
+    title={Understanding Low Vision Graphical Perception of Bar Charts},
+    author={Prakash, Yash and Kolgar Nayak, Akshay and Jayarathna, Sampath and Lee, Hae-Na and Ashok, Vikas},
+    booktitle={Proceedings of the 26th International ACM SIGACCESS Conference on Computers and Accessibility},
+    pages={1--10},
+    year={2024}
+  }`,
             apa: "Prakash, Y., Kolgar Nayak, A., Jayarathna, S., Lee, H. N., & Ashok, V. (2024). Understanding Low Vision Graphical Perception of Bar Charts. In Proceedings of the 26th International ACM SIGACCESS Conference on Computers and Accessibility (pp. 1-10).",
-            mla: "Prakash, Yash, et al. \"Understanding Low Vision Graphical Perception of Bar Charts.\" Proceedings of the 26th International ACM SIGACCESS Conference on Computers and Accessibility. 2024. 1-10.",
-            chicago: "Prakash, Yash, Akshay Kolgar Nayak, Sampath Jayarathna, Hae-Na Lee, and Vikas Ashok. \"Understanding Low Vision Graphical Perception of Bar Charts.\" In Proceedings of the 26th International ACM SIGACCESS Conference on Computers and Accessibility, pp. 1-10, 2024.",
-            ieee: "Y. Prakash, A. Kolgar Nayak, S. Jayarathna, H. N. Lee, and V. Ashok, \"Understanding Low Vision Graphical Perception of Bar Charts,\" in Proceedings of the 26th International ACM SIGACCESS Conference on Computers and Accessibility, 2024, pp. 1-10.",
+            mla: 'Prakash, Yash, et al. "Understanding Low Vision Graphical Perception of Bar Charts." Proceedings of the 26th International ACM SIGACCESS Conference on Computers and Accessibility. 2024. 1-10.',
+            chicago:
+                'Prakash, Yash, Akshay Kolgar Nayak, Sampath Jayarathna, Hae-Na Lee, and Vikas Ashok. "Understanding Low Vision Graphical Perception of Bar Charts." In Proceedings of the 26th International ACM SIGACCESS Conference on Computers and Accessibility, pp. 1-10, 2024.',
+            ieee:
+                'Y. Prakash, A. Kolgar Nayak, S. Jayarathna, H. N. Lee, and V. Ashok, "Understanding Low Vision Graphical Perception of Bar Charts," in Proceedings of the 26th International ACM SIGACCESS Conference on Computers and Accessibility, 2024, pp. 1-10.',
         },
         awards: [],
     },
     {
-        id: 8,
+        id: 11,
         title: "Towards Enhancing Low Vision Usability of Data Charts on Smartphones",
         venue: "IEEE VIS (TVCG)",
         date: "September 2024",
         authors: "Yash Prakash, Pathan Aseef Khan, Akshay Kolgar Nayak, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok",
-        abstract: "We present GraphLite, a mobile assistive system that makes data charts more usable for low-vision screen magnifier users. GraphLite transforms static, non-interactive charts into customizable, interactive views that preserve visual context under magnification. Users can selectively focus on key data points, personalize chart appearance, and reduce panning effort through simplified gestures.",
+        abstract:
+            "We present GraphLite, a mobile assistive system that makes data charts more usable for low-vision screen magnifier users. GraphLite transforms static, non-interactive charts into customizable, interactive views that preserve visual context under magnification. Users can selectively focus on key data points, personalize chart appearance, and reduce panning effort through simplified gestures.",
         image: "graphLite",
         links: {
             pdf: "Papers/graphLite.pdf",
@@ -258,30 +329,34 @@ const allPublicationsData = [
         },
         extraLinks: {
             github: "https://github.com/accessodu/GraphLite?tab=readme-ov-file",
-            video: "https://youtu.be/QFw5QH7FwNY"
+            video: "https://youtu.be/QFw5QH7FwNY",
         },
         citation: {
             bibtex: `@article{prakash2024towards,
-  title={Towards Enhancing Low Vision Usability of Data Charts on Smartphones},
-  author={Prakash, Yash and Khan, Pathan Aseef and Nayak, Akshay Kolgar and Jayarathna, Sampath and Lee, Hae-Na and Ashok, Vikas},
-  journal={IEEE Transactions on Visualization and Computer Graphics},
-  year={2024},
-  publisher={IEEE}
-}`,
+    title={Towards Enhancing Low Vision Usability of Data Charts on Smartphones},
+    author={Prakash, Yash and Khan, Pathan Aseef and Nayak, Akshay Kolgar and Jayarathna, Sampath and Lee, Hae-Na and Ashok, Vikas},
+    journal={IEEE Transactions on Visualization and Computer Graphics},
+    year={2024},
+    publisher={IEEE}
+  }`,
             apa: "Prakash, Y., Khan, P. A., Nayak, A. K., Jayarathna, S., Lee, H. N., & Ashok, V. (2024). Towards Enhancing Low Vision Usability of Data Charts on Smartphones. IEEE Transactions on Visualization and Computer Graphics. IEEE.",
-            mla: "Prakash, Yash, et al. \"Towards Enhancing Low Vision Usability of Data Charts on Smartphones.\" IEEE Transactions on Visualization and Computer Graphics (2024).",
-            chicago: "Prakash, Yash, Pathan Aseef Khan, Akshay Kolgar Nayak, Sampath Jayarathna, Hae-Na Lee, and Vikas Ashok. \"Towards Enhancing Low Vision Usability of Data Charts on Smartphones.\" IEEE Transactions on Visualization and Computer Graphics (2024).",
-            ieee: "Y. Prakash, P. A. Khan, A. K. Nayak, S. Jayarathna, H. N. Lee, and V. Ashok, \"Towards Enhancing Low Vision Usability of Data Charts on Smartphones,\" IEEE Transactions on Visualization and Computer Graphics, 2024.",
+            mla: 'Prakash, Yash, et al. "Towards Enhancing Low Vision Usability of Data Charts on Smartphones." IEEE Transactions on Visualization and Computer Graphics (2024).',
+            chicago:
+                'Prakash, Yash, Pathan Aseef Khan, Akshay Kolgar Nayak, Sampath Jayarathna, Hae-Na Lee, and Vikas Ashok. "Towards Enhancing Low Vision Usability of Data Charts on Smartphones." IEEE Transactions on Visualization and Computer Graphics (2024).',
+            ieee:
+                'Y. Prakash, P. A. Khan, A. K. Nayak, S. Jayarathna, H. N. Lee, and V. Ashok, "Towards Enhancing Low Vision Usability of Data Charts on Smartphones," IEEE Transactions on Visualization and Computer Graphics, 2024.',
         },
         awards: [],
     },
     {
-        id: 9,
+        id: 12,
         title: "Assessing the Accessibility and Usability of Web Archives for Blind Users",
         venue: "TPDL",
         date: "September 2024",
-        authors: "Mohan Sunkara, Akshay Kolgar Nayak, Sandeep Kalari, Satwik Ram Kodandaram, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok",
-        abstract: "Web archives preserve digital history for researchers and the public, yet their accessibility for blind users remains unexplored. This study provides the first comprehensive evaluation of five prominent platforms (Wayback Machine, UK Web Archive, Pandora, Trove, Archive.today) through automated analysis of 223 pages and a user study with 10 blind participants. Critical barriers emerged including missing image alternatives, inadequate ARIA labeling, and inaccessible date-selection widgets. Participants averaged 8.21 minutes and 129 shortcuts per task, with Archive.today least accessible and UK Web Archive most usable, informing actionable design recommendations for developers.",
+        authors:
+            "Mohan Sunkara, Akshay Kolgar Nayak, Sandeep Kalari, Satwik Ram Kodandaram, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok",
+        abstract:
+            "Web archives preserve digital history for researchers and the public, yet their accessibility for blind users remains unexplored. This study provides the first comprehensive evaluation of five prominent platforms (Wayback Machine, UK Web Archive, Pandora, Trove, Archive.today) through automated analysis of 223 pages and a user study with 10 blind participants. Critical barriers emerged including missing image alternatives, inadequate ARIA labeling, and inaccessible date-selection widgets. Participants averaged 8.21 minutes and 129 shortcuts per task, with Archive.today least accessible and UK Web Archive most usable, informing actionable design recommendations for developers.",
         image: "tpdl24",
         links: {
             pdf: "Papers/tpdl24.pdf",
@@ -292,27 +367,30 @@ const allPublicationsData = [
         },
         citation: {
             bibtex: `@inproceedings{sunkara2024assessing,
-  title={Assessing the Accessibility and Usability of Web Archives for Blind Users},
-  author={Sunkara, Mohan and Nayak, Akshay Kolgar and Kalari, Sandeep and Kodandaram, Satwik Ram and Jayarathna, Sampath and Lee, Hae-Na and Ashok, Vikas},
-  booktitle={International Conference on Theory and Practice of Digital Libraries},
-  pages={203--221},
-  year={2024},
-  organization={Springer}
-}`,
+    title={Assessing the Accessibility and Usability of Web Archives for Blind Users},
+    author={Sunkara, Mohan and Nayak, Akshay Kolgar and Kalari, Sandeep and Kodandaram, Satwik Ram and Jayarathna, Sampath and Lee, Hae-Na and Ashok, Vikas},
+    booktitle={International Conference on Theory and Practice of Digital Libraries},
+    pages={203--221},
+    year={2024},
+    organization={Springer}
+  }`,
             apa: "Sunkara, M., Nayak, A. K., Kalari, S., Kodandaram, S. R., Jayarathna, S., Lee, H. N., & Ashok, V. (2024). Assessing the Accessibility and Usability of Web Archives for Blind Users. In International Conference on Theory and Practice of Digital Libraries (pp. 203-221). Springer.",
-            mla: "Sunkara, Mohan, et al. \"Assessing the Accessibility and Usability of Web Archives for Blind Users.\" International Conference on Theory and Practice of Digital Libraries. Springer, 2024. 203-221.",
-            chicago: "Sunkara, Mohan, Akshay Kolgar Nayak, Sandeep Kalari, Satwik Ram Kodandaram, Sampath Jayarathna, Hae-Na Lee, and Vikas Ashok. \"Assessing the Accessibility and Usability of Web Archives for Blind Users.\" In International Conference on Theory and Practice of Digital Libraries, pp. 203-221. Springer, 2024.",
-            ieee: "M. Sunkara, A. K. Nayak, S. Kalari, S. R. Kodandaram, S. Jayarathna, H. N. Lee, and V. Ashok, \"Assessing the Accessibility and Usability of Web Archives for Blind Users,\" in International Conference on Theory and Practice of Digital Libraries, Springer, 2024, pp. 203-221.",
+            mla: 'Sunkara, Mohan, et al. "Assessing the Accessibility and Usability of Web Archives for Blind Users." International Conference on Theory and Practice of Digital Libraries. Springer, 2024. 203-221.',
+            chicago:
+                'Sunkara, Mohan, Akshay Kolgar Nayak, Sandeep Kalari, Satwik Ram Kodandaram, Sampath Jayarathna, Hae-Na Lee, and Vikas Ashok. "Assessing the Accessibility and Usability of Web Archives for Blind Users." In International Conference on Theory and Practice of Digital Libraries, pp. 203-221. Springer, 2024.',
+            ieee:
+                'M. Sunkara, A. K. Nayak, S. Kalari, S. R. Kodandaram, S. Jayarathna, H. N. Lee, and V. Ashok, "Assessing the Accessibility and Usability of Web Archives for Blind Users," in International Conference on Theory and Practice of Digital Libraries, Springer, 2024, pp. 203-221.',
         },
         awards: [],
     },
     {
-        id: 10,
+        id: 13,
         title: "All in One Place: Ensuring Usable Access to Online Shopping Items for Blind Users",
         venue: "ACM EICS (PACMHCI)",
         date: "June 2024",
         authors: "Yash Prakash, Akshay Kolgar Nayak, Mohan Sunkara, Sampath Jayarathna, Hae-Na Lee, Vikas Ashok",
-        abstract: "We present InstaFetch, a browser extension that transforms e-commerce accessibility for blind screen reader users by eliminating tedious navigation between product list and detail pages. InstaFetch provides a unified interface that consolidates descriptions, specifications, and reviews in one place using a custom Mask R-CNN model trained on 3,000 annotated webpages. Beyond information aggregation, it features natural language querying powered by LLaMA with Retrieval Augmented Generation, Chain-of-Thought, and ReAct prompting, enabling users to ask complex product questions and receive immediate contextual responses. In evaluations with 14 blind participants, InstaFetch significantly reduced interaction time, keyboard shortcuts, and cognitive workload while enabling exploration of substantially more products.",
+        abstract:
+            "We present InstaFetch, a browser extension that transforms e-commerce accessibility for blind screen reader users by eliminating tedious navigation between product list and detail pages. InstaFetch provides a unified interface that consolidates descriptions, specifications, and reviews in one place using a custom Mask R-CNN model trained on 3,000 annotated webpages. Beyond information aggregation, it features natural language querying powered by LLaMA with Retrieval Augmented Generation, Chain-of-Thought, and ReAct prompting, enabling users to ask complex product questions and receive immediate contextual responses. In evaluations with 14 blind participants, InstaFetch significantly reduced interaction time, keyboard shortcuts, and cognitive workload while enabling exploration of substantially more products.",
         image: "instafetch24",
         links: {
             pdf: "Papers/instafetch24.pdf",
@@ -320,7 +398,7 @@ const allPublicationsData = [
         },
         extraLinks: {
             github: "https://github.com/accessodu/InstaFetch.git",
-            video: "https://youtu.be/D9drlAodlRw"
+            video: "https://youtu.be/D9drlAodlRw",
         },
         acmAuthorizer: {
             url: "https://dl.acm.org/doi/10.1145/3664639?cid=99661242236",
@@ -329,23 +407,26 @@ const allPublicationsData = [
         },
         citation: {
             bibtex: `@article{prakash2024all,
-  title={All in one place: Ensuring usable access to online shopping items for blind users},
-  author={Prakash, Yash and Nayak, Akshay Kolgar and Sunkara, Mohan and Jayarathna, Sampath and Lee, Hae-Na and Ashok, Vikas},
-  journal={Proceedings of the ACM on Human-Computer Interaction},
-  volume={8},
-  number={EICS},
-  pages={1--25},
-  year={2024},
-  publisher={ACM New York, NY, USA}
-}`,
+    title={All in one place: Ensuring usable access to online shopping items for blind users},
+    author={Prakash, Yash and Nayak, Akshay Kolgar and Sunkara, Mohan and Jayarathna, Sampath and Lee, Hae-Na and Ashok, Vikas},
+    journal={Proceedings of the ACM on Human-Computer Interaction},
+    volume={8},
+    number={EICS},
+    pages={1--25},
+    year={2024},
+    publisher={ACM New York, NY, USA}
+  }`,
             apa: "Prakash, Y., Nayak, A. K., Sunkara, M., Jayarathna, S., Lee, H. N., & Ashok, V. (2024). All in one place: Ensuring usable access to online shopping items for blind users. Proceedings of the ACM on Human-Computer Interaction, 8(EICS), 1-25.",
-            mla: "Prakash, Yash, et al. \"All in One Place: Ensuring Usable Access to Online Shopping Items for Blind Users.\" Proceedings of the ACM on Human-Computer Interaction 8.EICS (2024): 1-25.",
-            chicago: "Prakash, Yash, Akshay Kolgar Nayak, Mohan Sunkara, Sampath Jayarathna, Hae-Na Lee, and Vikas Ashok. \"All in One Place: Ensuring Usable Access to Online Shopping Items for Blind Users.\" Proceedings of the ACM on Human-Computer Interaction 8, no. EICS (2024): 1-25.",
-            ieee: "Y. Prakash, A. K. Nayak, M. Sunkara, S. Jayarathna, H. N. Lee, and V. Ashok, \"All in One Place: Ensuring Usable Access to Online Shopping Items for Blind Users,\" Proceedings of the ACM on Human-Computer Interaction, vol. 8, no. EICS, pp. 1-25, 2024.",
+            mla: 'Prakash, Yash, et al. "All in One Place: Ensuring Usable Access to Online Shopping Items for Blind Users." Proceedings of the ACM on Human-Computer Interaction 8.EICS (2024): 1-25.',
+            chicago:
+                'Prakash, Yash, Akshay Kolgar Nayak, Mohan Sunkara, Sampath Jayarathna, Hae-Na Lee, and Vikas Ashok. "All in One Place: Ensuring Usable Access to Online Shopping Items for Blind Users." Proceedings of the ACM on Human-Computer Interaction 8, no. EICS (2024): 1-25.',
+            ieee:
+                'Y. Prakash, A. K. Nayak, M. Sunkara, S. Jayarathna, H. N. Lee, and V. Ashok, "All in One Place: Ensuring Usable Access to Online Shopping Items for Blind Users," Proceedings of the ACM on Human-Computer Interaction, vol. 8, no. EICS, pp. 1-25, 2024.',
         },
         awards: [],
     },
 ];
+
 
 // Citation Dialog Component
 const CitationDialog = ({ open, onClose, citation }) => {

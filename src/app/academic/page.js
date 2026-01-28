@@ -297,10 +297,10 @@ export default function AcademicPage() {
                                     minWidth: '180px'
                                 }}>
                                     <Typography sx={{ color: '#2D4059', lineHeight: 1.6, fontSize: '0.9rem', fontWeight: 500 }}>
-                                        <strong>Total Reviews:</strong> 20+
+                                        <strong>Total Reviews:</strong> 30+
                                     </Typography>
                                     <Typography sx={{ color: '#2D4059', lineHeight: 1.6, fontSize: '0.9rem', fontWeight: 500, mt: 0.5 }}>
-                                        <strong>Recognition:</strong> CSCW 2025
+                                        <strong>Recognition:</strong> CSCW 2025, IUI 2026, CHI 2026
                                     </Typography>
                                 </Box>
                             </Box>
