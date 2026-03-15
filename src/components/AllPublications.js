@@ -2,6 +2,7 @@
 'use client';
 
 import React, { useRef, useState, useMemo, useEffect } from 'react';
+import Image from 'next/image';
 import {
     Box,
     Typography,
@@ -743,16 +744,18 @@ const PublicationImage = ({ imageName, alt }) => {
                         />
                     </>
                 ) : (
-                    <Box
-                        component="img"
+                    <Image
                         src={imgUrl}
                         alt={alt || `Image for ${imageName}`}
-                        loading="lazy"
-                        sx={{
+                        width={1200}
+                        height={800}
+                        style={{
                             maxWidth: '100%',
                             maxHeight: '100%',
                             objectFit: 'contain',
-                            borderRadius: '12px'
+                            borderRadius: '12px',
+                            width: 'auto',
+                            height: 'auto',
                         }}
                     />
                 )}

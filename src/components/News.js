@@ -283,8 +283,6 @@ export default function News() {
     const scrollContainerRef = useRef(null);
     const [canScrollLeft, setCanScrollLeft] = useState(false); // Start with left arrow hidden
     const [canScrollRight, setCanScrollRight] = useState(true);
-    const lastScrollPosRef = useRef(0);
-    const intervalRef = useRef(null);
 
     useEffect(() => {
         setMounted(true);
@@ -326,8 +324,6 @@ export default function News() {
             setActiveStep(Math.min(totalSteps - 1, Math.max(0, currentStep)));
         }
 
-        // Update last scroll position
-        lastScrollPosRef.current = container.scrollLeft;
     };
 
     // Handle programmatic scrolling with arrows
@@ -408,28 +404,13 @@ export default function News() {
         // Add basic scroll event listener
         const container = scrollContainerRef.current;
         if (container) {
-            // Add scroll event
             container.addEventListener('scroll', updateCarouselState);
-
-            // Set up continuous monitoring through polling (fail-safe for all types of scrolling)
-            intervalRef.current = setInterval(() => {
-                const currentScrollPos = container?.scrollLeft || 0;
-
-                // Only update if the scroll position has actually changed
-                if (Math.abs(currentScrollPos - lastScrollPosRef.current) > 1) {
-                    updateCarouselState();
-                }
-            }, 100); // Check every 100ms
         }
 
         // Cleanup
         return () => {
             if (container) {
                 container.removeEventListener('scroll', updateCarouselState);
-            }
-
-            if (intervalRef.current) {
-                clearInterval(intervalRef.current);
             }
         };
     }, [mounted, cardsPerView, totalSteps]);

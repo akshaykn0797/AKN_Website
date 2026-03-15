@@ -1,14 +1,5 @@
-'use client';
-
-import * as React from 'react';
-import PropTypes from 'prop-types';
 import { Source_Sans_3 } from 'next/font/google';
-import { CacheProvider } from '@emotion/react';
-import { ThemeProvider, CssBaseline } from '@mui/material';
-import createEmotionCache from '@/lib/createEmotionCache';
-import theme from '@/lib/theme';
-import NavBar from '@/components/NavBar';
-import Copyright from '@/components/CopyRight';
+import Providers from '@/components/Providers';
 
 // Configure Source Sans 3 font
 const sourceSans3 = Source_Sans_3({
@@ -18,9 +9,7 @@ const sourceSans3 = Source_Sans_3({
   variable: '--font-source-sans-3',
 });
 
-const clientSideEmotionCache = createEmotionCache();
-
-export default function RootLayout({ children, emotionCache = clientSideEmotionCache }) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en" className={sourceSans3.variable}>
       <head>
@@ -53,20 +42,10 @@ export default function RootLayout({ children, emotionCache = clientSideEmotionC
         <meta name="description" content="PhD student at Old Dominion University researching Human-Computer Interaction and Accessibility" />
       </head>
       <body>
-        <CacheProvider value={emotionCache}>
-          <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <NavBar />
-            {children}
-            <Copyright />
-          </ThemeProvider>
-        </CacheProvider>
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );
 }
-
-RootLayout.propTypes = {
-  children: PropTypes.node,
-  emotionCache: PropTypes.object,
-};

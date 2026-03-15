@@ -3,6 +3,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import NextLink from 'next/link';
+import Image from 'next/image';
 import {
     Box,
     Container,
@@ -641,16 +642,18 @@ const PublicationImage = ({ imageName, alt }) => {
                     }
                 }}
             >
-                <Box
-                    component="img"
+                <Image
                     src={imgUrl}
                     alt={alt || `Image for ${imageName}`}
-                    loading="lazy"
-                    sx={{
+                    width={1200}
+                    height={800}
+                    style={{
                         maxWidth: '100%',
                         maxHeight: '100%',
                         objectFit: 'contain',
-                        borderRadius: '12px'
+                        borderRadius: '12px',
+                        width: 'auto',
+                        height: 'auto',
                     }}
                 />
 

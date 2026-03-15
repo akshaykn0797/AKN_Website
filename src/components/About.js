@@ -1,20 +1,19 @@
 // src/components/About.js
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import Image from 'next/image';
 import {
     Box,
     Container,
     Typography,
     Link,
-    Divider,
     useTheme,
     useMediaQuery
 } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import XIcon from '@mui/icons-material/X';
-import InstagramIcon from '@mui/icons-material/Instagram';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import DescriptionIcon from '@mui/icons-material/Description';
 import SchoolIcon from '@mui/icons-material/School';
@@ -25,12 +24,6 @@ export default function About() {
         noSsr: true,
     });
 
-    // Client-side only rendering state
-    const [mounted, setMounted] = useState(false);
-
-    useEffect(() => {
-        setMounted(true);
-    }, []);
 
     return (
         <Box
@@ -66,9 +59,7 @@ export default function About() {
             }}
         >
             <Container maxWidth="lg">
-                <div suppressHydrationWarning>
-                    {mounted ? (
-                        <Box sx={{ position: 'relative', zIndex: 1 }}>
+                <Box sx={{ position: 'relative', zIndex: 1 }}>
                             <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: { xs: 5, md: 8 }, alignItems: 'flex-start' }}>
                                 {/* Left side - Image & Quick Actions */}
                                 <Box
@@ -117,14 +108,15 @@ export default function About() {
                                                 }
                                             }}
                                         >
-                                            <Box
-                                                component="img"
+                                            <Image
                                                 src="/akn.jpeg"
                                                 alt="Akshay K Nayak"
-                                                loading="eager"
-                                                fetchPriority="high"
-                                                sx={{
+                                                width={700}
+                                                height={819}
+                                                priority
+                                                style={{
                                                     width: '100%',
+                                                    height: 'auto',
                                                     display: 'block',
                                                 }}
                                             />
@@ -464,15 +456,7 @@ export default function About() {
                                 </Box>
                             </Box>
 
-                            {/* Bottom divider - REMOVED */}
-                        </Box>
-                    ) : (
-                        // Simple placeholder while client-side rendering is happening
-                        <Box sx={{ height: '400px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                            {/* Optional loading state */}
-                        </Box>
-                    )}
-                </div>
+                </Box>
             </Container>
         </Box>
     );
