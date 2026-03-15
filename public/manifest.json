@@ -1,0 +1,21 @@
+{
+  "name": "Akshay K Nayak",
+  "short_name": "AKN",
+  "description": "PhD student at Old Dominion University researching Human-Computer Interaction and Accessibility",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#ffffff",
+  "theme_color": "#1B5E20",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

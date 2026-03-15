@@ -29,6 +29,7 @@ export default function RootLayout({ children, emotionCache = clientSideEmotionC
         <link rel="icon" type="image/png" sizes="32x32" href="/icon.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/icon.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon.png" />
+        <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#1B5E20" />
         <title>Akshay K Nayak</title>
 
