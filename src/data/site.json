@@ -1,0 +1,37 @@
+{
+  "profile": {
+    "name": "Akshay Kolgar Nayak",
+    "wordmark": "Akshay K Nayak",
+    "kicker": "Researcher · Engineer · Norfolk, Virginia",
+    "email": "anaya001@odu.edu",
+    "cvPath": "/AKNCV.pdf",
+    "photo": "/akn.png",
+    "photoAlt": "Akshay K Nayak presenting a poster at a conference"
+  },
+  "links": {
+    "scholar": "https://scholar.google.com/citations?user=4CzwdXAAAAAJ&hl=en&oi=ao",
+    "github": "https://github.com/akshaykn0797",
+    "linkedin": "https://www.linkedin.com/in/akshay-k-nayak-610186186/",
+    "twitter": "https://x.com/AkshayKNayak7",
+    "email": "mailto:anaya001@odu.edu",
+    "csrankings": "https://csrankings.org/#/fromyear/1970/toyear/2026/index?all&us"
+  },
+  "social": [
+    { "icon": "email", "label": "Email", "href": "mailto:anaya001@odu.edu" },
+    { "icon": "scholar", "label": "Google Scholar", "href": "https://scholar.google.com/citations?user=4CzwdXAAAAAJ&hl=en&oi=ao" },
+    { "icon": "github", "label": "GitHub", "href": "https://github.com/akshaykn0797" },
+    { "icon": "linkedin", "label": "LinkedIn", "href": "https://www.linkedin.com/in/akshay-k-nayak-610186186/" },
+    { "icon": "x", "label": "X (Twitter)", "href": "https://x.com/AkshayKNayak7" }
+  ],
+  "nav": [
+    { "label": "About", "href": "/" },
+    { "label": "Publications", "href": "/publications" },
+    { "label": "Academic", "href": "/academic" }
+  ],
+  "venues": ["CHI", "CHIIR", "CSCW", "IEEE VIS", "ASSETS", "SIGCSE TS", "IJHCI", "ICMI", "EICS", "W4A", "TPDL"],
+  "footer": {
+    "tagline": "Accessible Computing Lab · Old Dominion University",
+    "location": "Norfolk, VA",
+    "year": 2026
+  }
+}

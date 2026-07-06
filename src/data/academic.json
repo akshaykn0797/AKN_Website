@@ -1,0 +1,103 @@
+{
+  "teaching": [
+    { "course": "CS121G · Information Literacy and Research", "period": "Jan 2024 · May 2026" },
+    { "course": "CS733 · Natural Language Processing", "period": "Jan · May 2024" }
+  ],
+  "talks": [
+    {
+      "year": "2025",
+      "title": "Understanding Usability in Multimodal Documents: Case Study of Hotel Menus",
+      "venue": "WS-DL Expo, ODU · invited by Dr. Michael Nelson"
+    },
+    {
+      "year": "2024",
+      "title": "Accessibility and Usability of Web Archives",
+      "venue": "Global Accessibility Awareness Day, ODU"
+    },
+    {
+      "year": "2024",
+      "title": "Natural Language Processing with Transformers",
+      "venue": "ODU Data Science Bootcamp, guest lecture"
+    },
+    {
+      "year": "2023",
+      "title": "Adapting to the US Graduate Education System",
+      "venue": "ODU · invited by Dr. Michele C. Weigle"
+    },
+    {
+      "year": "2023",
+      "title": "Understanding EEG Headsets with Emotiv",
+      "venue": "ODU · invited by Prof. Ajay Gupta"
+    }
+  ],
+  "mentorship": [
+    { "year": "2025", "name": "Fuka Ogawa", "detail": "Exchange Student, ODU" },
+    { "year": "2024", "name": "Stefania Dzhaman", "detail": "REU Student, ODU" },
+    { "year": "2023", "name": "Samhitha Holla", "detail": "Visiting Research Intern, ODU" },
+    { "year": "2023", "name": "Varsha S Anand", "detail": "Visiting Research Intern, ODU" },
+    { "year": "2023", "name": "Sanjana J Bharadwaj", "detail": "Visiting Research Intern, ODU" }
+  ],
+  "service": {
+    "reviewer": {
+      "total": 40,
+      "countLabel": "reviews",
+      "years": [
+        {
+          "year": "2026",
+          "venues": [
+            { "venue": "SIGCSE", "count": 10 },
+            { "venue": "CHI", "count": 6 },
+            { "venue": "CSCW", "count": 4 },
+            { "venue": "IUI", "count": 4 },
+            { "venue": "HAI", "count": 2 },
+            { "venue": "IMWUT", "count": 2 },
+            { "venue": "CUI", "count": 1 },
+            { "venue": "IJDL", "count": 1 }
+          ]
+        },
+        {
+          "year": "2025",
+          "venues": [
+            { "venue": "CSCW", "count": 4 },
+            { "venue": "CHI", "count": 2 },
+            { "venue": "HAI", "count": 1 },
+            { "venue": "IMWUT", "count": 1 },
+            { "venue": "IUI", "count": 1 },
+            { "venue": "UIST", "count": 1 }
+          ]
+        }
+      ],
+      "recognitionLabel": "Special Recognition for Outstanding Reviews",
+      "recognitions": [
+        { "label": "CSCW 2025" },
+        { "label": "IUI 2026" },
+        { "label": "CHI 2026", "highlight": true }
+      ]
+    },
+    "roles": [
+      { "year": "2025", "text": "Student Exchange Research Mentor", "detail": "hosted by Dr. Vikas Ashok, ODU" },
+      { "year": "2024", "text": "REU & International Student Research Mentor", "detail": "ODU" },
+      { "year": "2023", "text": "Treasurer, Indian Student Association", "detail": "ODU" }
+    ]
+  },
+  "awards": [
+    { "year": "2025", "title": "Dr. Hussein Abdel-Wahab Memorial Graduate Fellow", "detail": "ODU · $2,500" },
+    { "year": "2025", "title": "Best Paper Award", "detail": "ACM Web for All (W4A)", "emphasis": true },
+    { "year": "2024", "title": "ISAB & CSGS Research Scholarships", "detail": "ODU · $1,000 each" },
+    { "year": "2023", "title": "Dominion Scholar", "detail": "ODU · $10,000" },
+    { "year": "2023", "title": "Best Research Mentor & Best Teaching Assistant Awards", "detail": "ODU" }
+  ],
+  "researchDirections": [
+    "Human-Centered Computing",
+    "Human-Computer Interaction",
+    "Accessibility and Usability",
+    "Social Computing",
+    "Accessible Learning Technologies",
+    "Data Visualization",
+    "Quantitative and Qualitative Study",
+    "Web Archiving",
+    "Eye Tracking",
+    "Ubiquitous Computing and Wearable Technologies",
+    "Culturally Responsive Design"
+  ]
+}

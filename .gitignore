@@ -72,3 +72,11 @@ Thumbs.db
 *.bak
 *.swp
 *#
+
+# AutoCode — agent-internal collaboration files (not for git)
+/AutoCode/
+
+# Claude Code — local settings, instructions, and agent scratch files (not for git)
+/.claude/
+/CLAUDE.md
+/ARCHITECTURE.md

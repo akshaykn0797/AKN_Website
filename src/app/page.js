@@ -1,17 +1,15 @@
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import About from '@/components/About';
-import News from '@/components/News';
-import Publications from '@/components/Publications';
-
+import Hero from '@/components/home/Hero';
+import VenuesBand from '@/components/home/VenuesBand';
+import RecentNews from '@/components/home/RecentNews';
+import FeaturedResearch from '@/components/home/FeaturedResearch';
 
 export default function HomePage() {
   return (
     <>
-      <About />
-      <News />
-      <Publications />
+      <Hero />
+      <VenuesBand />
+      <RecentNews />
+      <FeaturedResearch />
     </>
   );
 }

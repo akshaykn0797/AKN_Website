@@ -1,50 +1,82 @@
-import { Source_Sans_3 } from 'next/font/google';
-import Providers from '@/components/Providers';
+import './globals.css';
+import { fontVariables } from './fonts';
+import { themeInitScript } from '@/components/layout/themeInitScript';
+import SkipToContent from '@/components/ui/SkipToContent';
+import SiteHeader from '@/components/layout/SiteHeader';
+import SiteFooter from '@/components/layout/SiteFooter';
+import site from '@/data/site.json';
 
-// Configure Source Sans 3 font
-const sourceSans3 = Source_Sans_3({
-  weight: ['300', '400', '500', '600', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-source-sans-3',
-});
+export const metadata = {
+  metadataBase: new URL('https://akshaynayak.dev'),
+  title: {
+    default: 'Akshay K Nayak',
+    template: '%s · Akshay K Nayak',
+  },
+  description:
+    'Akshay Kolgar Nayak — Ph.D. candidate at Old Dominion University researching Human-Centered AI, accessibility, eye tracking, and social computing.',
+  openGraph: {
+    title: 'Akshay K Nayak',
+    description:
+      'Researcher and engineer working on accessibility, Human-Centered AI, and social computing at the Accessible Computing Lab, ODU.',
+    type: 'website',
+    url: '/',
+    siteName: 'Akshay K Nayak',
+    images: ['/akn.png'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Akshay K Nayak',
+    description:
+      'Ph.D. candidate at Old Dominion University researching Human-Centered AI, accessibility, and social computing.',
+    images: ['/akn.png'],
+    creator: '@AkshayKNayak7',
+  },
+  manifest: '/manifest.json',
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-icon.png',
+  },
+};
+
+// Structured data so search engines link the profile to its scholarly identities.
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Akshay Kolgar Nayak',
+  alternateName: 'Akshay K Nayak',
+  url: 'https://akshaynayak.dev',
+  image: 'https://akshaynayak.dev/akn.png',
+  email: site.profile.email,
+  jobTitle: 'Ph.D. Candidate',
+  affiliation: {
+    '@type': 'CollegeOrUniversity',
+    name: 'Old Dominion University',
+  },
+  sameAs: [
+    site.links.scholar,
+    site.links.github,
+    site.links.linkedin,
+    site.links.twitter,
+  ],
+};
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={sourceSans3.variable}>
+    <html lang="en" className={fontVariables} suppressHydrationWarning>
       <head>
-        {/* Favicon - multiple formats for better browser support */}
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/icon.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/icon.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon.png" />
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#1B5E20" />
-        <title>Akshay K Nayak</title>
-
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Akshay K Nayak" />
-        <meta property="og:description" content="PhD student at Old Dominion University researching Human-Computer Interaction and Accessibility" />
-        <meta property="og:image" content="/akn.jpeg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Akshay K Nayak" />
-
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Akshay K Nayak" />
-        <meta name="twitter:description" content="PhD student at Old Dominion University researching Human-Computer Interaction and Accessibility" />
-        <meta name="twitter:image" content="/akn.jpeg" />
-        <meta name="twitter:image:alt" content="Akshay K Nayak" />
-
-        {/* General Meta Tags */}
-        <meta name="description" content="PhD student at Old Dominion University researching Human-Computer Interaction and Accessibility" />
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
       </head>
       <body>
-        <Providers>
+        <SkipToContent />
+        <SiteHeader />
+        <main id="main" tabIndex={-1}>
           {children}
-        </Providers>
+        </main>
+        <SiteFooter />
       </body>
     </html>
   );

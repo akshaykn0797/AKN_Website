@@ -1,75 +1,165 @@
+@import "tailwindcss";
+
+/* Dark mode is attribute-driven: <html data-theme="dark"> */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* ------------------------------------------------------------------ */
+/*  Editorial palette — raw CSS vars (light / dark / system fallback)  */
+/* ------------------------------------------------------------------ */
 :root {
-  --background: #FFF8F3;
-  --foreground: #2D4059;
-  --sunset-orange: #FF8C42;
-  --sunset-coral: #FF6B35;
-  --sunset-peach: #FFB997;
-  --sunset-lavender: #A47BB0;
-  --sunset-deep-blue: #2D4059;
-  --sunset-light-blue: #5A7CA1;
-  --sunset-golden: #FFD23F;
+  color-scheme: light;
+
+  --paper: #F2EDE3;
+  --card: #FAF7F0;
+  --ink: #262019;
+  --muted: #857A6A;
+  --hairline: #D8CFBD;
+  --terra: #B4653C;
+  --terra-ink: #F7EFE6;
+  --accent-soft: rgba(180, 101, 60, 0.13);
+  --tape: rgba(226, 214, 184, 0.75);
+
+  /* semantic spacing (consumed via arbitrary values) */
+  --space-section: 6rem;
+  --space-block: 3rem;
+  --space-stack: 1.5rem;
+
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 360ms;
 }
 
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --paper: #181410;
+  --card: #201B15;
+  --ink: #ECE5D8;
+  --muted: #9C9080;
+  --hairline: #372F26;
+  --terra: #C97E52;
+  --terra-ink: #21150D;
+  --accent-soft: rgba(201, 126, 82, 0.16);
+  --tape: rgba(120, 106, 84, 0.55);
+}
+
+/* System preference for visitors who have not toggled yet */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #2D4059;
-    --foreground: #FFB997;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
+  :root:not([data-theme]) {
     color-scheme: dark;
+
+    --paper: #181410;
+    --card: #201B15;
+    --ink: #ECE5D8;
+    --muted: #9C9080;
+    --hairline: #372F26;
+    --terra: #C97E52;
+    --terra-ink: #21150D;
+    --accent-soft: rgba(201, 126, 82, 0.16);
+    --tape: rgba(120, 106, 84, 0.55);
   }
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+/* ------------------------------------------------------------------ */
+/*  Tailwind theme tokens (maps raw vars into utility namespaces)      */
+/* ------------------------------------------------------------------ */
+@theme inline {
+  --color-paper: var(--paper);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-hairline: var(--hairline);
+  --color-terra: var(--terra);
+  --color-terra-ink: var(--terra-ink);
+  --color-tape: var(--tape);
+
+  /* fonts wired from next/font in fonts.js (--ff-* set on <html>) */
+  --font-serif: var(--ff-serif), Georgia, "Times New Roman", serif;
+  --font-sans: var(--ff-sans), "Helvetica Neue", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--ff-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --radius-none: 0;
+  --radius-sm: 2px;
+  --radius-md: 6px;
+  --radius-lg: 12px;
+  --radius-full: 999px;
+
+  --shadow-pop:
+    0 8px 24px -8px rgb(38 32 25 / 0.20),
+    0 2px 6px -2px rgb(38 32 25 / 0.12);
+
+  --ease-out-quad: cubic-bezier(0.5, 1, 0.89, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+/* ------------------------------------------------------------------ */
+/*  Base layer                                                         */
+/* ------------------------------------------------------------------ */
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    font-optical-sizing: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--paper);
+    color: var(--ink);
+    transition: background-color var(--duration-slow) var(--ease-out-quad),
+                color var(--duration-slow) var(--ease-out-quad);
+  }
+
+  ::selection {
+    background-color: var(--accent-soft);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--terra);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 }
 
-/* Ensure Source Sans 3 is used as the default font */
-body {
-  font-family: var(--font-source-sans-3), 'Inter', sans-serif;
-  color: var(--sunset-deep-blue);
+/* ------------------------------------------------------------------ */
+/*  Utilities                                                          */
+/* ------------------------------------------------------------------ */
+@utility tnum {
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+/* Vertical fade mask for the scrollable news column */
+@utility news-mask {
+  -webkit-mask-image: linear-gradient(to bottom, black 82%, transparent);
+  mask-image: linear-gradient(to bottom, black 82%, transparent);
 }
 
-/* Optional: For projects with existing globals.css, add this as a fallback */
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+/* Thin themed scrollbar for scroll regions */
+@utility news-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--hairline) transparent;
+}
+
+.news-scroll::-webkit-scrollbar { width: 4px; }
+.news-scroll::-webkit-scrollbar-track { background: transparent; }
+.news-scroll::-webkit-scrollbar-thumb { background: var(--hairline); border-radius: 4px; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

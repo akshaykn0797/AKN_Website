@@ -1,0 +1,14 @@
+{
+  "kicker": "Researcher · Engineer",
+  "headline": { "lead": "Akshay", "emphasis": "Kolgar Nayak" },
+  "paragraphs": [
+    {
+      "text": "I'm a Ph.D. candidate at [Old Dominion University](https://www.odu.edu/)'s [Accessible Computing Lab](https://www.cs.odu.edu/~vashok/Lab/index.html), advised by [Dr. Vikas Ashok](https://www.cs.odu.edu/~vashok/). My work bridges Human-Centered AI, accessibility and usability, social computing, computing education, healthcare simulation, responsible AI, and agentic LLM evaluation."
+    },
+    {
+      "text": "Currently I work with the [Health, Education, and AI Learning (HEAL) group](https://oduinnovate.org/research-enterprise/health-education-ai-learning/) at ODU, where I research interactions between healthcare-provider students and standardized patients (SPs) in OSCEs (Objective Structured Clinical Examinations) for multimodal evaluation of both the students' clinical skills and the SPs' acting skills. I'm also an Applied Science Intern at [MAP Communications](https://www.mapcommunications.com/), where I build multimodal evaluation pipelines to analyze calls between humans and AI customer-service agents for conversation quality, policy compliance, and escalation handling. Before the Ph.D., I worked at [London Stock Exchange Group](https://www.lseg.com/) and [BetaNXT](https://www.betanxt.com/).",
+      "muted": true
+    }
+  ],
+  "highlight": "Actively seeking full-time opportunities for 2027"
+}

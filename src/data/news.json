@@ -1,0 +1,58 @@
+[
+  {
+    "id": "chi26-accept",
+    "date": "2026-01-15",
+    "dateLabel": "JAN 2026",
+    "text": "Paper accepted at **ACM CHI 2026**: \"Contextual Scaffolding and Self-Efficacy: Supporting Computer Skill Development among Blind Learners in India.\"",
+    "href": "/Papers/CHI_2026.pdf"
+  },
+  {
+    "id": "chiir26-accept",
+    "date": "2025-12-06",
+    "dateLabel": "DEC 2025",
+    "text": "Two papers accepted at **ACM CHIIR 2026** in Seattle, WA.",
+    "href": "/Papers/Vox_Vista_2026.pdf"
+  },
+  {
+    "id": "ijhci25-accept",
+    "date": "2025-10-09",
+    "dateLabel": "OCT 2025",
+    "text": "\"Understanding Online Discussion Experiences of Blind Screen Reader Users\" accepted in the **IJHCI Journal**.",
+    "href": "/Papers/ijhci25.pdf"
+  },
+  {
+    "id": "sigcse26-accept",
+    "date": "2025-09-15",
+    "dateLabel": "SEP 2025",
+    "text": "\"Examining Inclusive Computing Education for Blind Students in India\" accepted at **ACM SIGCSE TS 2026**.",
+    "href": "/Papers/sigcse26.pdf"
+  },
+  {
+    "id": "w4a25-bestpaper",
+    "date": "2025-04-29",
+    "dateLabel": "APR 2025",
+    "text": "Received the **Best Paper Award** at ACM Web for All (W4A) 2025.",
+    "href": "https://www.w4a.info/2025/awards/"
+  },
+  {
+    "id": "w4a25-accept",
+    "date": "2025-04-20",
+    "dateLabel": "APR 2025",
+    "text": "QuickCue and AccessMenu accepted at **ACM Web for All (W4A) 2025**, presented in Sydney, Australia.",
+    "href": "/Papers/accessMenu25.pdf"
+  },
+  {
+    "id": "cscw25-accept",
+    "date": "2025-03-26",
+    "dateLabel": "MAR 2025",
+    "text": "\"Insights in Adaptation: Examining Self-reflection Strategies of Job Seekers with Visual Impairments in India\" accepted at **ACM CSCW 2025**.",
+    "href": "/Papers/cscw25.pdf"
+  },
+  {
+    "id": "wahab-fellow",
+    "date": "2025-01-20",
+    "dateLabel": "JAN 2025",
+    "text": "Named **Dr. Hussein Abdel-Wahab Memorial Graduate Fellow** at Old Dominion University.",
+    "href": "https://www.odu.edu/computer-science/scholarships/wahab"
+  }
+]
