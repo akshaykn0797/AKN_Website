@@ -34,7 +34,12 @@ export default function FilterBar({
       <Select ariaLabel="Filter by year" value={year} onChange={onYear} options={yearOptions} />
       <Select ariaLabel="Filter by venue" value={venue} onChange={onVenue} options={venueOptions} />
 
-      <span className="font-mono text-[11.5px] tracking-[0.08em] text-muted tnum">
+      <span
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+        className="font-mono text-[11.5px] tracking-[0.08em] text-muted tnum"
+      >
         {count} {count === 1 ? 'RESULT' : 'RESULTS'}
       </span>
     </div>

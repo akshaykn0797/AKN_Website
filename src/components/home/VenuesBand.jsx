@@ -12,10 +12,11 @@ export default function VenuesBand() {
           </p>
           <span aria-hidden="true" className="h-px w-8 bg-terra-ink/40" />
         </div>
-        <div className="flex flex-wrap items-baseline justify-center gap-x-8 gap-y-4 sm:gap-x-10">
+        <div role="list" className="flex flex-wrap items-baseline justify-center gap-x-8 gap-y-4 sm:gap-x-10">
           {site.venues.map((v) => (
             <span
               key={v}
+              role="listitem"
               className="whitespace-nowrap font-serif font-normal text-terra-ink text-[clamp(1.25rem,2.1vw,1.75rem)]"
             >
               {v}

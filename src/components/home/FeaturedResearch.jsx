@@ -11,7 +11,7 @@ export default function FeaturedResearch() {
       href="/publications"
       className="inline-block border-b border-ink pb-1 font-mono text-[11px] uppercase tracking-[0.16em] text-ink no-underline transition-colors hover:border-terra hover:text-terra"
     >
-      All publications →
+      All publications <span aria-hidden="true">→</span>
     </Link>
   );
 
@@ -22,9 +22,9 @@ export default function FeaturedResearch() {
       title={{ lead: 'Featured', emphasis: 'Research', stacked: true }}
       cta={cta}
     >
-      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div role="list" className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {featured.map((pub) => (
-          <div key={pub.id} className="flex flex-col text-ink">
+          <div key={pub.id} role="listitem" className="flex flex-col text-ink">
             <ImageZoom
               image={pub.image}
               images={pub.images}
@@ -39,6 +39,7 @@ export default function FeaturedResearch() {
                 className="mt-4 font-serif text-[18.5px] font-medium leading-[1.35] text-ink no-underline transition-colors hover:text-terra"
               >
                 {pub.shortTitle || pub.title}
+                <span className="sr-only"> (opens in new tab)</span>
               </a>
             ) : (
               <Link

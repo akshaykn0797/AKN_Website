@@ -71,7 +71,7 @@ export default function Select({ value, onChange, options, ariaLabel, className 
         type="button"
         aria-haspopup="listbox"
         aria-expanded={open}
-        aria-label={ariaLabel}
+        aria-label={current?.label ? `${ariaLabel}: ${current.label}` : ariaLabel}
         onClick={() => setOpen((v) => !v)}
         className="inline-flex cursor-pointer items-center gap-2 border border-hairline bg-card px-3.5 py-3 font-mono text-[11.5px] tracking-[0.08em] text-ink"
       >

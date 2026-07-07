@@ -15,6 +15,7 @@ export default function EntryRow({
   reverse = false,
   border = 'bottom',
   className = '',
+  role,
   children,
 }) {
   const borderCls =
@@ -34,6 +35,7 @@ export default function EntryRow({
 
   return (
     <div
+      role={role}
       className={`grid items-baseline gap-6 py-4 sm:gap-8 ${borderCls} ${className}`}
       style={{
         gridTemplateColumns: reverse ? '1fr auto' : `${metaWidth} 1fr`,

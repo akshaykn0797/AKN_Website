@@ -17,9 +17,11 @@ export default function RecentNews() {
         tabIndex={0}
         className="news-scroll news-mask max-h-[320px] overflow-y-auto pb-10 pr-4"
       >
+        <div role="list">
         {items.map((item, i) => (
           <EntryRow
             key={item.id}
+            role="listitem"
             meta={item.dateLabel}
             metaColor="muted"
             metaWidth="110px"
@@ -35,6 +37,9 @@ export default function RecentNews() {
                   className="text-ink no-underline transition-colors hover:text-terra"
                 >
                   {renderRichText(item.text)}
+                  {item.href.startsWith('http') && (
+                    <span className="sr-only"> (opens in new tab)</span>
+                  )}
                 </a>
               ) : (
                 renderRichText(item.text)
@@ -42,6 +47,7 @@ export default function RecentNews() {
             </p>
           </EntryRow>
         ))}
+        </div>
       </div>
     </EditorialSection>
   );

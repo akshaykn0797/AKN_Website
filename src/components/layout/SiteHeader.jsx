@@ -78,6 +78,7 @@ export default function SiteHeader() {
             className="inline-flex items-center gap-2 rounded-[8px] bg-terra px-4 py-2.5 font-mono text-[11px] uppercase tracking-[0.16em] leading-none text-terra-ink no-underline transition-opacity hover:opacity-85"
           >
             Download CV
+            <span className="sr-only"> (opens in new tab)</span>
             <DownloadIcon />
           </a>
           <ThemeToggle />
@@ -91,6 +92,7 @@ export default function SiteHeader() {
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
+            aria-controls="mobile-menu"
             className="inline-flex h-[34px] w-[34px] items-center justify-center rounded-full border border-hairline text-ink"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
@@ -102,7 +104,7 @@ export default function SiteHeader() {
 
       {/* Mobile sheet */}
       {open && (
-        <div ref={sheetRef} className="border-t border-hairline bg-paper md:hidden">
+        <div id="mobile-menu" ref={sheetRef} className="border-t border-hairline bg-paper md:hidden">
           <Container className="flex flex-col gap-1 py-4">
             {site.nav.map((item) => {
               const active = isActive(pathname, item.href);
@@ -126,6 +128,7 @@ export default function SiteHeader() {
               className="mt-2 inline-flex w-max items-center gap-2 rounded-[8px] font-mono text-[12px] uppercase tracking-[0.14em] leading-none bg-terra px-4 py-3 text-terra-ink no-underline"
             >
               Download CV
+              <span className="sr-only"> (opens in new tab)</span>
               <DownloadIcon />
             </a>
           </Container>

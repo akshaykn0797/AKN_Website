@@ -80,7 +80,8 @@ export default function PublicationsView() {
             rel="noopener noreferrer"
             className="border-b border-ink pb-1 font-mono text-[11px] uppercase tracking-[0.16em] text-ink no-underline transition-colors hover:border-terra hover:text-terra"
           >
-            Google Scholar →
+            Google Scholar <span aria-hidden="true">→</span>
+            <span className="sr-only"> (opens in new tab)</span>
           </a>
         </div>
       </div>

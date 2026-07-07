@@ -34,12 +34,14 @@ const FILLED_ICONS = new Set(['x']);
 // fills with ink on hover.
 export default function IconLink({ icon, href, label }) {
   const filled = FILLED_ICONS.has(icon);
+  // mailto:/tel: links (e.g. Email) open an app, not a browser tab.
+  const newTab = /^https?:/i.test(href);
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={label}
+      aria-label={newTab ? `${label} (opens in new tab)` : label}
       title={label}
       className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-ink text-ink transition-[background-color,color,transform] duration-200 hover:-translate-y-0.5 hover:bg-ink hover:text-paper"
     >

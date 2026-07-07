@@ -28,7 +28,7 @@ export default function PublicationCard({ pub }) {
           <VenueStamp>{pub.venueLine}</VenueStamp>
           {(pub.award || pub.ranking || pub.csRanking) && (
             <div className="flex flex-wrap items-center gap-2.5">
-              {pub.award && <Badge variant="award">★ {pub.award}</Badge>}
+              {pub.award && <Badge variant="award"><span aria-hidden="true">★</span> {pub.award}</Badge>}
               {pub.ranking && <RankingBadge value={pub.ranking} />}
               {pub.csRanking && (
                 <a
@@ -39,6 +39,7 @@ export default function PublicationCard({ pub }) {
                   className="inline-flex items-center gap-1.5 border border-terra px-2.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.12em] leading-none text-terra no-underline transition-colors hover:bg-terra hover:text-terra-ink"
                 >
                   CS Ranking
+                  <span className="sr-only"> (opens in new tab)</span>
                   <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <path d="M7 17L17 7M7 7h10v10" />
                   </svg>
@@ -77,7 +78,7 @@ export default function PublicationCard({ pub }) {
         {actions.length > 0 && (
           <div className="mt-4 flex flex-wrap gap-2.5">
             {actions.map((a) => (
-              <LinkButton key={a.label} href={a.href}>
+              <LinkButton key={a.label} href={a.href} aria-label={`${a.label}, ${pub.title}`}>
                 {a.label}
               </LinkButton>
             ))}

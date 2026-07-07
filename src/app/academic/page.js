@@ -30,63 +30,74 @@ export default function AcademicPage() {
       <div className="opacity-0 [animation:rise_560ms_cubic-bezier(0.16,1,0.3,1)_120ms_forwards]">
         {/* Teaching */}
         <EditorialSection bare className={sectionCls} title={{ lead: 'Teaching' }} titleClassName={titleCls}>
-          {teaching.map((t, i) => (
-            <EntryRow
-              key={t.course}
-              reverse
-              meta={t.period}
-              border={i < teaching.length - 1 ? 'bottom' : 'none'}
-            >
-              <p className="text-[16.5px] font-medium text-ink">{t.course}</p>
-            </EntryRow>
-          ))}
+          <div role="list">
+            {teaching.map((t, i) => (
+              <EntryRow
+                key={t.course}
+                role="listitem"
+                reverse
+                meta={t.period}
+                border={i < teaching.length - 1 ? 'bottom' : 'none'}
+              >
+                <p className="text-[16.5px] font-medium text-ink">{t.course}</p>
+              </EntryRow>
+            ))}
+          </div>
         </EditorialSection>
 
         {/* Invited Talks */}
         <EditorialSection bare className={sectionCls} title={{ lead: 'Invited', emphasis: 'Talks' }} titleClassName={titleCls}>
-          {talks.map((t, i) => (
-            <EntryRow key={t.title} meta={t.year} border={i < talks.length - 1 ? 'bottom' : 'none'}>
-              <p className="text-[16px] leading-[1.6] text-ink">
-                {t.title} <span className="text-muted">· {t.venue}</span>
-              </p>
-            </EntryRow>
-          ))}
+          <div role="list">
+            {talks.map((t, i) => (
+              <EntryRow key={t.title} role="listitem" meta={t.year} border={i < talks.length - 1 ? 'bottom' : 'none'}>
+                <p className="text-[16px] leading-[1.6] text-ink">
+                  {t.title} <span className="text-muted">· {t.venue}</span>
+                </p>
+              </EntryRow>
+            ))}
+          </div>
         </EditorialSection>
 
         {/* Mentorship */}
         <EditorialSection bare className={sectionCls} title={{ lead: 'Mentorship' }} titleClassName={titleCls}>
-          {mentorship.map((m, i) => (
-            <EntryRow key={m.name} meta={m.year} border={i < mentorship.length - 1 ? 'bottom' : 'none'}>
-              <p className="text-[16px] text-ink">
-                {m.name} <span className="text-muted">· {m.detail}</span>
-              </p>
-            </EntryRow>
-          ))}
+          <div role="list">
+            {mentorship.map((m, i) => (
+              <EntryRow key={m.name} role="listitem" meta={m.year} border={i < mentorship.length - 1 ? 'bottom' : 'none'}>
+                <p className="text-[16px] text-ink">
+                  {m.name} <span className="text-muted">· {m.detail}</span>
+                </p>
+              </EntryRow>
+            ))}
+          </div>
         </EditorialSection>
 
         {/* Service */}
         <EditorialSection bare className={sectionCls} title={{ lead: 'Service' }} titleClassName={titleCls}>
           <ReviewStats reviewer={service.reviewer} className="mb-6" />
 
-          {service.roles.map((r, i) => (
-            <EntryRow key={r.text} meta={r.year} border={i < service.roles.length - 1 ? 'bottom' : 'none'} className="py-3.5">
-              <p className="text-[16px] text-ink">
-                {r.text} <span className="text-muted">· {r.detail}</span>
-              </p>
-            </EntryRow>
-          ))}
+          <div role="list">
+            {service.roles.map((r, i) => (
+              <EntryRow key={r.text} role="listitem" meta={r.year} border={i < service.roles.length - 1 ? 'bottom' : 'none'} className="py-3.5">
+                <p className="text-[16px] text-ink">
+                  {r.text} <span className="text-muted">· {r.detail}</span>
+                </p>
+              </EntryRow>
+            ))}
+          </div>
         </EditorialSection>
 
         {/* Fellowships & Awards */}
         <EditorialSection bare className={sectionCls} title={{ lead: 'Fellowships', emphasis: '& Awards' }} titleClassName={titleCls}>
-          {awards.map((a, i) => (
-            <EntryRow key={a.title} meta={a.year} border={i < awards.length - 1 ? 'bottom' : 'none'}>
-              <p className="text-[16px] text-ink">
-                <span className={a.emphasis ? 'font-medium' : ''}>{a.title}</span>{' '}
-                <span className="text-muted">· {a.detail}</span>
-              </p>
-            </EntryRow>
-          ))}
+          <div role="list">
+            {awards.map((a, i) => (
+              <EntryRow key={a.title} role="listitem" meta={a.year} border={i < awards.length - 1 ? 'bottom' : 'none'}>
+                <p className="text-[16px] text-ink">
+                  <span className={a.emphasis ? 'font-medium' : ''}>{a.title}</span>{' '}
+                  <span className="text-muted">· {a.detail}</span>
+                </p>
+              </EntryRow>
+            ))}
+          </div>
         </EditorialSection>
 
         {/* Research Directions */}
