@@ -1,5 +1,19 @@
 [
   {
+    "id": "jcdl26",
+    "year": "2026",
+    "venueKey": "JCDL",
+    "venueLine": "ACM/IEEE JCDL · 2026",
+    "title": "Assessing the Usability of Electronic Theses and Dissertations for Blind Users",
+    "authors": { "before": "", "after": ", Sampath Jayarathna, Hae-Na Lee, Vikas Ashok" },
+    "abstract": "Electronic Theses and Dissertations (ETDs) make student scholarship globally visible, yet little is known about how usable they are for blind and visually impaired (BVI) screen reader users. Pairing representative ETD tasks with semi-structured interviews, we find a substantial gap between accessibility and usability: most ETDs were technically accessible, yet participants navigated and searched them inefficiently, carried considerable cognitive load, and still encountered barriers when combining AI-powered tools with their screen readers, citing fragmented workflows and poor integration between the two. We derive design considerations for assistive technologies that support scholarly documents in digital libraries.",
+    "image": "jcdl26",
+    "links": {},
+    "ranking": null,
+    "award": null,
+    "featured": false
+  },
+  {
     "id": "chi26",
     "year": "2026",
     "venueKey": "CHI",

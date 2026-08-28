@@ -28,7 +28,7 @@
     { "label": "Publications", "href": "/publications" },
     { "label": "Academic", "href": "/academic" }
   ],
-  "venues": ["CHI", "CHIIR", "CSCW", "IEEE VIS", "ASSETS", "SIGCSE TS", "IJHCI", "ICMI", "EICS", "W4A", "TPDL"],
+  "venues": ["CHI", "CHIIR", "CSCW", "IEEE VIS", "ASSETS", "SIGCSE TS", "IJHCI", "ICMI", "EICS", "W4A", "JCDL", "TPDL"],
   "footer": {
     "tagline": "Accessible Computing Lab · Old Dominion University",
     "location": "Norfolk, VA",
