@@ -5,6 +5,11 @@
   ],
   "talks": [
     {
+      "year": "2026",
+      "title": "Improving Data Chart Usability for Low-Vision Users",
+      "venue": "Accessibility Lunch Seminar, Carnegie Mellon University HCII · invited by Dr. Jeffrey P. Bigham"
+    },
+    {
       "year": "2025",
       "title": "Understanding Usability in Multimodal Documents: Case Study of Hotel Menus",
       "venue": "WS-DL Expo, ODU · invited by Dr. Michael Nelson"
