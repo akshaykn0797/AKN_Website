@@ -9,6 +9,7 @@
     "abstract": "Electronic Theses and Dissertations (ETDs) make student scholarship globally visible, yet little is known about how usable they are for blind and visually impaired (BVI) screen reader users. Pairing representative ETD tasks with semi-structured interviews, we find a substantial gap between accessibility and usability: most ETDs were technically accessible, yet participants navigated and searched them inefficiently, carried considerable cognitive load, and still encountered barriers when combining AI-powered tools with their screen readers, citing fragmented workflows and poor integration between the two. We derive design considerations for assistive technologies that support scholarly documents in digital libraries.",
     "image": "jcdl26",
     "pdf": "/Papers/jcdl26.pdf",
+    "doi": "https://doi.org/10.1145/3805696.3846043",
     "links": {},
     "ranking": null,
     "award": null,
